@@ -1,18 +1,8 @@
-document.addEventListener('DOMContentLoaded', function(){
-  document.getElementById('year').textContent = new Date().getFullYear();
-  var btn = document.querySelector('.menu-toggle');
-  var nav = document.querySelector('.nav');
-  btn && btn.addEventListener('click', function(){
-    nav.style.display = nav.style.display === 'block' ? '' : 'block';
-  });
-  var form = document.getElementById('contactForm');
-  var status = document.getElementById('formStatus');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    status.textContent = 'Sending (demo)...';
-    setTimeout(() => {
-      status.textContent = 'Message sent successfully! (Demo only)';
-      form.reset();
-    }, 800);
-  });
-});
+async function loadTip() {
+  const res = await fetch('tips.json');
+  const tips = await res.json();
+  const today = new Date();
+  const index = today.getDate() % tips.length;
+  document.getElementById('tip-text').textContent = tips[index];
+}
+loadTip();
