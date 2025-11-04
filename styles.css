@@ -1,86 +1,75 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background-color: #fff;
-  color: #333;
-  line-height: 1.6;
+:root{
+  --accent:#d6a24a;
+  --accent-dark:#b48736;
+  --bg:#ffffff;
+  --muted:#666;
+  --max-width:1100px;
+  --radius:12px;
+  --gap:1rem;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
 }
 
-header {
-  text-align: center;
-  background-color: #f8f8f8;
-  padding: 1.5rem;
-  border-bottom: 4px solid gold;
-}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;color:#111;background:var(--bg);line-height:1.6}
+.container{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
 
-header h1 {
-  margin: 0;
-  color: #d4af37;
-}
+/* Header */
+.site-header{position:fixed;left:0;right:0;top:0;z-index:50;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.6));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--gap);padding:.6rem 1rem}
+.brand{font-family:'Playfair Display', serif;font-size:1.25rem;color:var(--accent);text-decoration:none;font-weight:700}
+.nav{display:flex;gap:.75rem}
+.nav a{color:inherit;text-decoration:none;padding:.35rem .6rem;border-radius:8px}
+.menu-toggle{display:none;background:transparent;border:0;font-size:1.2rem}
 
-nav a {
-  margin: 0 10px;
-  color: #555;
-  text-decoration: none;
-}
+/* Hero */
+.hero{position:relative;height:72vh;min-height:420px;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background-image:url('hero-photo.jpeg');background-size:cover;background-position:center center;filter:grayscale(10%);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65));mix-blend-mode:multiply}
+.hero-content{position:relative;z-index:2;display:flex;align-items:center;justify-content:flex-end;height:100%}
+.hero-text{max-width:520px;padding:2rem;color:#fff;text-align:right}
+.hero-text h1{font-family:'Playfair Display', serif;font-size:2.4rem;margin:0;color:var(--accent)}
+.tagline{color:rgba(255,255,255,0.95);margin:.4rem 0 1rem 0;font-size:1rem}
 
-nav a:hover {
-  color: #d4af37;
-}
+/* Cards */
+.card{background:#fff;border-radius:var(--radius);padding:1.25rem;margin-top:1.25rem;box-shadow:0 8px 30px rgba(10,10,10,0.04);border:1px solid rgba(0,0,0,0.03)}
 
-.daily-tip {
-  text-align: center;
-  padding: 2rem;
-}
+/* Daily tip */
+.daily h2{margin-top:0}
+#tip-title{font-family:'Playfair Display', serif;color:var(--accent);margin-bottom:.25rem}
 
-.contact {
-  padding: 2rem;
-  background: #fff8e1;
-  text-align: center;
-}
+/* Knowledge stages vertical */
+.stages{display:grid;grid-template-columns:1fr;gap:1rem}
+.stage{display:block}
+.stage-img{width:100%;height:auto;border-radius:8px;margin-bottom:.5rem}
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: 0 auto;
-}
+/* Buttons */
+.btn{display:inline-block;padding:.6rem .9rem;border-radius:8px;border:0;background:var(--accent);color:#fff;text-decoration:none;cursor:pointer}
+.btn-primary{background:var(--accent);box-shadow:0 6px 18px rgba(214,162,74,0.12)}
 
-input, textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+/* Archive */
+.search-row{display:flex;gap:.5rem;margin-bottom:.75rem}
+.search-row input{flex:1;padding:.6rem;border-radius:8px;border:1px solid #eee}
 
-button {
-  background: gold;
-  color: #333;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+/* Contact */
+.contact label{display:block;margin-bottom:.5rem;color:var(--muted)}
+.contact input, .contact textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid #eee}
 
-button:hover {
-  background: #d4af37;
-}
+/* Footer */
+.site-footer{margin-top:2rem;padding:1rem 0;border-top:1px solid #f0f0f0;color:var(--muted);text-align:center}
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #f8f8f8;
-  border-top: 2px solid gold;
-}
+/* Floating WhatsApp */
+.whatsapp-float{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;box-shadow:0 10px 30px rgba(0,0,0,0.18)}
 
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
+/* Fade-in animation */
+.fade-in{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* Responsive */
+@media(max-width:900px){
+  .nav{display:none}
+  .menu-toggle{display:block}
+  .hero-text{padding:1rem;font-size:.95rem}
+  .hero-content{justify-content:center;text-align:center}
+  .hero-text{text-align:center}
 }

@@ -1,9 +1,26 @@
 [
-  "Success comes from consistency, not intensity.",
-  "Develop success from failure \u2014 each setback is a setup for growth.",
-  "Start small, think big, and scale fast.",
-  "Focus on value, not just profit \u2014 customers reward quality.",
-  "Networking is your net worth \u2014 connect genuinely every day.",
-  "Plan your work, then work your plan.",
-  "Don't wait for motivation; act and it will follow."
+  {
+    "id": 1,
+    "date": "2025-10-28",
+    "title": "Consistency Wins",
+    "text": "Consistency beats motivation. Work a little each day and compound your results."
+  },
+  {
+    "id": 2,
+    "date": "2025-10-27",
+    "title": "Know Your Numbers",
+    "text": "Track your spending and profits. Numbers tell you the truth about your business."
+  },
+  {
+    "id": 3,
+    "date": "2025-10-26",
+    "title": "Build Relationships",
+    "text": "Customers who trust you will come back. Focus on long-term relationships, not one-time sales."
+  },
+  {
+    "id": 4,
+    "date": "2025-10-25",
+    "title": "Fail Fast, Learn Fast",
+    "text": "Treat mistakes as experiments. Learn quickly and iterate your offers."
+  }
 ]

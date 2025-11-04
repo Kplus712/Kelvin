@@ -1,45 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kplus712 | Daily Business Tips</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kplus712 — Develop success from failure</title>
+  <meta name="description" content="Kplus712: daily business tips and insights by Kelvin Deogratias.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Kplus712</h1>
-    <p class="tagline">Business Enthusiast | Sharing Daily Tips for Success</p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="archive.html">Archive</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Kplus712</a>
+      <nav class="nav" id="main-nav" aria-label="Main">
+        <a href="#hero">Home</a>
+        <a href="#daily">Daily Tips</a>
+        <a href="#knowledge">Business Knowledge</a>
+        <a href="#archive">Archive</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">☰</button>
+    </div>
   </header>
 
   <main>
-    <section class="daily-tip">
-      <h2>Today's Business Tip</h2>
-      <p id="tip-text">Loading today's tip...</p>
+    <section id="hero" class="hero">
+      <div class="hero-bg" role="img" aria-label="Hero background image"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>Kelvin Deogratias</h1>
+          <p class="tagline">Business Enthusiast | Sharing Daily Tips for Success</p>
+          <a class="btn btn-primary" href="#daily">Read Today’s Tip</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="daily" class="container daily card fade-in">
+      <h2>Daily Business Tip</h2>
+      <article id="tip-area" aria-live="polite">
+        <h3 id="tip-title"></h3>
+        <p id="tip-text"></p>
+        <p class="muted" id="tip-date"></p>
+      </article>
+    </section>
+
+    <section id="knowledge" class="container knowledge card fade-in">
+      <h2>Unlock Your Business Mindset — Learn, Grow, and Thrive</h2>
+      <p class="lead">Business Growth Journey — The 5 Stages of Success</p>
+
+      <div class="stages">
+        <article class="stage">
+          <img src="placeholder_1_existence.svg" alt="Existence stage image" class="stage-img">
+          <h3>1. Existence</h3>
+          <p class="stage-desc">Biashara inaanza. Lengo ni kuthibitisha kama wazo lako linaweza kufanya kazi na kama wateja wapo.</p>
+          <p class="example"><strong>Mfano:</strong> Mjasiriamali anayeanza kuuza juisi mitaani kuona kama bidhaa inapendwa.</p>
+        </article>
+
+        <article class="stage">
+          <img src="placeholder_2_survival.svg" alt="Survival stage image" class="stage-img">
+          <h3>2. Survival</h3>
+          <p class="stage-desc">Biashara inapambana kusalia sokoni; lengo ni kufikia mapato yanayotosha kugharamia gharama.</p>
+          <p class="example"><strong>Mfano:</strong> Muuzaji wa juisi anayehakikisha faida ndogo kila siku.</p>
+        </article>
+
+        <article class="stage">
+          <img src="placeholder_3_success.svg" alt="Success stage image" class="stage-img">
+          <h3>3. Success</h3>
+          <p class="stage-desc">Biashara imekomaa; ina wateja wa kudumu na mapato thabiti.</p>
+          <p class="example"><strong>Mfano:</strong> Kampuni ndogo ya juisi sasa ina wateja wa rejareja na maduka makubwa.</p>
+        </article>
+
+        <article class="stage">
+          <img src="placeholder_4_takeoff.svg" alt="Take-off stage image" class="stage-img">
+          <h3>4. Take-off</h3>
+          <p class="stage-desc">Biashara inaanza kupanuka kwa kasi; inahitaji rasilimali zaidi na usimamizi bora.</p>
+          <p class="example"><strong>Mfano:</strong> Kuanzisha matawi mapya au kuuza kimataifa.</p>
+        </article>
+
+        <article class="stage">
+          <img src="placeholder_5_maturity.svg" alt="Maturity stage image" class="stage-img">
+          <h3>5. Maturity</h3>
+          <p class="stage-desc">Biashara imekomaa; ina utulivu, rasilimali, na inatafakari utofauti wa bidhaa.</p>
+          <p class="example"><strong>Mfano:</strong> Kuanzisha bidhaa mpya au kuwekeza katika teknolojia mpya.</p>
+        </article>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="#daily">Read More Growth Tips</a>
+      </div>
+    </section>
+
+    <section id="archive" class="container archive card fade-in">
+      <h2>Archive</h2>
+      <div class="search-row">
+        <input id="search" placeholder="Search tips (e.g., marketing, finance)" />
+      </div>
+      <ul id="tipsList" class="tips-archive"></ul>
+    </section>
+
+    <section id="contact" class="container contact card fade-in">
+      <h2>Contact</h2>
+      <p>Have a question or collaboration? Send a message or reach me on WhatsApp.</p>
+      <form id="contactForm" action="mailto:Kelvinplus712@gmail.com" method="POST" enctype="text/plain">
+        <label>Full name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Message<textarea name="message" rows="5"></textarea></label>
+        <div class="form-row">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
     </section>
   </main>
 
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <form action="mailto:Kelvinplus712@gmail.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Kplus712</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Kelvin Deogratias – Kplus712</p>
+      <div class="footer-links">
+        <a href="mailto:Kelvinplus712@gmail.com">Email</a> ·
+        <a href="https://wa.me/255622266932" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
   </footer>
 
-  <a href="https://wa.me/255622266932" class="whatsapp-float" target="_blank">💬</a>
+  <a href="https://wa.me/255622266932" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
 
+  <script src="tips.json"></script>
   <script src="script.js"></script>
 </body>
 </html>
