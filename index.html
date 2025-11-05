@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kplus712 — Home</title>
+  <meta name="description" content="Kplus712: daily business tips and insights by Kelvin Deogratias.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Kplus712</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="archive.html">Archive</a>
+        <a href="business-knowledge.html">Business Knowledge</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-bg" role="img" aria-label="Hero background image"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>Kelvin Deogratias</h1>
+          <p class="tagline">Business Enthusiast | Sharing Daily Tips for Success</p>
+          <a class="btn btn-primary" href="#daily">Read Today’s Tip</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="daily" class="container daily card fade-in">
+      <h2>Daily Business Tip</h2>
+      <article id="tip-area" aria-live="polite">
+        <h3 id="tip-title"></h3>
+        <p id="tip-text"></p>
+        <p class="muted" id="tip-date"></p>
+      </article>
+    </section>
+
+    <section id="notice" class="container card fade-in">
+      <h2>Today’s Featured Insight</h2>
+      <p><strong>Building Strong Business Foundations</strong> — Practical steps to create systems, track cashflow, and test demand before scaling.</p>
+      <a class="btn" href="business-knowledge.html">Read the Business Growth Journey</a>
+    </section>
+
+    <section id="archive-preview" class="container card fade-in">
+      <h2>Recent Tips</h2>
+      <div id="recentTips" class="grid"></div>
+      <div style="margin-top:10px"><a class="btn" href="archive.html">View All Tips</a></div>
+    </section>
+
+    <section id="contact" class="container contact card fade-in">
+      <h2>Contact</h2>
+      <p>Have a question or collaboration? Send a message or reach me on WhatsApp.</p>
+      <form id="contactForm" action="mailto:Kelvinplus712@gmail.com" method="POST" enctype="text/plain">
+        <label>Full name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Message<textarea name="message" rows="5"></textarea></label>
+        <div class="form-row">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Kelvin Deogratias – Kplus712</p>
+      <div class="footer-links">
+        <a href="mailto:Kelvinplus712@gmail.com">Email</a> ·
+        <a href="https://wa.me/255622266932" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/255622266932" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+  <script src="tips.json"></script>
+  <script src="script.js"></script>
+</body>
+</html>
