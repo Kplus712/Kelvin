@@ -1,26 +1,152 @@
 [
   {
-    "id": 1,
-    "date": "2025-10-28",
-    "title": "Consistency Wins",
-    "text": "Consistency beats motivation. Work a little each day and compound your results."
+    "title": "Start Small, Think Big",
+    "description": "Every great company began with a single step. Focus on small wins that lead to big success.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
   },
   {
-    "id": 2,
-    "date": "2025-10-27",
-    "title": "Know Your Numbers",
-    "text": "Track your spending and profits. Numbers tell you the truth about your business."
+    "title": "Learn from Failure",
+    "description": "Mistakes are proof that you are trying. Analyze them and grow stronger every time.",
+    "image": "https://images.unsplash.com/photo-1506784365847-bbad939e9335"
   },
   {
-    "id": 3,
-    "date": "2025-10-26",
-    "title": "Build Relationships",
-    "text": "Customers who trust you will come back. Focus on long-term relationships, not one-time sales."
+    "title": "Discipline Beats Motivation",
+    "description": "Motivation fades, but discipline builds success. Stay consistent even on the hard days.",
+    "image": "https://images.unsplash.com/photo-1485217988980-11786ced9454"
   },
   {
-    "id": 4,
-    "date": "2025-10-25",
-    "title": "Fail Fast, Learn Fast",
-    "text": "Treat mistakes as experiments. Learn quickly and iterate your offers."
+    "title": "Value Your Time",
+    "description": "Time is your greatest asset. Spend it wisely on actions that bring growth.",
+    "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe"
+  },
+  {
+    "title": "Build Relationships, Not Contacts",
+    "description": "Real success is built on trust and collaboration, not on collecting numbers.",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c"
+  },
+  {
+    "title": "Focus on Solutions, Not Problems",
+    "description": "Great leaders see challenges as opportunities to innovate and improve.",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+  },
+  {
+    "title": "Invest in Yourself",
+    "description": "Your knowledge and mindset are your most valuable investments.",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+  },
+  {
+    "title": "Stay Humble While Growing",
+    "description": "Humility keeps you learning, and learning keeps you winning.",
+    "image": "https://images.unsplash.com/photo-1515169067865-5387ec356754"
+  },
+  {
+    "title": "Adapt to Change",
+    "description": "Change is not your enemy—it’s your path to innovation and relevance.",
+    "image": "https://images.unsplash.com/photo-1554774853-b414d2a2fc19"
+  },
+  {
+    "title": "Plan, But Stay Flexible",
+    "description": "A plan gives you direction; flexibility helps you survive the unexpected.",
+    "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
+  },
+  {
+    "title": "Listen More, Speak Less",
+    "description": "You learn faster when you listen with curiosity instead of replying with ego.",
+    "image": "https://images.unsplash.com/photo-1485219301217-977f0e3f3d06"
+  },
+  {
+    "title": "Never Stop Learning",
+    "description": "The world evolves daily. Those who learn daily, grow daily.",
+    "image": "https://images.unsplash.com/photo-1498079022511-d15614cb1c02"
+  },
+  {
+    "title": "Turn Passion into Purpose",
+    "description": "Do what you love, but align it with what the world needs.",
+    "image": "https://images.unsplash.com/photo-1473186505569-9c61870c11f9"
+  },
+  {
+    "title": "Manage Money Wisely",
+    "description": "Profit is important, but how you manage cash flow determines survival.",
+    "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c"
+  },
+  {
+    "title": "Be Customer Obsessed",
+    "description": "The most successful businesses are built around listening to their customers’ needs.",
+    "image": "https://images.unsplash.com/photo-1492724441997-5dc865305da7"
+  },
+  {
+    "title": "Think Long-Term",
+    "description": "Don’t chase fast results—build something that lasts for years.",
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2"
+  },
+  {
+    "title": "Stay True to Your Values",
+    "description": "Integrity is the foundation of sustainable success.",
+    "image": "https://images.unsplash.com/photo-1485217988980-11786ced9454"
+  },
+  {
+    "title": "Take Calculated Risks",
+    "description": "Risk is the bridge between dreamers and achievers. Walk it wisely.",
+    "image": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d"
+  },
+  {
+    "title": "Master Communication",
+    "description": "The clearer your message, the stronger your leadership.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+  },
+  {
+    "title": "Delegate Smartly",
+    "description": "Growth happens when you trust others to handle what you can’t.",
+    "image": "https://images.unsplash.com/photo-1485217988980-11786ced9454"
+  },
+  {
+    "title": "Stay Consistent",
+    "description": "Success comes from what you repeatedly do, not from what you occasionally try.",
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4"
+  },
+  {
+    "title": "Lead by Example",
+    "description": "People follow actions, not words. Be the standard you expect from others.",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+  },
+  {
+    "title": "Be Patient with Growth",
+    "description": "Great things take time. Nurture your progress like a plant, not a race.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+  },
+  {
+    "title": "Measure What Matters",
+    "description": "Focus on results, not noise. Track progress, not activity.",
+    "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7"
+  },
+  {
+    "title": "Give Before You Receive",
+    "description": "Generosity builds loyalty and opens unexpected doors of opportunity.",
+    "image": "https://images.unsplash.com/photo-1521790797524-b2497295b8a0"
+  },
+  {
+    "title": "Celebrate Small Wins",
+    "description": "Recognizing progress keeps motivation alive and fuels the next step.",
+    "image": "https://images.unsplash.com/photo-1485217988980-11786ced9454"
+  },
+  {
+    "title": "Keep Your Mindset Positive",
+    "description": "A positive mind finds solutions faster than a negative one ever will.",
+    "image": "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d"
+  },
+  {
+    "title": "Stay Curious",
+    "description": "Curiosity leads to discovery, and discovery leads to growth.",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+  },
+  {
+    "title": "Simplify to Multiply",
+    "description": "Remove unnecessary complexity. Simplicity increases speed and focus.",
+    "image": "https://images.unsplash.com/photo-1506784365847-bbad939e9335"
+  },
+  {
+    "title": "Leave a Legacy",
+    "description": "Success is temporary. Impact is forever. Build something that outlives you.",
+    "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216"
   }
 ]

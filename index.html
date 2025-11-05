@@ -3,76 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kplus712 - Daily Business Tips</title>
+  <title>Kplus712 Daily Business Tips</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #333;
       margin: 0;
       padding: 0;
-      background-color: #fff;
-      color: #333;
     }
     header {
-      background: url('header-bg.jpg') no-repeat center center/cover;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('header-bg.jpg') center/cover no-repeat;
       color: white;
       text-align: right;
-      padding: 100px 30px;
-      position: relative;
+      padding: 100px 50px;
     }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.55);
-      z-index: 0;
-    }
-    header h1 {
-      position: relative;
-      z-index: 1;
-      font-size: 2.5em;
-      font-weight: 700;
-      color: gold;
-    }
-    #date-display {
-      font-size: 1.1em;
-      margin-top: 10px;
-      color: #fff;
-      position: relative;
-      z-index: 1;
-    }
+    header h1 { color: gold; margin: 0; font-size: 2.5em; }
     nav {
       background-color: gold;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+      text-align: center;
       padding: 10px 0;
     }
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-    }
-    nav a:hover {
-      color: #000;
-      text-decoration: underline;
-    }
-    section {
-      padding: 50px;
+    nav a { color: white; text-decoration: none; font-weight: bold; margin: 0 15px; }
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
       text-align: center;
+    }
+    .tip-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .tip-date {
+      color: #888;
+      font-style: italic;
+      margin-top: 10px;
     }
     footer {
-      background-color: #333;
+      background-color: gold;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 30px;
+      padding: 15px 0;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Kplus712 Daily Business Tips</h1>
-    <div id="date-display"></div>
+    <p>Develop success from failure — Every day, a new insight!</p>
   </header>
 
   <nav>
@@ -82,20 +62,33 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <section>
-    <h2>Welcome to Your Daily Dose of Business Wisdom</h2>
-    <p>Practical business lessons for entrepreneurs, every single day.</p>
-  </section>
+  <main>
+    <img id="tipImage" class="tip-image" alt="Business Tip">
+    <h2 id="tipTitle"></h2>
+    <p id="tipDescription"></p>
+    <p class="tip-date" id="tipDate"></p>
+  </main>
 
   <footer>
-    <p>Contact: <a href="mailto:Kelvinplus712@gmail.com" style="color: gold;">Kelvinplus712@gmail.com</a></p>
-    <p>&copy; 2025 Kplus712. All rights reserved.</p>
+    <p>Contact: <a href="mailto:Kelvinplus712@gmail.com" style="color:white;">Kelvinplus712@gmail.com</a></p>
+    <p>&copy; <span id="year"></span> Kplus712. All Rights Reserved.</p>
   </footer>
 
   <script>
-    const today = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('date-display').textContent = today.toLocaleDateString('en-US', options);
+    async function loadTip() {
+      const response = await fetch('tips.json');
+      const tips = await response.json();
+      const today = new Date();
+      const day = today.getDate() % tips.length;
+      const tip = tips[day];
+
+      document.getElementById('tipImage').src = tip.image;
+      document.getElementById('tipTitle').textContent = tip.title;
+      document.getElementById('tipDescription').textContent = tip.description;
+      document.getElementById('tipDate').textContent = today.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+      document.getElementById('year').textContent = today.getFullYear();
+    }
+    loadTip();
   </script>
 </body>
 </html>
