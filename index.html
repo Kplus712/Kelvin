@@ -1,26 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kplus712 — Develop success from failure</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kplus712 — Home</title>
   <meta name="description" content="Kplus712: daily business tips and insights by Kelvin Deogratias.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">Kplus712</a>
-      <nav class="nav" id="main-nav" aria-label="Main">
-        <a href="#hero">Home</a>
-        <a href="#daily">Daily Tips</a>
-        <a href="#knowledge">Business Knowledge</a>
-        <a href="#archive">Archive</a>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Kplus712</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="archive.html">Archive</a>
+        <a href="business-knowledge.html">Business Knowledge</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">☰</button>
+      <button class="menu-toggle" aria-expanded="false">☰</button>
     </div>
   </header>
 
@@ -46,58 +44,16 @@
       </article>
     </section>
 
-    <section id="knowledge" class="container knowledge card fade-in">
-      <h2>Unlock Your Business Mindset — Learn, Grow, and Thrive</h2>
-      <p class="lead">Business Growth Journey — The 5 Stages of Success</p>
-
-      <div class="stages">
-        <article class="stage">
-          <img src="placeholder_1_existence.svg" alt="Existence stage image" class="stage-img">
-          <h3>1. Existence</h3>
-          <p class="stage-desc">Biashara inaanza. Lengo ni kuthibitisha kama wazo lako linaweza kufanya kazi na kama wateja wapo.</p>
-          <p class="example"><strong>Mfano:</strong> Mjasiriamali anayeanza kuuza juisi mitaani kuona kama bidhaa inapendwa.</p>
-        </article>
-
-        <article class="stage">
-          <img src="placeholder_2_survival.svg" alt="Survival stage image" class="stage-img">
-          <h3>2. Survival</h3>
-          <p class="stage-desc">Biashara inapambana kusalia sokoni; lengo ni kufikia mapato yanayotosha kugharamia gharama.</p>
-          <p class="example"><strong>Mfano:</strong> Muuzaji wa juisi anayehakikisha faida ndogo kila siku.</p>
-        </article>
-
-        <article class="stage">
-          <img src="placeholder_3_success.svg" alt="Success stage image" class="stage-img">
-          <h3>3. Success</h3>
-          <p class="stage-desc">Biashara imekomaa; ina wateja wa kudumu na mapato thabiti.</p>
-          <p class="example"><strong>Mfano:</strong> Kampuni ndogo ya juisi sasa ina wateja wa rejareja na maduka makubwa.</p>
-        </article>
-
-        <article class="stage">
-          <img src="placeholder_4_takeoff.svg" alt="Take-off stage image" class="stage-img">
-          <h3>4. Take-off</h3>
-          <p class="stage-desc">Biashara inaanza kupanuka kwa kasi; inahitaji rasilimali zaidi na usimamizi bora.</p>
-          <p class="example"><strong>Mfano:</strong> Kuanzisha matawi mapya au kuuza kimataifa.</p>
-        </article>
-
-        <article class="stage">
-          <img src="placeholder_5_maturity.svg" alt="Maturity stage image" class="stage-img">
-          <h3>5. Maturity</h3>
-          <p class="stage-desc">Biashara imekomaa; ina utulivu, rasilimali, na inatafakari utofauti wa bidhaa.</p>
-          <p class="example"><strong>Mfano:</strong> Kuanzisha bidhaa mpya au kuwekeza katika teknolojia mpya.</p>
-        </article>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn" href="#daily">Read More Growth Tips</a>
-      </div>
+    <section id="notice" class="container card fade-in">
+      <h2>Today’s Featured Insight</h2>
+      <p><strong>Building Strong Business Foundations</strong> — Practical steps to create systems, track cashflow, and test demand before scaling.</p>
+      <a class="btn" href="business-knowledge.html">Read the Business Growth Journey</a>
     </section>
 
-    <section id="archive" class="container archive card fade-in">
-      <h2>Archive</h2>
-      <div class="search-row">
-        <input id="search" placeholder="Search tips (e.g., marketing, finance)" />
-      </div>
-      <ul id="tipsList" class="tips-archive"></ul>
+    <section id="archive-preview" class="container card fade-in">
+      <h2>Recent Tips</h2>
+      <div id="recentTips" class="grid"></div>
+      <div style="margin-top:10px"><a class="btn" href="archive.html">View All Tips</a></div>
     </section>
 
     <section id="contact" class="container contact card fade-in">

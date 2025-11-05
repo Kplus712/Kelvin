@@ -1,17 +1,19 @@
-/* Load tips and set today's tip */
 document.addEventListener('DOMContentLoaded', function(){
-  // load tips from tips.json
+  // load tips
   fetch('tips.json').then(r=>r.json()).then(tips=>{
-      const today = new Date();
-      const idx = (today.getFullYear() + today.getMonth() + today.getDate()) % tips.length;
-      const t = tips[idx];
-      document.getElementById('tip-title').textContent = t.title || 'Daily Tip';
-      document.getElementById('tip-text').textContent = t.text || '';
-      document.getElementById('tip-date').textContent = 'Tip date: ' + (t.date || '');
+    const today = new Date();
+    const idx = (today.getFullYear() + today.getMonth() + today.getDate()) % tips.length;
+    const t = tips[idx];
+    const titleEl = document.getElementById('tip-title');
+    const textEl = document.getElementById('tip-text');
+    const dateEl = document.getElementById('tip-date');
+    if(titleEl) titleEl.textContent = t.title || 'Daily Tip';
+    if(textEl) textEl.textContent = t.text || '';
+    if(dateEl) dateEl.textContent = 'Tip date: ' + (t.date || '');
 
-      // populate archive list
-      const list = document.getElementById('tipsList');
-      if(list) list.innerHTML = tips.map(p=>`<li class="card"><strong>${p.title}</strong><p>${p.text}</p><small class="muted">${p.date}</small></li>`).join('');
+    // populate archive list
+    const list = document.getElementById('tipsList');
+    if(list) list.innerHTML = tips.map(p=>`<li class="card"><strong>${p.title}</strong><p>${p.text}</p><small class="muted">${p.date}</small></li>`).join('');
   }).catch(()=>{});
 
   // fade-in on scroll

@@ -1,11 +1,18 @@
-Kplus712 v4 — Final Gold Edition
+Kplus712 v5 — Gold Vector Pro Edition
+
 Files:
-- index.html (one-page site with sections)
+- index.html
+- archive.html
+- business-knowledge.html
 - styles.css
 - script.js
 - tips.json
-- placeholder_1_existence.svg ... placeholder_5_maturity.svg
-- hero-photo.jpeg (your uploaded image)
+- existence.svg
+- survival.svg
+- success.svg
+- takeoff.svg
+- maturity.svg
+- hero-photo.jpeg
 - favicon.svg
 
 How to deploy to GitHub Pages:
@@ -18,9 +25,7 @@ Edit tips:
 - Open tips.json and add new tip objects with keys: id,date,title,text
 
 Change placeholder images:
-- Replace placeholder_*.svg files with your real images (same filenames or update index.html)
+- Replace existence.svg ... maturity.svg with your real illustrations (same filenames)
 
 Contact form:
 - Uses mailto:Kelvinplus712@gmail.com (opens user's email client). For production, consider a server-side form or third-party service.
-
-Enjoy! — Kplus712
