@@ -15,17 +15,15 @@ Files:
 - hero-photo.jpeg
 - favicon.svg
 
-How to deploy to GitHub Pages:
-1. Create a repository named exactly: kplus712.github.io
-2. Upload all files in this zip to the repository root.
-3. In repository Settings → Pages, ensure branch is main (root).
-4. Wait 1-2 minutes and visit https://<your-username>.github.io
+Kplus712 Business Knowledge - Dynamic Edition
 
-Edit tips:
-- Open tips.json and add new tip objects with keys: id,date,title,text
+Files included:
+- business-knowledge.html
+- stages.json
+- notices.json
 
-Change placeholder images:
-- Replace existence.svg ... maturity.svg with your real illustrations (same filenames)
-
-Contact form:
-- Uses mailto:Kelvinplus712@gmail.com (opens user's email client). For production, consider a server-side form or third-party service.
+How it works:
+- Open business-knowledge.html from the same folder (or upload to GitHub Pages).
+- The page loads stages.json to render 5 cards with real images.
+- It also loads notices.json and displays today's notice (based on day-of-year) and earlier notices up to today.
+- To publish: upload these three files to your GitHub Pages repository (same folder as index.html).
