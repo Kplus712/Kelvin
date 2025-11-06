@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Existence",
+    "short": "Bringing the idea to life",
+    "description": "This is where you test demand and sell your first products or services. Focus on proving that customers care.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Survival",
+    "short": "Keeping the business alive",
+    "description": "At this stage you cover costs and learn which parts of the business work. Tighten operations and preserve cash.",
+    "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Success",
+    "short": "Stability and profitability",
+    "description": "Your business is profitable and known in its market. Focus on systems, customer retention and healthy margins.",
+    "image": "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=1200&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Take-off",
+    "short": "Rapid growth and scaling",
+    "description": "Scaling requires capital, leadership and process. Manage growth deliberately to avoid loss of quality.",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Maturity",
+    "short": "Control, diversification and legacy",
+    "description": "An established brand with steady revenues. Now you optimize for efficiency, diversification and long-term impact.",
+    "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&auto=format&fit=crop&q=80"
+  }
+]
