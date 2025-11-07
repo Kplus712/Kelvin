@@ -139,6 +139,59 @@
     </div>
   </section>
 
+  <!-- 🌟 DAILY TIPS SECTION -->
+<section id="daily-tips" style="background-color:#fff; padding:50px 20px; text-align:center; border-top:3px solid gold;">
+  <h2 style="color:gold; font-size:28px; margin-bottom:10px;">💡 Daily Business & Success Tip</h2>
+  <p id="tip-date" style="color:gray; margin-bottom:20px;"></p>
+
+  <div id="tip-card" style="max-width:650px; margin:0 auto; background:#fffbea; border:1px solid #f0c040; border-radius:12px; padding:25px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+    <img id="tip-image" src="" alt="Daily Tip Image" style="width:100%; height:auto; border-radius:10px; margin-bottom:15px;">
+    <h3 id="tip-text" style="color:#333; font-weight:bold;"></h3>
+    <p id="tip-meaning" style="color:#555; margin-top:10px;"></p>
+  </div>
+</section>
+
+<script>
+const tips = [
+  {
+    text: "Develop success from failure — every mistake teaches growth.",
+    meaning: "Failure is not the end; it’s part of your journey toward mastery and resilience.",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    text: "Consistency beats intensity.",
+    meaning: "Small daily actions lead to big results over time — stay steady and patient.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    text: "Learn, unlearn, and relearn.",
+    meaning: "The modern entrepreneur adapts fast to change and stays relevant.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    text: "Network equals net worth.",
+    meaning: "Connections create opportunities that no money can buy.",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    text: "Focus on creating value, not chasing money.",
+    meaning: "Serve well, and the rewards will follow naturally — value attracts wealth.",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+  }
+];
+
+const today = new Date();
+const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+const tip = tips[dayOfYear % tips.length];
+
+document.getElementById("tip-date").textContent = today.toLocaleDateString("en-US", {
+  weekday: "long", year: "numeric", month: "long", day: "numeric"
+});
+document.getElementById("tip-text").textContent = tip.text;
+document.getElementById("tip-meaning").textContent = tip.meaning;
+document.getElementById("tip-image").src = tip.image;
+</script>
+
   <section class="contact" id="contact">
     <h2>Get in Touch</h2>
     <p>Have a question or want to share your idea? Let's connect!</p>
