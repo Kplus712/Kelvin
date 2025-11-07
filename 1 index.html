@@ -1,103 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kplus712 - Daily Business Tips</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kplus712 | Daily Business Tips</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: "Poppins", sans-serif;
       background-color: #fff;
       color: #333;
     }
     header {
-      background: url('header-bg.jpg') no-repeat center center/cover;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
       color: white;
-      text-align: right;
-      padding: 100px 30px;
-      position: relative;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.55);
-      z-index: 0;
+      text-align: center;
+      padding: 4rem 1rem;
     }
     header h1 {
-      position: relative;
-      z-index: 1;
-      font-size: 2.5em;
-      font-weight: 700;
-      color: gold;
+      font-size: 2.5rem;
+      margin: 0;
     }
-    #date-display {
-      font-size: 1.1em;
-      margin-top: 10px;
-      color: #fff;
-      position: relative;
-      z-index: 1;
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
     nav {
-      background-color: gold;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 10px 0;
+      text-align: center;
+      background-color: white;
+      border-bottom: 2px solid #bfa14a;
     }
     nav a {
-      text-decoration: none;
-      color: #333;
+      color: #bfa14a;
+      display: inline-block;
+      padding: 1rem;
       font-weight: 600;
+      text-decoration: none;
     }
     nav a:hover {
-      color: #000;
-      text-decoration: underline;
+      background-color: #bfa14a;
+      color: white;
     }
     section {
-      padding: 50px;
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .home {
       text-align: center;
     }
-    footer {
-      background-color: #333;
+    .home h2 {
+      color: #bfa14a;
+    }
+    .home p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .business-preview {
+      background: #fff8e1;
+      border-left: 5px solid #bfa14a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    .business-preview h3 {
+      color: #bfa14a;
+      margin-bottom: 0.5rem;
+    }
+    .business-preview p {
+      margin-bottom: 1rem;
+    }
+    .business-preview a {
+      background-color: #bfa14a;
       color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+    .contact {
       text-align: center;
-      padding: 20px;
-      margin-top: 30px;
+      margin-top: 3rem;
+    }
+    .contact h2 {
+      color: #bfa14a;
+    }
+    .contact a {
+      display: inline-block;
+      margin: 0.5rem;
+      text-decoration: none;
+      background: #bfa14a;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .contact a:hover {
+      background-color: #a88e38;
+    }
+    footer {
+      text-align: center;
+      background: #bfa14a;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Kplus712 Daily Business Tips</h1>
-    <div id="date-display"></div>
+    <h1>Welcome to Kplus712</h1>
+    <p>Daily Business Tips & Knowledge for Entrepreneurs</p>
   </header>
 
   <nav>
-    <nav>
-  <a href="index.html">Home</a>
-  <a href="business-knowledge.html">Business Knowledge</a>
-  <a href="archive.html">Archive</a>
-</nav>
-
+    <a href="index.html">Home</a>
+    <a href="business-knowledge.html">Business Knowledge</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <section>
-    <h2>Welcome to Your Daily Dose of Business Wisdom</h2>
-    <p>Practical business lessons for entrepreneurs, every single day.</p>
+  <section class="home">
+    <h2>Build Your Success Every Day</h2>
+    <p>
+      Success is not built overnight. At <strong>Kplus712</strong>, we help you grow through practical
+      daily business tips, lessons, and real stories from entrepreneurs like you.
+    </p>
+
+    <div class="business-preview">
+      <h3>Explore Business Knowledge</h3>
+      <p>Learn about the 5 key stages of business growth — from existence to maturity — and discover strategies that make success sustainable.</p>
+      <a href="business-knowledge.html">Read More</a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Get in Touch</h2>
+    <p>Have a question or want to share your idea? Let's connect!</p>
+    <a href="mailto:Kelvinplus712@gmail.com">📧 Email Kelvin</a>
+    <a href="https://wa.me/255622266932" target="_blank">💬 WhatsApp Kelvin</a>
   </section>
 
   <footer>
-    <p>Contact: <a href="mailto:Kelvinplus712@gmail.com" style="color: gold;">Kelvinplus712@gmail.com</a></p>
-    <p>&copy; 2025 Kplus712. All rights reserved.</p>
+    © 2025 Kplus712 | All Rights Reserved
   </footer>
 
-  <script>
-    const today = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('date-display').textContent = today.toLocaleDateString('en-US', options);
-  </script>
 </body>
 </html>
+
