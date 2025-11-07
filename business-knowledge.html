@@ -1,114 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kplus712 — Business Knowledge</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  :root{--gold:#D4AF37;--bg:#fff;--muted:#666;--max-width:1100px}
-  body{font-family:Poppins,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:#111}
-  .header{background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('header-bg.jpg') center/cover;height:42vh;display:flex;align-items:flex-end;justify-content:flex-end;padding:2rem;color:#fff}
-  .header h1{margin:0 0 1rem 0;color:var(--gold);font-size:2rem}
-  .container{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
-  nav{position:sticky;top:0;background:#fff;padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.06);z-index:40}
-  .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 .75rem}
-  .brand{font-weight:600;color:var(--gold);font-size:1.1rem}
-  .nav-links a{margin-left:1rem;text-decoration:none;color:#333;font-weight:500}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
-  .card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(10,10,10,0.05);border:1px solid rgba(0,0,0,0.04)}
-  .card img{width:100%;height:160px;object-fit:cover;display:block;filter:brightness(0.98)}
-  .card-body{padding:1rem}
-  .card h3{margin:.2rem 0;color:var(--gold)}
-  .card p{margin:.4rem 0;color:var(--muted);font-size:.95rem}
-  /* Daily notices */
-  .notice-wrap{margin-top:2rem}
-  .notice-current{background:linear-gradient(90deg,rgba(212,175,55,0.08),#fff);padding:1rem;border-left:4px solid var(--gold);border-radius:8px}
-  .notice-current h3{margin:0;color:var(--gold)}
-  .notice-list{margin-top:1rem;display:grid;gap:.5rem}
-  .notice-item{padding:.8rem;border-radius:8px;border:1px solid rgba(0,0,0,0.04);background:#fff}
-  .muted{color:var(--muted);font-size:.9rem}
-  footer{margin-top:2rem;padding:1rem 0;text-align:center;color:var(--muted);border-top:1px solid #f0f0f0}
-  @media(max-width:700px){.header{height:36vh;padding:1rem}.header h1{font-size:1.4rem}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Knowledge | Kplus712</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #bfa14a;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      background-image: url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+    header p {
+      font-size: 1.1rem;
+    }
+    nav {
+      background: #fff;
+      text-align: center;
+      border-bottom: 2px solid #bfa14a;
+    }
+    nav a {
+      display: inline-block;
+      padding: 1rem;
+      color: #bfa14a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      background-color: #bfa14a;
+      color: white;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border: 1px solid #eee;
+      border-left: 5px solid #bfa14a;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem 1.5rem;
+    }
+    .card-content h3 {
+      color: #bfa14a;
+      margin-bottom: 0.5rem;
+    }
+    .reflection {
+      text-align: center;
+      background: #fff8e1;
+      border-top: 2px solid #bfa14a;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    footer {
+      text-align: center;
+      background-color: #bfa14a;
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-<nav><div class="nav-inner"><div class="brand">Kplus712</div><div class="nav-links"><a href="index.html">Home</a><a href="archive.html">Archive</a><a href="business-knowledge.html">Business Knowledge</a><a href="index.html#contact">Contact</a></div></div></nav>
+  <header>
+    <h1>Master Your Business Growth Journey</h1>
+    <p>Learn from real entrepreneurs across all stages of growth</p>
+  </header>
 
-<header class="header"><div style="text-align:right;"><h1>Unlock Your Business Mindset — Learn, Grow, and Thrive</h1><div class="muted">Business Growth Journey — The 5 Stages of Success</div></div></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="business-knowledge.html">Business Knowledge</a>
+    <a href="archive.html">Archive</a>
+  </nav>
 
-<main class="container">
-  <section>
-    <h2>Business Growth Journey</h2>
-    <p class="muted">Explore the five core stages every business passes through. Click each card to focus.</p>
-    <div id="stages" class="cards" aria-live="polite"></div>
+  <section id="growth-journey">
+    <h2 style="color:#bfa14a;text-align:center;">The Five Stages of Business Growth</h2>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1200&q=80" alt="Existence Stage">
+      <div class="card-content">
+        <h3>1. Existence Stage</h3>
+        <p>This is where the business idea comes to life. Entrepreneurs focus on acquiring customers and delivering the first product or service. Example: A small vendor testing a new product in the local market.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80" alt="Survival Stage">
+      <div class="card-content">
+        <h3>2. Survival Stage</h3>
+        <p>At this stage, businesses struggle to balance expenses and revenue. The goal is to stay afloat and find a stable customer base. Example: Managing cash flow and customer retention.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Success Stage">
+      <div class="card-content">
+        <h3>3. Success Stage</h3>
+        <p>The business is now profitable and stable. The focus shifts to improving operations and exploring new opportunities. Example: Expanding to a new branch or product line.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" alt="Take-off Stage">
+      <div class="card-content">
+        <h3>4. Take-off Stage</h3>
+        <p>The business experiences rapid growth and scaling. It requires strong management and financial strategies. Example: Securing investment to expand globally.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80" alt="Maturity Stage">
+      <div class="card-content">
+        <h3>5. Maturity Stage</h3>
+        <p>At maturity, the business has established its place in the market. Innovation and leadership are key to maintaining long-term success. Example: Rebranding to stay competitive.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="notice-wrap">
-    <h2>Daily Reflection — Develop Success From Failure</h2>
-    <div id="currentNotice" class="notice-current"></div>
-    <h3 style="margin-top:1rem">Earlier Reflections</h3>
-    <div id="noticeList" class="notice-list"></div>
+  <section class="reflection">
+    <h2 style="color:#bfa14a;">Daily Reflection</h2>
+    <p id="date"></p>
+    <blockquote style="font-style:italic;margin:1rem 0;">
+      “Develop success from failure — every setback teaches you how to move forward.”
+    </blockquote>
+    <p>In real business life, failure is a teacher that shapes resilience and innovation.</p>
   </section>
 
   <footer>
-    <p>Contact: <a href="mailto:Kelvinplus712@gmail.com">Kelvinplus712@gmail.com</a></p>
-    <p>&copy; 2025 Kelvin Deogratias – Kplus712</p>
+    © 2025 Kplus712 | All Rights Reserved
   </footer>
-</main>
 
-<script>
-// Load stages and render cards
-async function loadStages(){
-  try{
-    const res = await fetch('stages.json');
-    const stages = await res.json();
-    const container = document.getElementById('stages');
-    stages.forEach(s => {
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${s.image}" alt="${s.name} stage image">
-        <div class="card-body">
-          <h3>${s.id}. ${s.name}</h3>
-          <p><strong>${s.short}</strong></p>
-          <p>${s.description}</p>
-        </div>`;
-      container.appendChild(card);
-    });
-  }catch(e){
-    console.error('Failed to load stages', e);
-  }
-}
-
-// Load notices and show today's notice + earlier ones up to today
-async function loadNotices(){
-  try{
-    const res = await fetch('notices.json');
-    const notices = await res.json();
+  <script>
     const today = new Date();
-    const start = new Date(today.getFullYear(),0,0);
-    const diff = Math.floor((today - start) / (1000 * 60 * 60 * 24));
-    const idx = diff % notices.length;
-    const current = notices[idx];
-    const currentDiv = document.getElementById('currentNotice');
-    currentDiv.innerHTML = `<h3>${current.title}</h3><p class="muted">${today.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'})}</p><p>${current.body}</p>`;
-
-    const list = document.getElementById('noticeList');
-    for(let i=0;i<=idx;i++){
-      const n = notices[i];
-      const item = document.createElement('div');
-      item.className = 'notice-item';
-      item.innerHTML = `<strong>${n.title}</strong><p class="muted">${n.body}</p>`;
-      list.appendChild(item);
-    }
-  }catch(e){
-    console.error('Failed to load notices', e);
-  }
-}
-
-loadStages();
-loadNotices();
-</script>
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("date").innerText = today.toLocaleDateString("en-US", options);
+  </script>
 </body>
 </html>
+
