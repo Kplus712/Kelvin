@@ -43,3 +43,15 @@
 
 /* Responsive */
 @media(max-width:900px){.nav{display:none}.menu-toggle{display:block}.hero-text{padding:1rem;font-size:.95rem}.hero-content{justify-content:center;text-align:center}.hero-text{text-align:center}}
+
+/* Ensure consistent mobile responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  color: #007bff;
+}
+a:hover {
+  text-decoration: underline;
+}
