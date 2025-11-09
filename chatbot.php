@@ -9,7 +9,7 @@ if (!$message) {
   exit;
 }
 
-$apiKey = "YOUR_OPENAI_API_KEY"; // ← badilisha na key yako halali
+$apiKey =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 ; // ← badilisha na key yako halali
 
 $data = [
   "model" => "gpt-3.5-turbo",
