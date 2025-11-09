@@ -232,16 +232,74 @@
 </footer>
 
 <script>
-// Assistant logic (unchanged)
+// ====================== AI Chat Integration (Enhanced) ======================
 const assistantData = [
-  {q:['price','cost'],a:'7-day plan: Tsh 1000, 30-day: Tsh 2000. Ask for custom offers on WhatsApp.'},
-  {q:['offline'],a:'You can save your order while offline and send it later!'},
-  {q:['join','start'],a:'Click “Join via WhatsApp” to get started instantly.'}
+  { q:['business','entrepreneur','startup'], 
+    a:'Starting a business requires identifying a need, planning well, and managing resources wisely.' },
+  { q:['marketing','advertising','promotion'], 
+    a:'Marketing involves attracting customers through quality, communication, and trust-building strategies.' },
+  { q:['saving','budget','money','finance'], 
+    a:'Always set a clear financial goal. Save at least 10% of your income for reinvestment or emergencies.' },
+  { q:['planning','research','organization'], 
+    a:'Planning helps you understand your market, reduce risks, and prepare for success.' },
+  { q:['customer','service','loyalty'], 
+    a:'Good customer service builds trust — always listen, solve problems, and appreciate feedback.' },
+  { q:['price','cost','payment'], 
+    a:'Our basic business training costs Tsh 1,000 weekly or Tsh 2,000 monthly.' },
+  { q:['join','register','start'], 
+    a:'To start learning, click “Join via WhatsApp” above or message us directly.' },
 ];
-function fuzzyAnswer(t){t=t.toLowerCase();for(const d of assistantData){for(const k of d.q){if(t.includes(k))return d.a}}return"Please contact us on WhatsApp for more help.";}
-const chat=document.getElementById('chat');
-function addMessage(t,w='bot'){const e=document.createElement('div');e.className='msg '+(w==='user'?'user':'');const b=document.createElement('div');b.className='bubble '+(w==='user'?'user':'');b.innerText=t;e.appendChild(b);chat.appendChild(e);chat.scrollTop=chat.scrollHeight;}
-document.getElementById('send-chat').onclick=()=>{const v=document.getElementById('chat-input').value.trim();if(!v)return;addMessage(v,'user');document.getElementById('chat-input').value='';setTimeout(()=>addMessage(fuzzyAnswer(v),'bot'),600);}
-</script>
+
+function fuzzyAnswer(text) {
+  text = text.toLowerCase();
+  for (const d of assistantData) {
+    for (const k of d.q) {
+      if (text.includes(k)) return d.a;
+    }
+  }
+  return null; // No match
+}
+
+const chat = document.getElementById('chat');
+function addMessage(msg, who='bot') {
+  const div = document.createElement('div');
+  div.className = 'msg ' + (who==='user' ? 'user' : '');
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble ' + (who==='user' ? 'user' : '');
+  bubble.innerText = msg;
+  div.appendChild(bubble);
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function addWhatsAppSuggestion() {
+  const div = document.createElement('div');
+  div.className = 'msg';
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.innerHTML = `I'm not sure about that. 💭<br>
+  <a href="https://wa.me/255622266932?text=Hello%20Kelvinplus712!%20I%20need%20help%20about%20business%20education." target="_blank" style="color:#D4AF37;text-decoration:none;font-weight:600;">👉 Continue on WhatsApp</a>`;
+  div.appendChild(bubble);
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+document.getElementById('send-chat').onclick = () => {
+  const v = document.getElementById('chat-input').value.trim();
+  if (!v) return;
+  addMessage(v, 'user');
+  document.getElementById('chat-input').value = '';
+  setTimeout(() => {
+    const answer = fuzzyAnswer(v);
+    if (answer) {
+      addMessage(answer, 'bot');
+    } else {
+      addWhatsAppSuggestion();
+    }
+  }, 500);
+};
+</script>  
+
+
 </body>
 </html>
