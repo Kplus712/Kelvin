@@ -1,282 +1,322 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Services — Kplus712</title>
-  <meta name="theme-color" content="#D4AF37">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - Kplus Business Assistance</title>
   <style>
     :root {
-      --gold:#D4AF37;
-      --bg:#fff;
-      --muted:#555;
-      --maxw:1100px;
+      --gold: #d4af37;
+      --bg: #fff;
+      --muted: #555;
+      --maxw: 1100px;
     }
+
     body {
       font-family: "Poppins", system-ui, Arial;
-      margin:0;
-      background:var(--bg);
-      color:#111;
-      line-height:1.6;
+      margin: 0;
+      background: var(--bg);
+      color: #111;
+      line-height: 1.6;
     }
 
     /* Navigation */
     nav {
-      background:#fff;
-      border-bottom:1px solid #eee;
-      padding:.8rem 1rem;
-      position:sticky;
-      top:0;
-      z-index:50;
-      box-shadow:0 2px 5px rgba(0,0,0,0.05);
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 0.8rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
+
     nav .inner {
-      max-width:var(--maxw);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
     }
+
     nav a {
-      color:var(--gold);
-      text-decoration:none;
-      margin:0 .8rem;
-      font-weight:600;
+      color: var(--gold);
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #c69d2e;
     }
 
     /* Header */
     header {
-      max-width:var(--maxw);
-      margin:2rem auto 1rem;
-      text-align:center;
-      padding:1rem;
+      max-width: var(--maxw);
+      margin: 2rem auto 1rem;
+      text-align: center;
+      padding: 1rem;
     }
+
     header h1 {
-      color:var(--gold);
-      font-size:2rem;
-      margin-bottom:.5rem;
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
+
     header p {
-      color:var(--muted);
-      font-size:1.1rem;
+      color: var(--muted);
+      font-size: 1.1rem;
     }
 
     /* Layout */
     .container {
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:1rem;
-      display:grid;
-      grid-template-columns:2fr 1fr;
-      gap:1.5rem;
-    }
-    @media(max-width:900px) {
-      .container { grid-template-columns:1fr; }
-      .aside { order:-1; }
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
     }
 
-    /* Cards */
-    .service-card, .order-card, .assistant {
-      background:#fff;
-      border-radius:12px;
-      padding:1.25rem;
-      border:1px solid rgba(0,0,0,0.05);
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom:1.2rem;
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .aside {
+        order: -1;
+      }
     }
-    .service-card h3, .order-card h3 {
-      color:var(--gold);
-      margin:.3rem 0;
-    }
-    .small { font-size:.9rem; color:var(--muted); }
 
-    /* Chat Assistant */
+    .service-card,
+    .assistant {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.3rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.3rem;
+    }
+
+    .assistant h4 {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Chat Section */
     .chat {
-      height:400px;
-      overflow:auto;
-      padding:.6rem;
-      background:#fafafa;
-      border-radius:10px;
-      border:1px solid #eee;
+      height: 420px;
+      overflow-y: auto;
+      background: #f9f9f9;
+      border-radius: 14px;
+      padding: 1rem;
+      border: 1px solid #eee;
+      scroll-behavior: smooth;
     }
+
     .msg {
-      margin:.5rem 0;
-      display:flex;
-      gap:.5rem;
-      align-items:flex-start;
+      display: flex;
+      margin: 0.6rem 0;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn 0.4s forwards;
     }
-    .msg.user { justify-content:flex-end; }
+
+    .msg.user {
+      justify-content: flex-end;
+    }
+
     .bubble {
-      padding:.7rem 1rem;
-      border-radius:10px;
-      background:#fff;
-      border:1px solid #ddd;
-      max-width:80%;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      max-width: 80%;
+      word-wrap: break-word;
     }
+
     .bubble.user {
-      background:var(--gold);
-      color:white;
-      border:none;
+      background: var(--gold);
+      color: #fff;
+      border-top-right-radius: 0;
+    }
+
+    .bubble.bot {
+      background: #fff;
+      border: 1px solid #ddd;
+      color: #333;
+      border-top-left-radius: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .chat-controls {
-      display:flex;
-      gap:.5rem;
-      margin-top:.7rem;
-    }
-    .chat-controls input {
-      flex:1;
-      padding:.7rem;
-      border-radius:8px;
-      border:1px solid #ccc;
-    }
-    .btn {
-      background:var(--gold);
-      color:white;
-      padding:.6rem 1rem;
-      border-radius:8px;
-      border:none;
-      font-weight:600;
-      cursor:pointer;
-    }
-    .btn.ghost {
-      background:transparent;
-      color:var(--gold);
-      border:1px solid var(--gold);
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
     }
 
-    /* Footer */
+    .chat-controls input {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      background: var(--gold);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #c69d2e;
+    }
+
+    .voice-btn {
+      background: #fff8e1;
+      border: 1px solid #d4af37;
+      color: #a37b00;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .voice-btn:hover {
+      background: #fff2b8;
+    }
+
     footer {
-      text-align:center;
-      color:var(--muted);
-      font-size:.9rem;
-      margin-top:2rem;
-      padding:1rem 0;
-      border-top:1px solid #eee;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 <body>
-
-<nav>
-  <div class="inner">
-    <div style="font-weight:700;color:var(--gold)">Kplus712</div>
-    <div>
+  <!-- Navigation -->
+  <nav>
+    <div class="inner">
       <a href="index.html">Home</a>
       <a href="business-knowledge.html">Business Knowledge</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
       <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<header>
-  <h1>Our Services — Learn, Grow & Connect</h1>
-  <p>Business education, mentorship, and WhatsApp e-commerce designed to empower entrepreneurs everywhere.</p>
-</header>
+  <!-- Header -->
+  <header>
+    <h1>Our Services</h1>
+    <p>We provide smart business solutions and educational support for entrepreneurs.</p>
+  </header>
 
-<main class="container">
-  <div>
-    <div class="service-card">
-      <h3>Business Education on WhatsApp</h3>
-      <p class="small">Daily lessons, quick mentorship, and personal guidance — all through WhatsApp chat.</p>
-      <a class="btn" href="https://wa.me/255622266932?text=Hello%20Kelvinplus712!%20I%27m%20interested%20in%20Business%20Education" target="_blank">Join via WhatsApp</a>
-      <button id="open-assistant" class="btn ghost" style="margin-left:.6rem">Ask the Business Assistant</button>
-    </div>
-
-    <div class="service-card">
-      <h3>WhatsApp eCommerce & Order Support</h3>
-      <p class="small">Accept orders, book coaching, or request training packages directly on WhatsApp.</p>
-    </div>
-
-    <div class="order-card" id="order-area">
-      <h3>Place an Order / Request Education</h3>
-      <label>Full name</label>
-      <input id="fullname" placeholder="Your name">
-      <label>Service</label>
-      <select id="whatservice">
-        <option>Business Education (WhatsApp lessons)</option>
-        <option>One-on-one Coaching</option>
-        <option>Start an E-commerce shop</option>
-        <option>Custom Training</option>
-      </select>
-      <label>Details</label>
-      <textarea id="details" rows="4"></textarea>
-      <label>Phone (WhatsApp)</label>
-      <input id="phone" placeholder="+255...">
-      <div style="margin-top:.8rem;display:flex;gap:.6rem;flex-wrap:wrap;">
-        <button id="save-order" class="btn">Save</button>
-        <button id="send-whatsapp" class="btn">Send to WhatsApp</button>
-        <button id="clear-form" class="btn ghost">Clear</button>
+  <div class="container">
+    <div>
+      <div class="service-card">
+        <h3>Business Education</h3>
+        <p>We offer personalized business education sessions through our platform and WhatsApp. You can learn topics like marketing, capital management, record keeping, and more.</p>
       </div>
-      <div id="queued" style="margin-top:1rem"></div>
-    </div>
-  </div>
 
-  <aside class="aside">
+      <div class="service-card">
+        <h3>WhatsApp eCommerce</h3>
+        <p>Our WhatsApp-based eCommerce system allows you to order business materials and schedule one-on-one mentorship sessions quickly and securely.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Offline Support</h3>
+        <p>We’ve built offline assistance tools to help you get business education and guidance even without an internet connection.</p>
+      </div>
+    </div>
+
     <div class="assistant">
-      <h4 style="color:var(--gold);margin-top:0;">Business Assistant</h4>
-      <div id="chat" class="chat"></div>
+      <h4>💬 Business Assistant (AI)</h4>
+      <div class="chat" id="chat">
+        <div class="msg bot"><div class="bubble bot">Hello! 👋 How can I help you with your business today?</div></div>
+      </div>
       <div class="chat-controls">
-        <input id="chat-input" placeholder="Ask your question...">
-        <button id="send-chat" class="btn">Ask</button>
+        <input id="chat-input" placeholder="Ask your business question..." />
+        <button class="voice-btn" id="voice-btn">🎤</button>
+        <button class="btn" id="send-chat">Ask</button>
       </div>
     </div>
-  </aside>
-</main>
+  </div>
 
-<footer>
-  © 2025 Kplus712 — All rights reserved.
-</footer>
+  <footer>
+    © 2025 Kplus Business Platform. All rights reserved.
+  </footer>
 
-<script>
-// Assistant logic (unchanged)
-const assistantData = [
-  {q:['price','cost'],a:'7-day plan: Tsh 1000, 30-day: Tsh 2000. Ask for custom offers on WhatsApp.'},
-  {q:['offline'],a:'You can save your order while offline and send it later!'},
-  {q:['join','start'],a:'Click “Join via WhatsApp” to get started instantly.'}
-];
-function fuzzyAnswer(t){t=t.toLowerCase();for(const d of assistantData){for(const k of d.q){if(t.includes(k))return d.a}}return"Please contact us on WhatsApp for more help.";}
-const chat=document.getElementById('chat');
-function addMessage(t,w='bot'){const e=document.createElement('div');e.className='msg '+(w==='user'?'user':'');const b=document.createElement('div');b.className='bubble '+(w==='user'?'user':'');b.innerText=t;e.appendChild(b);chat.appendChild(e);chat.scrollTop=chat.scrollHeight;}
-document.getElementById('send-chat').onclick=()=>{const v=document.getElementById('chat-input').value.trim();if(!v)return;addMessage(v,'user');document.getElementById('chat-input').value='';
-  const chatForm = document.getElementById("chat-form");
-  const chatInput = document.getElementById("chat-input");
-  const chatBox = document.getElementById("chat-box");
+  <script>
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("chat-input");
+    const sendBtn = document.getElementById("send-chat");
+    const voiceBtn = document.getElementById("voice-btn");
 
-  chatForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const userMessage = chatInput.value.trim();
-    if (!userMessage) return;
-
-    // Onyesha ujumbe wa mtumiaji
-    chatBox.innerHTML += `<div style="margin:10px 0;"><b>You:</b> ${userMessage}</div>`;
-    chatInput.value = "";
-
-    try {
-      // Tuma kwa server yako ya Render
-      const res = await fetch("https://kplus712-ai.onrender.com/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ message: userMessage })
-      });
-
-      const data = await res.json();
-      const aiReply = data.reply || "⚠️ No response from AI.";
-      chatBox.innerHTML += `<div style="margin:10px 0; color:#bfa034;"><b>Kplus712 AI:</b> ${aiReply}</div>`;
-
-      // Scroll chini kiotomatiki
-      chatBox.scrollTop = chatBox.scrollHeight;
-    } catch (error) {
-      console.error(error);
-      chatBox.innerHTML += `<div style="color:red;"><b>Error:</b> Unable to connect to server.</div>`;
+    function addMessage(text, who = "bot") {
+      const msg = document.createElement("div");
+      msg.className = "msg " + (who === "user" ? "user" : "");
+      const bubble = document.createElement("div");
+      bubble.className = "bubble " + (who === "user" ? "user" : "bot");
+      bubble.textContent = text;
+      msg.appendChild(bubble);
+      chat.appendChild(msg);
+      chat.scrollTop = chat.scrollHeight;
     }
-  });
-</script>
 
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, "user");
+      input.value = "";
+
+      try {
+        const res = await fetch("https://kplus712-ai.onrender.com/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text }),
+        });
+
+        const data = await res.json();
+        addMessage(data.reply || "⚠️ No response from AI.");
+      } catch (err) {
+        console.error(err);
+        addMessage("⚠️ Unable to connect to AI server. Please try again later.");
+      }
+    }
+
+    // Voice input
+    voiceBtn.onclick = () => {
+      if (!("webkitSpeechRecognition" in window)) {
+        alert("Sorry, your browser does not support voice input.");
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "sw-TZ,en-US";
+      recognition.start();
+      recognition.onresult = (event) => {
+        input.value = event.results[0][0].transcript;
+      };
+    };
+
+    sendBtn.onclick = sendMessage;
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
 </body>
 </html>
