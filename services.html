@@ -242,48 +242,44 @@ function fuzzyAnswer(t){t=t.toLowerCase();for(const d of assistantData){for(cons
 const chat=document.getElementById('chat');
 function addMessage(t,w='bot'){const e=document.createElement('div');e.className='msg '+(w==='user'?'user':'');const b=document.createElement('div');b.className='bubble '+(w==='user'?'user':'');b.innerText=t;e.appendChild(b);chat.appendChild(e);chat.scrollTop=chat.scrollHeight;}
 document.getElementById('send-chat').onclick=()=>{const v=document.getElementById('chat-input').value.trim();if(!v)return;addMessage(v,'user');document.getElementById('chat-input').value='';
-   // tumia AI kutoka kwa Render server
-addMessage("Thinking...", "bot");
-
-fetch("https://kplus712-ai.onrender.com/chat", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ message: v })
-})
-.then(res => res.json())
-.then(data => {
-  chat.lastElementChild.remove(); // toa "Thinking..." message
-  addMessage(data.reply || "Sorry, I couldn't get an answer.", "bot");
-})
-.catch(err => {
-  chat.lastElementChild.remove();
-  addMessage("Connection error. Try again later.", "bot");
-});
-                                               
-</script> 
-<script>
-async function sendQuestion() {
-  const input = document.getElementById("userInput");
-  const chatBox = document.getElementById("chatBox");
-
-  const question = input.value.trim();
-  if (!question) return;
-
-  chatBox.innerHTML += `<p><strong>You:</strong> ${question}</p>`;
-  input.value = "";
-
-  const response = await fetch("https://kplus712-ai.onrender.com/ask", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question }),
-  });
-
-  const data = await response.json();
-  chatBox.innerHTML += `<p><strong>Kplus AI:</strong> ${data.answer}</p>`;
-}
 </script>
+  <script>
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatBox = document.getElementById("chat-box");
+
+  chatForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const userMessage = chatInput.value.trim();
+    if (!userMessage) return;
+
+    // Onyesha ujumbe wa mtumiaji
+    chatBox.innerHTML += `<div style="margin:10px 0;"><b>You:</b> ${userMessage}</div>`;
+    chatInput.value = "";
+
+    try {
+      // Tuma kwa server yako ya Render
+      const res = await fetch("https://kplus712-ai.onrender.com/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: userMessage })
+      });
+
+      const data = await res.json();
+      const aiReply = data.reply || "⚠️ No response from AI.";
+      chatBox.innerHTML += `<div style="margin:10px 0; color:#bfa034;"><b>Kplus712 AI:</b> ${aiReply}</div>`;
+
+      // Scroll chini kiotomatiki
+      chatBox.scrollTop = chatBox.scrollHeight;
+    } catch (error) {
+      console.error(error);
+      chatBox.innerHTML += `<div style="color:red;"><b>Error:</b> Unable to connect to server.</div>`;
+    }
+  });
+</script>
+
 </body>
 </html>
 
