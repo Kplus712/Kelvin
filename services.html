@@ -243,7 +243,28 @@ const chat=document.getElementById('chat');
 function addMessage(t,w='bot'){const e=document.createElement('div');e.className='msg '+(w==='user'?'user':'');const b=document.createElement('div');b.className='bubble '+(w==='user'?'user':'');b.innerText=t;e.appendChild(b);chat.appendChild(e);chat.scrollTop=chat.scrollHeight;}
 document.getElementById('send-chat').onclick=()=>{const v=document.getElementById('chat-input').value.trim();if(!v)return;addMessage(v,'user');document.getElementById('chat-input').value='';setTimeout(()=>addMessage(fuzzyAnswer(v),'bot'),600);}
 </script> 
-<script src="ai-assistant.js"></script> 
+<script>
+async function sendQuestion() {
+  const input = document.getElementById("userInput");
+  const chatBox = document.getElementById("chatBox");
+
+  const question = input.value.trim();
+  if (!question) return;
+
+  chatBox.innerHTML += `<p><strong>You:</strong> ${question}</p>`;
+  input.value = "";
+
+  const response = await fetch("https://kplus712-ai.onrender.com/ask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question }),
+  });
+
+  const data = await response.json();
+  chatBox.innerHTML += `<p><strong>Kplus AI:</strong> ${data.answer}</p>`;
+}
+</script>
+
 </body>
 </html>
 
