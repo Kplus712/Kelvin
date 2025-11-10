@@ -242,8 +242,6 @@ function fuzzyAnswer(t){t=t.toLowerCase();for(const d of assistantData){for(cons
 const chat=document.getElementById('chat');
 function addMessage(t,w='bot'){const e=document.createElement('div');e.className='msg '+(w==='user'?'user':'');const b=document.createElement('div');b.className='bubble '+(w==='user'?'user':'');b.innerText=t;e.appendChild(b);chat.appendChild(e);chat.scrollTop=chat.scrollHeight;}
 document.getElementById('send-chat').onclick=()=>{const v=document.getElementById('chat-input').value.trim();if(!v)return;addMessage(v,'user');document.getElementById('chat-input').value='';
-</script>
-  <script>
   const chatForm = document.getElementById("chat-form");
   const chatInput = document.getElementById("chat-input");
   const chatBox = document.getElementById("chat-box");
