@@ -119,7 +119,93 @@
 
   <nav>
   <nav>
-    
+
+    <!-- 🚨 Announcement Bar -->
+<style>
+  .announcement-bar {
+    background-color: #bfa034;
+    color: white;
+    padding: 10px 0;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .announcement-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollText 15s linear infinite;
+    cursor: pointer;
+  }
+
+  @keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Popup Modal */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup-content {
+    background: white;
+    color: #333;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .popup-content button {
+    background-color: #bfa034;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="announcement-bar">
+  <div class="announcement-text" onclick="openPopup()">
+    🌟 Huduma Mpya Inakuja: *Service Recovery (Coaching)* — Bofya kujua zaidi!
+  </div>
+</div>
+
+<!-- Popup Details -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2>🧭 Service Recovery (Coaching)</h2>
+    <p>
+      Huduma hii itakusaidia kurudisha thamani ya biashara yako baada ya changamoto.
+      Utajifunza mbinu bora za kuwahudumia wateja, kujenga uaminifu,
+      na kurekebisha huduma zako kwa ufanisi.
+    </p>
+    <button onclick="window.location.href='contact.html'">📅 Fanya Booking</button>
+    <br><br>
+    <button onclick="closePopup()">Funga</button>
+  </div>
+</div>
+
+<script>
+  function openPopup() {
+    document.getElementById('popup').style.display = 'flex';
+  }
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+</script>
+
 <nav style="background-color:#bfa034; padding:15px; text-align:center;">
   <a href="index.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:600;">Home</a>
   <a href="business-knowledge.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:600;">Business Knowledge</a>
