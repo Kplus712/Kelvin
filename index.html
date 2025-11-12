@@ -4,142 +4,87 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kplus712 — Home</title>
-  <meta name="theme-color" content="#2e8b57">
+  <meta name="theme-color" content="#bfa034">
   <style>
     :root{
-      --green: #2e8b57;
-      --muted: #555;
-      --card-radius: 12px;
-      --maxw: 1100px;
+      --gold:#bfa034;
+      --muted:#666;
+      --bg:#fff;
+      --maxw:1100px;
+      --card-radius:12px;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Poppins", system-ui, Arial;
-      background:#fff;
-      color:#222;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-    }
+    body{margin:0;font-family:"Poppins",system-ui,Arial;background:var(--bg);color:#222;line-height:1.5}
+    a{color:inherit}
+    /* Announcement bar (green/gold-ish feel kept as gold here) */
+    .announcement-wrap{background:var(--gold);color:#fff;overflow:hidden;position:relative}
+    .announcement-inner{max-width:var(--maxw);margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+    .announcement-text{white-space:nowrap;display:inline-block;font-weight:700;cursor:pointer;padding:6px 0;animation: scroll-left 18s linear infinite}
+    .announcement-cta{margin-left:12px;background:rgba(255,255,255,0.12);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;border:1px solid rgba(255,255,255,0.12);cursor:pointer}
+    @keyframes scroll-left{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
-    /* Announcement bar (top of home) */
-    .announcement-wrap{
-      background:var(--green);
-      color:#fff;
-      overflow:hidden;
-      position:relative;
-    }
-    .announcement-inner{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:10px 16px;
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-    .announcement-text{
-      white-space:nowrap;
-      display:inline-block;
-      font-weight:700;
-      cursor:pointer;
-      padding:6px 0;
-      animation: scroll-left 18s linear infinite;
-    }
-    .announcement-cta{
-      margin-left:12px;
-      background:rgba(255,255,255,0.12);
-      color:#fff;
-      padding:8px 12px;
-      border-radius:8px;
-      font-weight:700;
-      border:1px solid rgba(255,255,255,0.12);
-      cursor:pointer;
-    }
-    @keyframes scroll-left{
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* layout header + nav minimal */
+    /* nav */
     nav{background:#fff;border-bottom:1px solid #eee;padding:.8rem 1rem;position:sticky;top:0;z-index:40}
     nav .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    nav a{color:var(--green);text-decoration:none;margin:0 .6rem;font-weight:600}
+    nav .brand{font-weight:800;color:var(--gold)}
+    nav .links a{margin:0 .6rem;text-decoration:none;color:#333;font-weight:600}
 
-    .hero{max-width:var(--maxw);margin:24px auto;padding:16px}
-    .hero h1{color:var(--green);margin:6px 0;font-size:clamp(20px,3.6vw,32px)}
-    .hero p{color:var(--muted);margin:6px 0 0}
+    /* hero / daily tip */
+    .hero{max-width:var(--maxw);margin:20px auto;padding:0 16px}
+    .hero h1{color:var(--gold);margin:0;font-size:clamp(20px,3.2vw,32px)}
+    .hero p{color:var(--muted);margin:6px 0 12px}
 
-    /* Modal popup */
-    .modal-backdrop{
-      position:fixed;inset:0;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:60;padding:16px;
-    }
-    .modal{
-      width:100%;max-width:820px;border-radius:14px;background:linear-gradient(180deg,var(--green),#1f6a45);color:#fff;padding:20px;box-shadow:0 20px 50px rgba(0,0,0,0.4);overflow:hidden;
-      display:grid;grid-template-columns:1fr 420px;gap:18px;
-    }
-    @media(max-width:900px){ .modal{grid-template-columns:1fr;max-width:560px} }
+    .daily-tip{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;background:#fff;border-radius:var(--card-radius);padding:14px;border:1px solid #eee;box-shadow:0 6px 18px rgba(0,0,0,0.04);max-width:var(--maxw)}
+    .tip-img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+    .tip-meta{font-size:13px;color:var(--muted)}
+    .tip-title{font-weight:700;color:#222;margin:6px 0}
 
-    .modal-left{padding:8px 6px;}
-    .modal h2{margin:6px 0 10px;font-size:20px}
-    .modal p.lead{color:rgba(255,255,255,0.94);margin:0 0 10px}
-    .modal ul{margin:10px 0 0;padding-left:18px;color:rgba(255,255,255,0.95)}
-    .modal .btn-row{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
-    .btn-white{background:#fff;color:var(--green);border:none;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
-    .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.18);padding:10px 14px;border-radius:10px;cursor:pointer}
+    /* content */
+    .content{max-width:var(--maxw);margin:18px auto;padding:12px}
+    .section-card{background:#fff;border-radius:10px;padding:14px;border:1px solid #eee;margin-bottom:12px}
 
-    /* booking card inside modal (right column) */
-    .booking-card{background:#fff;border-radius:12px;padding:14px;color:#222}
-    .booking-card h3{margin:0 0 6px;color:var(--green)}
-    .field{margin-top:8px}
-    .field label{display:block;font-size:13px;color:#444;margin-bottom:6px}
-    .field input,.field select,.field textarea{
-      width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;
-    }
-    .small-muted{font-size:13px;color:#666;margin-top:6px}
-    .pay-summary{background:#f7f7f7;border-radius:8px;padding:8px;margin-top:10px;font-size:13px;color:#333}
+    /* modal centered */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:60;padding:18px}
+    .modal{width:100%;max-width:880px;border-radius:14px;background:linear-gradient(180deg,#fff,#fff);color:#111;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,0.25);display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
+    @media(max-width:920px){.modal{grid-template-columns:1fr;max-width:600px}}
+    .modal-left h2{color:var(--gold);margin:0 0 10px}
+    .modal-left p.lead{color:#333;margin:0 0 8px}
+    .modal-left ul{margin:8px 0 0;padding-left:18px;color:#333}
+    .btn-row{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+    .btn-primary{background:var(--gold);color:#fff;border:0;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer}
+    .btn-secondary{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 14px;border-radius:8px;cursor:pointer}
 
-    .booking-actions{display:flex;gap:8px;margin-top:12px;align-items:center}
-    .book-btn{background:var(--green);color:#fff;padding:10px 12px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
-    .close-x{background:transparent;border:0;color:rgba(255,255,255,0.9);cursor:pointer;font-size:18px;margin-left:auto}
-
-    /* success stories */
-    .stories{display:flex;gap:12px;align-items:center;margin-top:12px}
-    .story{background:rgba(255,255,255,0.07);padding:8px;border-radius:10px;display:flex;gap:8px;align-items:center}
-    .story img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:2px solid rgba(255,255,255,0.12)}
-    .story .meta{font-size:13px}
-    .story .meta b{display:block;color:#fff}
+    .booking-preview{background:#f7f7f7;border-radius:10px;padding:12px;color:#222}
+    .stories{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .story{display:flex;gap:8px;align-items:center;background:#fff;padding:8px;border-radius:10px;border:1px solid #f0f0f0}
+    .story img{width:56px;height:56px;object-fit:cover;border-radius:8px}
 
     /* small responsive tweaks */
     @media(max-width:520px){
-      .announcement-inner{padding:10px}
       .announcement-cta{display:none}
-      .modal{padding:16px}
-      .modal h2{font-size:18px}
+      .daily-tip{grid-template-columns:1fr}
+      .tip-img{width:100%;height:140px;border-radius:8px}
     }
 
-    /* footer / rest of home quick layout */
-    .content{max-width:var(--maxw);margin:18px auto;padding:12px}
-    .section-card{background:#fff;border-radius:10px;padding:14px;border:1px solid #eee;margin-bottom:12px}
+    footer{max-width:var(--maxw);margin:18px auto;padding:12px;text-align:center;color:var(--muted)}
   </style>
 </head>
 <body>
-
-  <!-- Announcement bar (not in nav) -->
-  <div class="announcement-wrap" aria-hidden="false">
+  <!-- Announcement bar -->
+  <div class="announcement-wrap" role="region" aria-label="Announcement">
     <div class="announcement-inner">
-      <div class="announcement-text" id="announcementTxt" role="button" tabindex="0" aria-label="Service Recovery Coaching. Tap to learn more.">
+      <div class="announcement-text" id="announcementText" tabindex="0" aria-pressed="false">
         📢 New! Weekend <strong>Service Recovery Coaching</strong> — master customer recovery & loyalty. Tap to learn more & book.
       </div>
       <button class="announcement-cta" id="announcementBtn">Jifunze Zaidi</button>
     </div>
   </div>
 
-  <!-- Minimal nav / existing site header -->
-  <nav aria-label="Main navigation">
+  <!-- nav -->
+  <nav>
     <div class="inner">
-      <div style="font-weight:700;color:var(--green)">Kplus712</div>
-      <div>
+      <div class="brand">Kplus712</div>
+      <div class="links">
         <a href="index.html">Home</a>
         <a href="business-knowledge.html">Business Knowledge</a>
         <a href="about.html">About Us</a>
@@ -149,239 +94,133 @@
     </div>
   </nav>
 
+  <!-- hero + auto daily tip -->
   <div class="hero">
     <div style="max-width:var(--maxw);margin:0 auto;padding:0 16px">
-      <h1>Welcome to Kplus712</h1>
-      <p>Daily business tips, short lessons and practical coaching for entrepreneurs. Scroll down to explore.</p>
+      <h1>Daily Business Tips — Kplus712</h1>
+      <p>Small tips, big impact. One short tip every day to grow your business.</p>
+
+      <div id="dailyTip" class="daily-tip" style="margin-top:14px">
+        <img id="tipImg" class="tip-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60" alt="tip image">
+        <div>
+          <div class="tip-meta" id="tipDate">Date</div>
+          <div class="tip-title" id="tipTitle">Tip title</div>
+          <div id="tipBody" class="tip-body small-muted">Tip short explanation — practice this today to improve your cash flow.</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <main class="content" role="main">
-    <!-- Example sections kept minimal so announcement appears at top -->
+  <main class="content">
     <section class="section-card">
-      <h3>Daily Tip (sample)</h3>
-      <p class="small-muted">Today: Keep 10% of revenue as emergency reserve. (Auto-updates available)</p>
+      <h3>About Kplus712</h3>
+      <p class="small-muted">We share daily business tips, short lessons and practical coaching for entrepreneurs.</p>
     </section>
 
     <section class="section-card">
-      <h3>Business Knowledge</h3>
-      <p class="small-muted">Short courses, case studies and growth stages — available in Business Knowledge page.</p>
+      <h3>Explore</h3>
+      <p class="small-muted">Visit Business Knowledge for core modules, or Services for coaching and bookings.</p>
     </section>
   </main>
 
-  <!-- Modal popup (hidden by default) -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal" role="document">
-      <!-- left: details + call to book -->
+  <!-- centered modal (Service Recovery details) -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="dialog">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
       <div class="modal-left">
-        <button class="close-x" id="closeModal" aria-label="Close">&times;</button>
-        <h2>🌿 Service Recovery Coaching</h2>
-        <p class="lead">Huduma hii inalenga kukusaidia kurejesha wateja waliopotea, kuboresha utoaji wa huduma, na kujenga imani ya wateja. Mafunzo ni ya vitendo na yanalenga matokeo.</p>
-
+        <button id="closeModal" aria-label="Close" style="float:right;background:transparent;border:0;font-size:22px;cursor:pointer">&times;</button>
+        <h2 id="modalTitle">Service Recovery Coaching</h2>
+        <p class="lead">Huduma hii inalenga kukusaidia kurejesha wateja waliopotea, kuboresha utoaji wa huduma, na kujenga imani ya wateja.</p>
         <ul>
           <li><strong>Wakati:</strong> Jumamosi (asubuhi) na Jumapili (jioni).</li>
           <li><strong>Mbinu:</strong> Mafunzo ya vitendo kupitia WhatsApp, assignments na follow-up.</li>
-          <li><strong>Matokeo:</strong> Kuboresha uhusiano wa wateja, kuongezeka kwa referrals na mauzo.</li>
+          <li><strong>Matokeo:</strong> Kuongezeka kwa referrals, uaminifu na mauzo.</li>
         </ul>
 
         <div class="btn-row">
-          <button class="btn-white" id="openBooking">📘 Book Now</button>
-          <button class="btn-outline" id="learnMore">Soma module ya sample</button>
+          <button class="btn-primary" id="goToServicePage">📘 Book Now (Service Page)</button>
+          <button class="btn-secondary" id="modalLearnMore">Soma sample module</button>
         </div>
 
-        <div style="margin-top:12px;">
-          <div style="color:rgba(255,255,255,0.9);font-weight:700;margin-bottom:6px">Success Stories</div>
+        <div style="margin-top:12px">
+          <div style="font-weight:800;margin-bottom:6px">Success Stories</div>
           <div class="stories">
             <div class="story">
-              <img src="assets/fred-vunjabei.jpg" alt="Fred Vunjabei (success)">
-              <div class="meta"><b>Fred Vunjabei</b><span style="color:#fff;opacity:0.9">From small sales to strong brand presence.</span></div>
+              <img src="assets/fred-vunjabei.jpg" alt="Fred Vunjabei">
+              <div>
+                <div style="font-weight:700">Fred Vunjabei</div>
+                <div style="font-size:13px;color:#666">From handmade fashion to a trusted brand.</div>
+              </div>
             </div>
             <div class="story">
-              <img src="assets/david-sportswear.jpg" alt="David Sportswear (success)">
-              <div class="meta"><b>David Sportswear</b><span style="color:#fff;opacity:0.9">Scaled from market stall to local brand.</span></div>
+              <img src="assets/david-sportswear.jpg" alt="David Sportswear">
+              <div>
+                <div style="font-weight:700">David Sportswear</div>
+                <div style="font-size:13px;color:#666">Scaled from market stall to local brand.</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- right: booking form card -->
-      <div class="booking-card" id="bookingCard" aria-hidden="true">
-        <h3>Reserve your seat</h3>
-        <p class="small-muted">Fill the form below. After submitting you'll be redirected to WhatsApp to confirm booking.</p>
-
-        <form id="bookingForm" autocomplete="on">
-          <div class="field">
-            <label for="fullname">Jina Kamili</label>
-            <input id="fullname" name="fullname" type="text" required placeholder="Jina kamili">
+      <div class="booking-preview" id="bookingPreview" aria-hidden="false">
+        <h3 style="margin:0 0 6px">Reserve a seat</h3>
+        <div style="font-size:13px;color:#444">Click Book Now to go to the Service Recovery page where you can select time and fill booking details.</div>
+        <div style="margin-top:12px">
+          <strong>Quick fees</strong>
+          <div style="margin-top:8px;font-size:13px;color:#333">
+            Tsh 500 — Taster (10–15 min)<br>
+            Tsh 1,000 — Short lesson (30 min)<br>
+            Tsh 5,000 — Deep session (60 min)<br>
+            Tsh 10,000 — Full program + certificate
           </div>
-
-          <div class="field">
-            <label for="education">Elimu</label>
-            <select id="education" name="education" required>
-              <option value="">-- Chagua --</option>
-              <option value="Primary">Primary (PSLE)</option>
-              <option value="O-Level">O-Level (CSEE)</option>
-              <option value="A-Level">A-Level (ACSEE)</option>
-              <option value="Certificate">Certificate</option>
-              <option value="Diploma">Diploma</option>
-              <option value="Bachelor">Bachelor</option>
-              <option value="Masters">Masters / Postgraduate</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="location">Sehemu unayoishi</label>
-            <input id="location" name="location" type="text" required placeholder="Mfano: Dar es Salaam">
-          </div>
-
-          <div class="field">
-            <label for="gender">Jinsia</label>
-            <select id="gender" name="gender" required>
-              <option value="">-- Chagua --</option>
-              <option value="Mwanaume">Mwanaume</option>
-              <option value="Mwanamke">Mwanamke</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="phone">Namba ya WhatsApp</label>
-            <input id="phone" name="phone" type="tel" required placeholder="+255 6xx xxx xxx">
-          </div>
-
-          <div class="field">
-            <label for="preferred">Siku ya Mafunzo</label>
-            <select id="preferred" name="preferred" required>
-              <option value="">-- Chagua --</option>
-              <option value="Saturday morning">Jumamosi (Asubuhi)</option>
-              <option value="Sunday evening">Jumapili (Jioni)</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="fees">Ada (Tsh)</label>
-            <select id="fees" name="fees" required>
-              <option value="">-- Chagua kiwango --</option>
-              <option value="500">Tsh 500 — Mafunzo ya msingi (10–15 min)</option>
-              <option value="1000">Tsh 1,000 — Mafunzo ya kina (30 min)</option>
-              <option value="5000">Tsh 5,000 — Mafunzo ya kina + assignment (60 min)</option>
-              <option value="10000">Tsh 10,000 — Kozi kamili + certificate</option>
-            </select>
-          </div>
-
-          <div class="pay-summary" id="paySummary" aria-live="polite">
-            <strong>Summary:</strong> Tafadhali chagua ada ili kuona muda utakaotumika na matokeo.
-          </div>
-
-          <div class="booking-actions">
-            <button type="submit" class="book-btn">✅ Book Now</button>
-            <button type="button" class="btn-outline" id="cancelBooking">Cancel</button>
-          </div>
-        </form>
-
-        <div id="bookingNote" class="small-muted" style="margin-top:10px">
-          * Baada ya kukamilisha utapelekwa WhatsApp kudhibitisha malipo na ratiba.
         </div>
       </div>
     </div>
   </div>
 
-  <footer style="max-width:var(--maxw);margin:18px auto;padding:12px;text-align:center;color:var(--muted)">
-    © 2025 Kplus712 — All rights reserved.
-  </footer>
+  <footer>© 2025 Kplus712 — All rights reserved.</footer>
 
   <script>
-    // DOM
-    const announcementText = document.getElementById('announcementTxt');
+    /* ========== Daily tips data (editable) ========== */
+    const tips = [
+      {date:'', title:'Keep an emergency reserve', body:'Save 10% of daily revenue as an emergency reserve — start small and stay consistent.', img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60'},
+      {date:'', title:'Know your customer', body:'Spend 15 minutes today to ask 3 customers what they like and what to improve.', img:'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=60'},
+      {date:'', title:'Package offers', body:'Bundle small products with a service to increase perceived value and average order.', img:'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=60'}
+    ];
+    // auto-date: rotate tips by day number
+    const today = new Date();
+    const idx = today.getDate() % tips.length;
+    const tip = tips[idx];
+    document.getElementById('tipDate').innerText = today.toLocaleDateString();
+    document.getElementById('tipTitle').innerText = tip.title;
+    document.getElementById('tipBody').innerText = tip.body;
+    document.getElementById('tipImg').src = tip.img;
+
+    /* modal behaviour */
+    const announcementText = document.getElementById('announcementText');
     const announcementBtn = document.getElementById('announcementBtn');
     const modalBackdrop = document.getElementById('modalBackdrop');
     const closeModal = document.getElementById('closeModal');
-    const openBooking = document.getElementById('openBooking');
-    const bookingCard = document.getElementById('bookingCard');
-    const learnMoreBtn = document.getElementById('learnMore');
-    const cancelBooking = document.getElementById('cancelBooking');
+    const goToServicePage = document.getElementById('goToServicePage');
+    const modalLearnMore = document.getElementById('modalLearnMore');
 
-    // open modal (details)
-    function showModal(){
-      modalBackdrop.style.display = 'flex';
-      modalBackdrop.setAttribute('aria-hidden','false');
-      // ensure booking panel hidden initially
-      bookingCard.style.display = 'none';
-      bookingCard.setAttribute('aria-hidden','true');
-    }
-    function hideModal(){
-      modalBackdrop.style.display = 'none';
-      modalBackdrop.setAttribute('aria-hidden','true');
-    }
+    function openModal(){ modalBackdrop.style.display='flex'; modalBackdrop.setAttribute('aria-hidden','false'); }
+    function hideModal(){ modalBackdrop.style.display='none'; modalBackdrop.setAttribute('aria-hidden','true'); }
 
-    announcementText.addEventListener('click', showModal);
-    announcementBtn.addEventListener('click', showModal);
+    announcementText.addEventListener('click', openModal);
+    announcementBtn.addEventListener('click', openModal);
     closeModal.addEventListener('click', hideModal);
-    modalBackdrop.addEventListener('click', (e)=> { if(e.target===modalBackdrop) hideModal(); });
+    modalBackdrop.addEventListener('click',(e)=>{ if(e.target===modalBackdrop) hideModal(); });
 
-    // open booking form inside modal
-    openBooking.addEventListener('click', ()=> {
-      bookingCard.style.display = 'block';
-      bookingCard.setAttribute('aria-hidden','false');
-      bookingCard.scrollIntoView({behavior:'smooth'});
+    goToServicePage.addEventListener('click', ()=> {
+      hideModal();
+      // navigate to services page (green theme) where full booking form is located
+      window.location.href = 'services.html';
     });
 
-    // sample learn more action (could show module sample)
-    learnMoreBtn.addEventListener('click', ()=> {
-      alert('Sample module: Service Recovery — lessons include: Customer apology scripts, Root cause fixes, Follow-up plays. (This can be expanded into a sample PDF or page.)');
+    modalLearnMore.addEventListener('click', ()=> {
+      alert('Sample module: Service Recovery — apology scripts, root cause analysis, follow-up plays. (This can be expanded.)');
     });
-
-    cancelBooking.addEventListener('click', ()=> {
-      // hide booking card, back to details
-      bookingCard.style.display = 'none';
-      bookingCard.setAttribute('aria-hidden','true');
-    });
-
-    // dynamic fee summary
-    const fees = document.getElementById('fees');
-    const paySummary = document.getElementById('paySummary');
-    fees.addEventListener('change', ()=> {
-      const v = fees.value;
-      if(!v){ paySummary.innerHTML = '<strong>Summary:</strong> Tafadhali chagua ada ili kuona muda utakaotumika na matokeo.'; return; }
-      let txt = '';
-      if(v==='500') txt = '10–15 min — Intro & quick tips (suitable as taster).';
-      if(v==='1000') txt = '30 min — Practical lesson & short task.';
-      if(v==='5000') txt = '60 min — Deep lesson + assignment + review.';
-      if(v==='10000') txt = 'Full program — multi-session + certificate.';
-      paySummary.innerHTML = `<strong>Summary:</strong> Tsh ${v} — ${txt}`;
-    });
-
-    // booking submit → open whatsapp with prefilled message
-    const bookingForm = document.getElementById('bookingForm');
-    bookingForm.addEventListener('submit', (e)=> {
-      e.preventDefault();
-      const name = document.getElementById('fullname').value.trim();
-      const education = document.getElementById('education').value;
-      const location = document.getElementById('location').value.trim();
-      const gender = document.getElementById('gender').value;
-      const phone = document.getElementById('phone').value.trim();
-      const preferred = document.getElementById('preferred').value;
-      const fee = document.getElementById('fees').value;
-
-      if(!name || !education || !location || !gender || !phone || !preferred || !fee){
-        alert('Tafadhali jaza fomu yote kabla ya kutuma.');
-        return;
-      }
-
-      // message template
-      const msg = `🌟 Service Recovery Booking 🌟%0A%0AJina: ${encodeURIComponent(name)}%0AElimu: ${encodeURIComponent(education)}%0AEneo: ${encodeURIComponent(location)}%0AJinsia: ${encodeURIComponent(gender)}%0AWhatsApp: ${encodeURIComponent(phone)}%0APrefered: ${encodeURIComponent(preferred)}%0AFee: Tsh ${encodeURIComponent(fee)}%0A%0ATafadhali thibitisha ratiba na maelekezo ya malipo.`;
-
-      // open WhatsApp chat - change to your phone if different
-      const wa = `https://wa.me/255622266932?text=${msg}`;
-      window.open(wa, '_blank');
-
-      // show a quick thank you inside modal and optionally hide form
-      bookingCard.innerHTML = '<div style="padding:20px;font-size:16px;color:#222"><strong>Asante!</strong><p>Umefanikiwa kutuma ombi la booking. Tutakutumia ujumbe wa uthibitisho kupitia WhatsApp muda si mrefu.</p><button onclick="window.location.reload()" style="margin-top:12px;padding:8px 12px;border-radius:8px;border:0;background:var(--green);color:#fff;font-weight:700;cursor:pointer">Funga</button></div>';
-    });
-
-    // accessibility: keyboard open
-    announcementText.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') showModal(); });
-
-    // NOTE: images should be placed in repo at assets/fred-vunjabei.jpg and assets/david-sportswear.jpg
   </script>
 </body>
 </html>
