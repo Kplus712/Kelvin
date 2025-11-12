@@ -1,183 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kplus712 | Services</title>
-  <meta name="theme-color" content="#D4AF37">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Service Recovery — Kplus712</title>
+  <meta name="theme-color" content="#2e8b57">
   <style>
-    :root {
-      --gold:#D4AF37;
-      --bg:#fff;
-      --muted:#555;
-      --maxw:1100px;
-    }
-    body {
-      font-family: "Poppins", system-ui, Arial;
-      margin:0;
-      background:var(--bg);
-      color:#111;
-      line-height:1.6;
-    }
-    nav {
-      background:#fff;
-      border-bottom:1px solid #eee;
-      padding:.8rem 1rem;
-      position:sticky;
-      top:0;
-      z-index:50;
-      box-shadow:0 2px 5px rgba(0,0,0,0.05);
-    }
-    nav .inner {
-      max-width:var(--maxw);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-    nav a {
-      color:var(--gold);
-      text-decoration:none;
-      margin:0 .8rem;
-      font-weight:600;
-    }
-    header {
-      max-width:var(--maxw);
-      margin:2rem auto 1rem;
-      text-align:center;
-      padding:1rem;
-    }
-    header h1 {
-      color:var(--gold);
-      font-size:2rem;
-      margin-bottom:.5rem;
-    }
-    header p { color:var(--muted); font-size:1.1rem; }
-
-    .container {
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:1rem;
-      display:grid;
-      grid-template-columns:2fr 1fr;
-      gap:1.5rem;
-    }
-    @media(max-width:900px){.container{grid-template-columns:1fr;}.aside{order:-1;}}
-    .service-card,.order-card,.assistant {
-      background:#fff;
-      border-radius:12px;
-      padding:1.25rem;
-      border:1px solid rgba(0,0,0,0.05);
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom:1.2rem;
-    }
-    .service-card h3,.order-card h3 { color:var(--gold); margin:.3rem 0; }
-    .small{font-size:.9rem;color:var(--muted);}
-    .chat {
-      height:400px;
-      overflow:auto;
-      padding:.6rem;
-      background:#fafafa;
-      border-radius:10px;
-      border:1px solid #eee;
-    }
-    .msg{margin:.5rem 0;display:flex;gap:.5rem;align-items:flex-start;}
-    .msg.user{justify-content:flex-end;}
-    .bubble{padding:.7rem 1rem;border-radius:10px;background:#fff;border:1px solid #ddd;max-width:80%;}
-    .bubble.user{background:var(--gold);color:white;border:none;}
-    .chat-controls{display:flex;gap:.5rem;margin-top:.7rem;}
-    .chat-controls input{flex:1;padding:.7rem;border-radius:8px;border:1px solid #ccc;}
-    .btn{background:var(--gold);color:white;padding:.6rem 1rem;border-radius:8px;border:none;font-weight:600;cursor:pointer;}
-    .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold);}
-    footer{text-align:center;color:var(--muted);font-size:.9rem;margin-top:2rem;padding:1rem 0;border-top:1px solid #eee;}
+    :root{--green:#2e8b57;--muted:#666;--bg:#fff;--maxw:1100px}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Poppins",system-ui,Arial;background:var(--bg);color:#111}
+    nav{background:#fff;border-bottom:1px solid #eee;padding:.8rem 1rem;position:sticky;top:0;z-index:40}
+    nav .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    nav a{color:var(--green);text-decoration:none;margin:0 .6rem;font-weight:600}
+    .hero{max-width:var(--maxw);margin:22px auto;padding:12px}
+    .hero h1{color:var(--green);margin:0;font-size:clamp(20px,3.6vw,34px)}
+    .layout{max-width:var(--maxw);margin:18px auto;padding:12px;display:grid;grid-template-columns:1fr 380px;gap:18px}
+    @media(max-width:920px){.layout{grid-template-columns:1fr}}
+    .card{background:#fff;padding:16px;border-radius:12px;border:1px solid #eee}
+    .info{background:linear-gradient(180deg,var(--green),#1f6a45);color:#fff;padding:18px;border-radius:12px}
+    .info h2{margin:0 0 8px}
+    .info p{opacity:0.95}
+    .form-field{margin-top:10px}
+    label{display:block;font-size:13px;margin-bottom:6px;color:#333}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px}
+    .book-btn{background:var(--green);color:#fff;padding:10px 12px;border-radius:8px;border:0;font-weight:700;cursor:pointer;margin-top:10px}
+    .stories{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .story{background:#fff;border-radius:10px;padding:8px;border:1px solid #f0f0f0;display:flex;gap:8px;align-items:center}
+    .story img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+    footer{max-width:var(--maxw);margin:18px auto;padding:12px;text-align:center;color:var(--muted)}
   </style>
 </head>
 <body>
-
-<nav>
-  <div class="inner">
-    <div style="font-weight:700;color:var(--gold)">Kplus712</div>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="business-knowledge.html">Business Knowledge</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-      <a href="services.html">Services</a>
-    </div>
-  </div>
-</nav>
-
-<header>
-  <h1>Our Services — Learn, Grow & Connect</h1>
-  <p>Business education, mentorship, and WhatsApp e-commerce designed to empower entrepreneurs everywhere.</p>
-</header>
-
-<main class="container">
-  <div>
-    <div class="service-card">
-      <h3>Business Education on WhatsApp</h3>
-      <p class="small">Daily lessons, quick mentorship, and personal guidance — all through WhatsApp chat.</p>
-      <a class="btn" href="https://wa.me/255622266932?text=Hello%20Kelvinplus712!%20I%27m%20interested%20in%20Business%20Education" target="_blank">Join via WhatsApp</a>
-    </div>
-
-    <div class="service-card">
-      <h3>WhatsApp eCommerce & Order Support</h3>
-      <p class="small">Accept orders, book coaching, or request training packages directly on WhatsApp.</p>
-    </div>
-  </div>
-
-  <aside class="aside">
-    <div class="assistant">
-      <h4 style="color:var(--gold);margin-top:0;">Business Assistant</h4>
-      <div id="chat" class="chat"></div>
-      <div class="chat-controls">
-        <input id="chat-input" placeholder="Ask your question..." />
-        <button id="send-chat" class="btn">Ask</button>
+  <nav>
+    <div class="inner">
+      <div style="font-weight:700;color:var(--green)">Kplus712</div>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="business-knowledge.html">Business Knowledge</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
       </div>
     </div>
-  </aside>
-</main>
+  </nav>
 
-<footer>
-  © 2025 Kplus712 — All rights reserved.
-</footer>
+  <div class="hero">
+    <h1>Service Recovery Coaching</h1>
+    <p style="color:var(--muted)">Practical weekend sessions to help you recover customers, improve service and grow trust.</p>
+  </div>
 
-<script>
-const chatBox = document.getElementById("chat");
-const chatInput = document.getElementById("chat-input");
-const sendBtn = document.getElementById("send-chat");
+  <main class="layout">
+    <section class="card info" aria-labelledby="infoTitle">
+      <h2 id="infoTitle">Why Service Recovery?</h2>
+      <p>When customers experience problems, how you respond determines whether they leave or stay. Our Service Recovery Coaching teaches practical apology scripts, root-cause fixes, customer follow-up and rebuilding trust strategies.</p>
 
-function addMessage(text, sender="bot"){
-  const msg = document.createElement("div");
-  msg.className = "msg " + (sender==="user"?"user":"");
-  const bubble = document.createElement("div");
-  bubble.className = "bubble " + (sender==="user"?"user":"");
-  bubble.textContent = text;
-  msg.appendChild(bubble);
-  chatBox.appendChild(msg);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
+      <ul style="margin-top:8px">
+        <li>Interactive lessons via WhatsApp and short practical assignments.</li>
+        <li>Sessions: <strong>Saturday morning</strong> & <strong>Sunday evening</strong>.</li>
+        <li>Measurable outcomes: improved retention, referrals and higher repeat sales.</li>
+      </ul>
 
-sendBtn.onclick = async () => {
-  const userMessage = chatInput.value.trim();
-  if (!userMessage) return;
-  addMessage(userMessage, "user");
-  chatInput.value = "";
+      <div style="margin-top:12px">
+        <strong>Program levels & quick fees</strong>
+        <div style="margin-top:8px">Tsh 500 — Taster (10–15 min)<br>Tsh 1,000 — Short lesson (30 min)<br>Tsh 5,000 — Deep session + assignment (60 min)<br>Tsh 10,000 — Full program + certificate</div>
+      </div>
 
-  try {
-    const res = await fetch("https://kplus712-ai.onrender.com/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: userMessage })
+      <div class="stories" aria-hidden="false" style="margin-top:14px">
+        <div class="story">
+          <img src="assets/fred-vunjabei.jpg" alt="Fred Vunjabei">
+          <div>
+            <strong>Fred Vunjabei</strong>
+            <div style="font-size:13px;color:#666">Built a quality brand from small beginnings.</div>
+          </div>
+        </div>
+        <div class="story">
+          <img src="assets/david-sportswear.jpg" alt="David Sportswear">
+          <div>
+            <strong>David Sportswear</strong>
+            <div style="font-size:13px;color:#666">Grew from market stall to recognised local brand.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="card" aria-labelledby="formTitle">
+      <h3 id="formTitle" style="margin:0 0 6px;color:var(--green)">Sign up — Reserve your place</h3>
+      <form id="serviceForm" autocomplete="on">
+        <div class="form-field">
+          <label for="fullname">Jina Kamili</label>
+          <input id="fullname" name="fullname" required placeholder="Jina kamili">
+        </div>
+
+        <div class="form-field">
+          <label for="education">Elimu</label>
+          <select id="education" name="education" required>
+            <option value="">-- Chagua --</option>
+            <option>Primary (PSLE)</option>
+            <option>O-Level (CSEE)</option>
+            <option>A-Level (ACSEE)</option>
+            <option>Certificate</option>
+            <option>Diploma</option>
+            <option>Bachelor</option>
+            <option>Masters</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="location">Sehemu unayoishi</label>
+          <input id="location" name="location" required placeholder="Mfano: Dar es Salaam">
+        </div>
+
+        <div class="form-field">
+          <label for="gender">Jinsia</label>
+          <select id="gender" name="gender" required>
+            <option value="">-- Chagua --</option>
+            <option value="Mwanaume">Mwanaume</option>
+            <option value="Mwanamke">Mwanamke</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Namba ya WhatsApp</label>
+          <input id="phone" name="phone" type="tel" required placeholder="+255 6xx xxx xxx">
+        </div>
+
+        <div class="form-field">
+          <label for="preferred">Siku ya Mafunzo</label>
+          <select id="preferred" name="preferred" required>
+            <option value="">-- Chagua --</option>
+            <option value="Saturday morning">Jumamosi (Asubuhi)</option>
+            <option value="Sunday evening">Jumapili (Jioni)</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="fees">Ada (Tsh)</label>
+          <select id="fees" name="fees" required>
+            <option value="">-- Chagua kiwango --</option>
+            <option value="500">Tsh 500 — Taster (10–15 min)</option>
+            <option value="1000">Tsh 1,000 — Short lesson (30 min)</option>
+            <option value="5000">Tsh 5,000 — Deep session (60 min)</option>
+            <option value="10000">Tsh 10,000 — Full program + certificate</option>
+          </select>
+        </div>
+
+        <div style="margin-top:8px" id="feeSummary">Summary: Choose a fee to see details.</div>
+
+        <button type="submit" class="book-btn">✅ Book Now</button>
+      </form>
+
+      <div id="note" style="font-size:13px;color:var(--muted);margin-top:12px">After submitting you'll be redirected to WhatsApp to confirm and arrange payment.</div>
+    </aside>
+  </main>
+
+  <footer>© 2025 Kplus712 — All rights reserved.</footer>
+
+  <script>
+    // update fee summary
+    const fees = document.getElementById('fees');
+    const feeSummary = document.getElementById('feeSummary');
+    fees && fees.addEventListener('change', ()=> {
+      const v = fees.value;
+      if(!v){ feeSummary.innerText='Summary: Choose a fee to see details.'; return; }
+      const map = {
+        '500':'10–15 min — Intro & quick tips (taster).',
+        '1000':'30 min — Practical lesson & short task.',
+        '5000':'60 min — Deep lesson + assignment + review.',
+        '10000':'Multi-session program + certificate.'
+      };
+      feeSummary.innerHTML = 'Summary: Tsh ' + v + ' — ' + (map[v] || '');
     });
-    const data = await res.json();
-    addMessage(data.reply || "⚠️ No response from AI.");
-  } catch (err) {
-    addMessage("⚠️ Unable to connect to AI server. Please try again later.");
-    console.error(err);
-  }
-};
-</script>
+
+    // submit booking -> open WhatsApp with prefilled message
+    const serviceForm = document.getElementById('serviceForm');
+    serviceForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const name = document.getElementById('fullname').value.trim();
+      const education = document.getElementById('education').value;
+      const location = document.getElementById('location').value.trim();
+      const gender = document.getElementById('gender').value;
+      const phone = document.getElementById('phone').value.trim();
+      const preferred = document.getElementById('preferred').value;
+      const fee = document.getElementById('fees').value;
+
+      if(!name||!education||!location||!gender||!phone||!preferred||!fee){
+        alert('Tafadhali jaza fomu yote kabla ya kutuma.');
+        return;
+      }
+
+      const msg = `🌟 Service Recovery Booking 🌟%0A%0AJina: ${encodeURIComponent(name)}%0AElimu: ${encodeURIComponent(education)}%0AEneo: ${encodeURIComponent(location)}%0AJinsia: ${encodeURIComponent(gender)}%0AWhatsApp: ${encodeURIComponent(phone)}%0APrefered: ${encodeURIComponent(preferred)}%0AFee: Tsh ${encodeURIComponent(fee)}%0A%0ATafadhali thibitisha ratiba na maelekezo ya malipo.`;
+      // replace phone below with your WhatsApp number if different
+      const wa = `https://wa.me/255622266932?text=${msg}`;
+      window.open(wa,'_blank');
+
+      // optional: replace form with thank you
+      serviceForm.innerHTML = '<div style="padding:14px"><strong>Asante!</strong><p>Booking request imepelekwa. Tutakutumia ujumbe wa uthibitisho kupitia WhatsApp.</p></div>';
+    });
+  </script>
 </body>
 </html>
