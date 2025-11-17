@@ -145,14 +145,14 @@
           <div style="font-weight:800;margin-bottom:6px">Success Stories</div>
           <div class="stories">
             <div class="story">
-              <img src="assets/fred-vunjabei.jpg" alt="Fred Vunjabei">
+              <img src="https://raw.githubusercontent.com/Kplus712/Kelvin/main/fred-vunjabei.jpg" alt="Fred Vunjabei">
               <div>
                 <div style="font-weight:700">Fred Vunjabei</div>
                 <div style="font-size:13px;color:#666">From handmade fashion to a trusted brand.</div>
               </div>
             </div>
             <div class="story">
-              <img src="assets/david-sportswear.jpg" alt="David Sportswear">
+              <img src="https://raw.githubusercontent.com/Kplus712/Kelvin/main/david-sportware.jpg" alt="David Sportswear">
               <div>
                 <div style="font-weight:700">David Sportswear</div>
                 <div style="font-size:13px;color:#666">Scaled from market stall to local brand.</div>
@@ -181,20 +181,148 @@
   <footer>© 2025 Kplus712 — All rights reserved.</footer>
 
   <script>
-    /* ========== Daily tips data (editable) ========== */
-    const tips = [
-      {date:'', title:'Keep an emergency reserve', body:'Save 10% of daily revenue as an emergency reserve — start small and stay consistent.', img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60'},
-      {date:'', title:'Know your customer', body:'Spend 15 minutes today to ask 3 customers what they like and what to improve.', img:'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=60'},
-      {date:'', title:'Package offers', body:'Bundle small products with a service to increase perceived value and average order.', img:'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=60'}
-    ];
-    // auto-date: rotate tips by day number
-    const today = new Date();
-    const idx = today.getDate() % tips.length;
-    const tip = tips[idx];
-    document.getElementById('tipDate').innerText = today.toLocaleDateString();
-    document.getElementById('tipTitle').innerText = tip.title;
-    document.getElementById('tipBody').innerText = tip.body;
-    document.getElementById('tipImg').src = tip.img;
+   /* ========== Daily Business Tips (Auto for 30 days) ========== */
+const tips = [
+  {
+    title: "Start your day with planning",
+    body: "Use the first 15 minutes of your morning to set three business goals for the day.",
+    meaning: "Helps you stay focused, reduce distractions and increase daily productivity.",
+    img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Keep an emergency reserve",
+    body: "Save 10% of daily revenue as an emergency reserve — start small and stay consistent.",
+    meaning: "Ensures business continuity in tough times such as supplier delays or low sales periods.",
+    img: "https://images.unsplash.com/photo-1581091870627-3ca5c045d2d8?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Know your customer",
+    body: "Spend 15 minutes today to ask 3 customers what they like and what to improve.",
+    meaning: "Understanding customer needs helps you tailor products and improve satisfaction.",
+    img: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Package offers smartly",
+    body: "Bundle small products with a service to increase perceived value and average order.",
+    meaning: "Packaging encourages upselling and helps customers discover more of your offers.",
+    img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Invest in learning",
+    body: "Spend at least 20 minutes reading a business article or watching a tutorial daily.",
+    meaning: "Continuous learning keeps your strategies fresh and relevant in changing markets.",
+    img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Track your cash flow",
+    body: "Record every expense — big or small — at the end of the day.",
+    meaning: "It helps identify unnecessary costs and maintain a healthy financial balance.",
+    img: "https://images.unsplash.com/photo-1554224155-3a58577a7f5b?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Network intentionally",
+    body: "Reach out to one business contact today, offer value, and reconnect.",
+    meaning: "Building relationships keeps your business visible and trusted.",
+    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Offer small discounts strategically",
+    body: "Give loyal customers a small appreciation discount to encourage repeat business.",
+    meaning: "Rewarding loyalty builds trust and customer retention.",
+    img: "https://images.unsplash.com/photo-1578589318437-9e1d8f4b7e90?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Declutter your workspace",
+    body: "Organize your working area before starting the day.",
+    meaning: "Clean space leads to clear thinking and better productivity.",
+    img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Review customer feedback",
+    body: "Go through your last 5 reviews and note areas for improvement.",
+    meaning: "Customer opinions are the best indicators for growth opportunities.",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Improve time management",
+    body: "Use a timer to focus for 45 minutes and then rest for 10 minutes.",
+    meaning: "Structured work sessions increase output and reduce burnout.",
+    img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Appreciate your team",
+    body: "Say thank you to a staff member or partner who performed well today.",
+    meaning: "Recognition increases morale, loyalty, and overall performance.",
+    img: "https://images.unsplash.com/photo-1594745562903-6c7b8e6a97f7?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Promote online",
+    body: "Post something about your business on social media today.",
+    meaning: "Consistency in visibility builds audience engagement and awareness.",
+    img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Simplify your offer",
+    body: "Review your product list and remove items that don’t sell well.",
+    meaning: "Focusing on bestsellers saves resources and increases profitability.",
+    img: "https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Set weekly targets",
+    body: "Divide big monthly goals into small weekly tasks.",
+    meaning: "Small wins accumulate into consistent growth.",
+    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Ask for referrals",
+    body: "Reach out to happy customers and ask them to refer your business.",
+    meaning: "Word-of-mouth marketing remains the most powerful growth tool.",
+    img: "https://images.unsplash.com/photo-1573497161462-52ac2b7d7b1d?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Study your competitors",
+    body: "Visit competitor shops or pages and note what you can do differently.",
+    meaning: "Benchmarking helps you innovate while staying relevant.",
+    img: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Measure customer satisfaction",
+    body: "Ask your last 5 customers to rate their experience 1–5.",
+    meaning: "Collecting quick feedback guides product improvement.",
+    img: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Update your profile",
+    body: "Check your social media bios and contact info — keep it professional.",
+    meaning: "Accurate info ensures clients reach you easily and builds credibility.",
+    img: "https://images.unsplash.com/photo-1556767576-cfba7a1f7c3b?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Track your sales",
+    body: "Record daily sales at the same hour to identify growth trends.",
+    meaning: "Consistency makes data analysis easier and more accurate.",
+    img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    title: "Celebrate small wins",
+    body: "Acknowledge one progress you’ve made this week — however small.",
+    meaning: "Celebrating progress motivates you to keep moving forward.",
+    img: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=60"
+  }
+];
+
+// ========== AUTO DATE & TIME ========== 
+const now = new Date();
+const idx = now.getDate() % tips.length;
+const tip = tips[idx];
+const dateText = now.toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+const timeText = now.toLocaleTimeString("en-GB", { hour:"2-digit", minute:"2-digit" });
+
+document.getElementById("tipDate").innerText = `${dateText} • ${timeText}`;
+document.getElementById("tipTitle").innerText = tip.title;
+document.getElementById("tipBody").innerHTML = `<p>${tip.body}</p><p style='margin-top:6px;color:#555;font-style:italic;'>Meaning: ${tip.meaning}</p>`;
+document.getElementById("tipImg").src = tip.img;
+
 
     /* modal behaviour */
     const announcementText = document.getElementById('announcementText');
