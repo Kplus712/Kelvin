@@ -16,7 +16,10 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:"Poppins",system-ui,Arial;background:var(--bg);color:#222;line-height:1.5}
     a{color:inherit}
-    /* Announcement bar (green/gold-ish feel kept as gold here) */
+
+    .small-muted{font-size:.9rem;color:var(--muted);}
+
+    /* Announcement bar */
     .announcement-wrap{background:var(--gold);color:#fff;overflow:hidden;position:relative}
     .announcement-inner{max-width:var(--maxw);margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
     .announcement-text{white-space:nowrap;display:inline-block;font-weight:700;cursor:pointer;padding:6px 0;animation: scroll-left 18s linear infinite}
@@ -58,6 +61,82 @@
     .stories{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
     .story{display:flex;gap:8px;align-items:center;background:#fff;padding:8px;border-radius:10px;border:1px solid #f0f0f0}
     .story img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+
+    /* AUTO CALENDAR POSTER */
+    .auto-event-wrap{
+      max-width:1100px;
+      margin:0 auto 18px;
+      padding:0 16px;
+    }
+    .auto-event-card{
+      position:relative;
+      border-radius:20px;
+      overflow:hidden;
+      min-height:160px;
+      color:#fff;
+      box-shadow:0 14px 40px rgba(0,0,0,0.28);
+      display:flex;
+      align-items:stretch;
+      background:#bfa034;
+      cursor:pointer;
+    }
+    .auto-event-bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(1.08);
+      z-index:0;
+    }
+    .auto-event-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.35));
+      z-index:1;
+    }
+    .auto-event-content{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex:1;
+      padding:18px 20px 16px;
+      gap:18px;
+    }
+    .auto-event-logo{
+      width:95px;
+      height:auto;
+      margin-top:4px;
+    }
+    .auto-event-text{
+      flex:1;
+    }
+    .auto-event-tagline{
+      font-size:14px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+    .auto-event-title{
+      font-size:24px;
+      font-weight:800;
+      margin:4px 0 6px;
+    }
+    .auto-event-date{
+      font-size:13px;
+      opacity:.95;
+    }
+    .auto-event-body{
+      margin-top:6px;
+      font-size:14px;
+      opacity:.98;
+    }
+    @media(max-width:720px){
+      .auto-event-card{min-height:170px;}
+      .auto-event-content{flex-direction:row;align-items:flex-start;padding:14px;}
+      .auto-event-logo{width:78px;}
+      .auto-event-title{font-size:20px;}
+    }
 
     /* small responsive tweaks */
     @media(max-width:520px){
@@ -111,101 +190,24 @@
     </div>
   </div>
 
-  <!-- ===== AUTO CALENDAR POSTER (NO MANUAL EDITING) ===== -->
-<style>
-  .auto-event-wrap{
-    max-width:1100px;
-    margin:0 auto 18px;
-    padding:0 16px;
-  }
-  .auto-event-card{
-    position:relative;
-    border-radius:20px;
-    overflow:hidden;
-    min-height:160px;
-    color:#fff;
-    box-shadow:0 14px 40px rgba(0,0,0,0.28);
-    display:flex;
-    align-items:stretch;
-    background:#bfa034; /* default */
-    cursor:pointer;
-  }
-  .auto-event-bg{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:brightness(1.08);
-    z-index:0;
-  }
-  .auto-event-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.35));
-    z-index:1;
-  }
-  .auto-event-content{
-    position:relative;
-    z-index:2;
-    display:flex;
-    flex:1;
-    padding:18px 20px 16px;
-    gap:18px;
-  }
-  .auto-event-logo{
-    width:95px;
-    height:auto;
-    margin-top:4px;
-  }
-  .auto-event-text{
-    flex:1;
-  }
-  .auto-event-tagline{
-    font-size:14px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    opacity:.9;
-  }
-  .auto-event-title{
-    font-size:24px;
-    font-weight:800;
-    margin:4px 0 6px;
-  }
-  .auto-event-date{
-    font-size:13px;
-    opacity:.95;
-  }
-  .auto-event-body{
-    margin-top:6px;
-    font-size:14px;
-    opacity:.98;
-  }
-  @media(max-width:720px){
-    .auto-event-card{min-height:170px;}
-    .auto-event-content{flex-direction:row;align-items:flex-start;padding:14px;}
-    .auto-event-logo{width:78px;}
-    .auto-event-title{font-size:20px;}
-  }
-</style>
-
-<div class="auto-event-wrap" id="autoEventWrap" style="display:none;">
-  <div class="auto-event-card" id="autoEventCard">
-    <img id="autoEventBg" class="auto-event-bg" src="" alt="" loading="lazy">
-    <div class="auto-event-overlay"></div>
-    <div class="auto-event-content">
-      <img src="assets/kplus712-logo.png" alt="Kplus712" class="auto-event-logo" loading="lazy">
-      <div class="auto-event-text">
-        <div class="auto-event-tagline" id="autoEventTagline">Calendar Highlight</div>
-        <div class="auto-event-title" id="autoEventTitle">Special Day</div>
-        <div class="auto-event-date" id="autoEventDate">Date</div>
-        <div class="auto-event-body" id="autoEventBody">
-          Explanation about this day and what it means for you as an entrepreneur.
+  <!-- AUTO CALENDAR POSTER -->
+  <div class="auto-event-wrap" id="autoEventWrap" style="display:none;">
+    <div class="auto-event-card" id="autoEventCard">
+      <img id="autoEventBg" class="auto-event-bg" src="" alt="" loading="lazy">
+      <div class="auto-event-overlay"></div>
+      <div class="auto-event-content">
+        <img src="assets/kplus712-logo.png" alt="Kplus712" class="auto-event-logo" loading="lazy">
+        <div class="auto-event-text">
+          <div class="auto-event-tagline" id="autoEventTagline">Calendar Highlight</div>
+          <div class="auto-event-title" id="autoEventTitle">Special Day</div>
+          <div class="auto-event-date" id="autoEventDate">Date</div>
+          <div class="auto-event-body" id="autoEventBody">
+            Explanation about this day and what it means for you as an entrepreneur.
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
   <main class="content">
     <section class="section-card">
@@ -277,148 +279,41 @@
   <footer>© 2025 Kplus712 — All rights reserved.</footer>
 
   <script>
-   /* ========== Daily Business Tips (Auto for 30 days) ========== */
-const tips = [
-  {
-    title: "Start your day with planning",
-    body: "Use the first 15 minutes of your morning to set three business goals for the day.",
-    meaning: "Helps you stay focused, reduce distractions and increase daily productivity.",
-    img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Keep an emergency reserve",
-    body: "Save 10% of daily revenue as an emergency reserve — start small and stay consistent.",
-    meaning: "Ensures business continuity in tough times such as supplier delays or low sales periods.",
-    img: "https://images.unsplash.com/photo-1581091870627-3ca5c045d2d8?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Know your customer",
-    body: "Spend 15 minutes today to ask 3 customers what they like and what to improve.",
-    meaning: "Understanding customer needs helps you tailor products and improve satisfaction.",
-    img: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Package offers smartly",
-    body: "Bundle small products with a service to increase perceived value and average order.",
-    meaning: "Packaging encourages upselling and helps customers discover more of your offers.",
-    img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Invest in learning",
-    body: "Spend at least 20 minutes reading a business article or watching a tutorial daily.",
-    meaning: "Continuous learning keeps your strategies fresh and relevant in changing markets.",
-    img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Track your cash flow",
-    body: "Record every expense — big or small — at the end of the day.",
-    meaning: "It helps identify unnecessary costs and maintain a healthy financial balance.",
-    img: "https://images.unsplash.com/photo-1554224155-3a58577a7f5b?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Network intentionally",
-    body: "Reach out to one business contact today, offer value, and reconnect.",
-    meaning: "Building relationships keeps your business visible and trusted.",
-    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Offer small discounts strategically",
-    body: "Give loyal customers a small appreciation discount to encourage repeat business.",
-    meaning: "Rewarding loyalty builds trust and customer retention.",
-    img: "https://images.unsplash.com/photo-1578589318437-9e1d8f4b7e90?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Declutter your workspace",
-    body: "Organize your working area before starting the day.",
-    meaning: "Clean space leads to clear thinking and better productivity.",
-    img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Review customer feedback",
-    body: "Go through your last 5 reviews and note areas for improvement.",
-    meaning: "Customer opinions are the best indicators for growth opportunities.",
-    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Improve time management",
-    body: "Use a timer to focus for 45 minutes and then rest for 10 minutes.",
-    meaning: "Structured work sessions increase output and reduce burnout.",
-    img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Appreciate your team",
-    body: "Say thank you to a staff member or partner who performed well today.",
-    meaning: "Recognition increases morale, loyalty, and overall performance.",
-    img: "https://images.unsplash.com/photo-1594745562903-6c7b8e6a97f7?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Promote online",
-    body: "Post something about your business on social media today.",
-    meaning: "Consistency in visibility builds audience engagement and awareness.",
-    img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Simplify your offer",
-    body: "Review your product list and remove items that don’t sell well.",
-    meaning: "Focusing on bestsellers saves resources and increases profitability.",
-    img: "https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Set weekly targets",
-    body: "Divide big monthly goals into small weekly tasks.",
-    meaning: "Small wins accumulate into consistent growth.",
-    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Ask for referrals",
-    body: "Reach out to happy customers and ask them to refer your business.",
-    meaning: "Word-of-mouth marketing remains the most powerful growth tool.",
-    img: "https://images.unsplash.com/photo-1573497161462-52ac2b7d7b1d?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Study your competitors",
-    body: "Visit competitor shops or pages and note what you can do differently.",
-    meaning: "Benchmarking helps you innovate while staying relevant.",
-    img: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Measure customer satisfaction",
-    body: "Ask your last 5 customers to rate their experience 1–5.",
-    meaning: "Collecting quick feedback guides product improvement.",
-    img: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Update your profile",
-    body: "Check your social media bios and contact info — keep it professional.",
-    meaning: "Accurate info ensures clients reach you easily and builds credibility.",
-    img: "https://images.unsplash.com/photo-1556767576-cfba7a1f7c3b?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Track your sales",
-    body: "Record daily sales at the same hour to identify growth trends.",
-    meaning: "Consistency makes data analysis easier and more accurate.",
-    img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=60"
-  },
-  {
-    title: "Celebrate small wins",
-    body: "Acknowledge one progress you’ve made this week — however small.",
-    meaning: "Celebrating progress motivates you to keep moving forward.",
-    img: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=60"
-  }
-];
+    /* ========== Daily Business Tips (Auto) ========== */
+    const tips = [
+      { title:"Start your day with planning", body:"Use the first 15 minutes of your morning to set three business goals for the day.", meaning:"Helps you stay focused, reduce distractions and increase daily productivity.", img:"https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60" },
+      { title:"Keep an emergency reserve", body:"Save 10% of daily revenue as an emergency reserve — start small and stay consistent.", meaning:"Ensures business continuity in tough times such as supplier delays or low sales periods.", img:"https://images.unsplash.com/photo-1581091870627-3ca5c045d2d8?auto=format&fit=crop&w=800&q=60" },
+      { title:"Know your customer", body:"Spend 15 minutes today to ask 3 customers what they like and what to improve.", meaning:"Understanding customer needs helps you tailor products and improve satisfaction.", img:"https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60" },
+      { title:"Package offers smartly", body:"Bundle small products with a service to increase perceived value and average order.", meaning:"Packaging encourages upselling and helps customers discover more of your offers.", img:"https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=60" },
+      { title:"Invest in learning", body:"Spend at least 20 minutes reading a business article or watching a tutorial daily.", meaning:"Continuous learning keeps your strategies fresh and relevant in changing markets.", img:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=60" },
+      { title:"Track your cash flow", body:"Record every expense — big or small — at the end of the day.", meaning:"It helps identify unnecessary costs and maintain a healthy financial balance.", img:"https://images.unsplash.com/photo-1554224155-3a58577a7f5b?auto=format&fit=crop&w=800&q=60" },
+      { title:"Network intentionally", body:"Reach out to one business contact today, offer value, and reconnect.", meaning:"Building relationships keeps your business visible and trusted.", img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60" },
+      { title:"Offer small discounts strategically", body:"Give loyal customers a small appreciation discount to encourage repeat business.", meaning:"Rewarding loyalty builds trust and customer retention.", img:"https://images.unsplash.com/photo-1578589318437-9e1d8f4b7e90?auto=format&fit=crop&w=800&q=60" },
+      { title:"Declutter your workspace", body:"Organize your working area before starting the day.", meaning:"Clean space leads to clear thinking and better productivity.", img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=60" },
+      { title:"Review customer feedback", body:"Go through your last 5 reviews and note areas for improvement.", meaning:"Customer opinions are the best indicators for growth opportunities.", img:"https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60" },
+      { title:"Improve time management", body:"Use a timer to focus for 45 minutes and then rest for 10 minutes.", meaning:"Structured work sessions increase output and reduce burnout.", img:"https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60" },
+      { title:"Appreciate your team", body:"Say thank you to a staff member or partner who performed well today.", meaning:"Recognition increases morale, loyalty, and overall performance.", img:"https://images.unsplash.com/photo-1594745562903-6c7b8e6a97f7?auto=format&fit=crop&w=800&q=60" },
+      { title:"Promote online", body:"Post something about your business on social media today.", meaning:"Consistency in visibility builds audience engagement and awareness.", img:"https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=60" },
+      { title:"Simplify your offer", body:"Review your product list and remove items that don’t sell well.", meaning:"Focusing on bestsellers saves resources and increases profitability.", img:"https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?auto=format&fit=crop&w=800&q=60" },
+      { title:"Set weekly targets", body:"Divide big monthly goals into small weekly tasks.", meaning:"Small wins accumulate into consistent growth.", img:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60" },
+      { title:"Ask for referrals", body:"Reach out to happy customers and ask them to refer your business.", meaning:"Word-of-mouth marketing remains the most powerful growth tool.", img:"https://images.unsplash.com/photo-1573497161462-52ac2b7d7b1d?auto=format&fit=crop&w=800&q=60" },
+      { title:"Study your competitors", body:"Visit competitor shops or pages and note what you can do differently.", meaning:"Benchmarking helps you innovate while staying relevant.", img:"https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60" },
+      { title:"Measure customer satisfaction", body:"Ask your last 5 customers to rate their experience 1–5.", meaning:"Collecting quick feedback guides product improvement.", img:"https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=800&q=60" },
+      { title:"Update your profile", body:"Check your social media bios and contact info — keep it professional.", meaning:"Accurate info ensures clients reach you easily and builds credibility.", img:"https://images.unsplash.com/photo-1556767576-cfba7a1f7c3b?auto=format&fit=crop&w=800&q=60" },
+      { title:"Track your sales", body:"Record daily sales at the same hour to identify growth trends.", meaning:"Consistency makes data analysis easier and more accurate.", img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=60" },
+      { title:"Celebrate small wins", body:"Acknowledge one progress you’ve made this week — however small.", meaning:"Celebrating progress motivates you to keep moving forward.", img:"https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=60" }
+    ];
 
-// ========== AUTO DATE & TIME ========== 
-const now = new Date();
-const idx = now.getDate() % tips.length;
-const tip = tips[idx];
-const dateText = now.toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
-const timeText = now.toLocaleTimeString("en-GB", { hour:"2-digit", minute:"2-digit" });
+    const now = new Date();
+    const idx = now.getDate() % tips.length;
+    const tip = tips[idx];
+    const dateText = now.toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+    const timeText = now.toLocaleTimeString("en-GB", { hour:"2-digit", minute:"2-digit" });
 
-document.getElementById("tipDate").innerText = `${dateText} • ${timeText}`;
-document.getElementById("tipTitle").innerText = tip.title;
-document.getElementById("tipBody").innerHTML = `<p>${tip.body}</p><p style='margin-top:6px;color:#555;font-style:italic;'>Meaning: ${tip.meaning}</p>`;
-document.getElementById("tipImg").src = tip.img;
-
+    document.getElementById("tipDate").innerText = `${dateText} • ${timeText}`;
+    document.getElementById("tipTitle").innerText = tip.title;
+    document.getElementById("tipBody").innerHTML = `<p>${tip.body}</p><p style='margin-top:6px;color:#555;font-style:italic;'>Meaning: ${tip.meaning}</p>`;
+    document.getElementById("tipImg").src = tip.img;
 
     /* modal behaviour */
     const announcementText = document.getElementById('announcementText');
@@ -438,241 +333,213 @@ document.getElementById("tipImg").src = tip.img;
 
     goToServicePage.addEventListener('click', ()=> {
       hideModal();
-      // navigate to services page (green theme) where full booking form is located
       window.location.href = 'services.html';
     });
 
     modalLearnMore.addEventListener('click', ()=> {
-      alert('Sample module: Service Recovery — apology scripts, root cause analysis, follow-up plays. (This can be expanded.)');
+      alert('Sample module: Service Recovery — apology scripts, root cause analysis, follow-up plays.');
     });
 
-    <script>
-/* ================== AUTO-CALENDAR LOGIC (TZ EVENTS) ================== */
-/*
-  Hutaki kuandika matukio mwenyewe kila siku.
-  Hii function ina "rules" za kalenda:
-  - Nyerere Day (14 Oct)
-  - Independence Day (Dec 9)
-  - Union Day, New Year, Workers' Day, etc.
-  - Weekend Service Recovery promotion
-  Mfumo unaangalia tarehe ya leo, ukipata tukio → unatengeneza poster.
-*/
+    /* ================== AUTO-CALENDAR LOGIC (TZ EVENTS) ================== */
+    function getCalendarEventForToday(){
+      const now = new Date();
+      const m  = now.getMonth() + 1;
+      const d  = now.getDate();
+      const wd = now.getDay();
+      const friendlyDate = now.toLocaleDateString("en-GB", {
+        weekday:"long", day:"numeric", month:"long", year:"numeric"
+      });
 
-function getCalendarEventForToday(){
-  const now = new Date();
-  const y  = now.getFullYear();
-  const m  = now.getMonth() + 1; // 1-12
-  const d  = now.getDate();
-  const wd = now.getDay(); // 0=Sun ... 6=Sat
+      if (m === 1 && d === 1){
+        return {
+          id:"new-year",
+          tagline:"New Year • Fresh Business Vision",
+          title:"Happy New Year",
+          dateText:friendlyDate,
+          body:"Use today to set three clear business goals: revenue, number of customers and one system you will improve. Write them down and keep them where you can see them daily.",
+          bg:"https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
+          color:"#1e88e5",
+          onClick:()=>window.location.href="business-knowledge.html"
+        };
+      }
 
-  const friendlyDate = now.toLocaleDateString("en-GB", {
-    weekday:"long", day:"numeric", month:"long", year:"numeric"
-  });
+      if (m === 1 && d === 12){
+        return {
+          id:"zanzibar-revolution",
+          tagline:"History • Change • Leadership",
+          title:"Zanzibar Revolution Day",
+          dateText:friendlyDate,
+          body:"Reflect on how bold decisions and courage can transform a nation — and your business. Which old habit must you remove this year to move forward?",
+          bg:"https://images.unsplash.com/photo-1578924608828-78f8bca464e1?auto=format&fit=crop&w=1400&q=80",
+          color:"#2e7d32",
+          onClick:null
+        };
+      }
 
-  // -------- 1. Fixed national / important dates (Tanzania) --------
-  // NOTE: hizi rules unaziweka mara moja tu, hazihitaji kubadilishwa kila mwaka.
-  if (m === 1  && d === 1){
-    return {
-      id: "new-year",
-      tagline: "New Year • Fresh Business Vision",
-      title: "Happy New Year",
-      dateText: friendlyDate,
-      body: "Use today to set three clear business goals: revenue, number of customers and one system you will improve. Write them down and keep them where you can see them daily.",
-      bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
-      color: "#1e88e5",
-      onClick: () => window.location.href = "business-knowledge.html"
-    };
-  }
+      if (m === 4 && d === 26){
+        return {
+          id:"union-day",
+          tagline:"Unity • Partnership • Strategy",
+          title:"Union Day",
+          dateText:friendlyDate,
+          body:"Think about the power of partnerships in business. Identify one person, brand or supplier you could collaborate with to expand your reach or improve quality.",
+          bg:"https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80",
+          color:"#1565c0",
+          onClick:null
+        };
+      }
 
-  // Zanzibar Revolution Day – 12 January
-  if (m === 1 && d === 12){
-    return {
-      id: "zanzibar-revolution",
-      tagline: "History • Change • Leadership",
-      title: "Zanzibar Revolution Day",
-      dateText: friendlyDate,
-      body: "Reflect on how bold decisions and courage can transform a nation — and your business. Which old habit must you remove this year to move forward?",
-      bg: "https://images.unsplash.com/photo-1578924608828-78f8bca464e1?auto=format&fit=crop&w=1400&q=80",
-      color: "#2e7d32",
-      onClick: null
-    };
-  }
+      if (m === 5 && d === 1){
+        return {
+          id:"workers-day",
+          tagline:"Appreciate People Who Build Value",
+          title:"Workers' Day",
+          dateText:friendlyDate,
+          body:"Celebrate your own effort and the people who help your business move. Send a message of appreciation to at least one staff member, supplier or partner today.",
+          bg:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
+          color:"#f57c00",
+          onClick:null
+        };
+      }
 
-  // Union Day – 26 April
-  if (m === 4 && d === 26){
-    return {
-      id: "union-day",
-      tagline: "Unity • Partnership • Strategy",
-      title: "Union Day",
-      dateText: friendlyDate,
-      body: "Think about the power of partnerships in business. Identify one person, brand or supplier you could collaborate with to expand your reach or improve quality.",
-      bg: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80",
-      color: "#1565c0",
-      onClick: null
-    };
-  }
+      if (m === 7 && d === 7){
+        return {
+          id:"saba-saba",
+          tagline:"Trade Fair • Market Visibility",
+          title:"Saba Saba",
+          dateText:friendlyDate,
+          body:"Use this day to think about how you showcase your products. Could you join fairs, exhibitions or online campaigns to make your business more visible?",
+          bg:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
+          color:"#8e24aa",
+          onClick:null
+        };
+      }
 
-  // Workers' Day – 1 May
-  if (m === 5 && d === 1){
-    return {
-      id: "workers-day",
-      tagline: "Appreciate People Who Build Value",
-      title: "Workers' Day",
-      dateText: friendlyDate,
-      body: "Celebrate your own effort and the people who help your business move. Send a message of appreciation to at least one staff member, supplier or partner today.",
-      bg: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
-      color: "#f57c00",
-      onClick: null
-    };
-  }
+      if (m === 8 && d === 8){
+        return {
+          id:"nane-nane",
+          tagline:"Agribusiness • Food Systems",
+          title:"Nane Nane Day",
+          dateText:friendlyDate,
+          body:"If you are in agribusiness, review your value chain: from production, processing to marketing. Where can you add more value or reduce loss?",
+          bg:"https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1400&q=80",
+          color:"#2e7d32",
+          onClick:null
+        };
+      }
 
-  // Saba Saba – 7 July
-  if (m === 7 && d === 7){
-    return {
-      id: "saba-saba",
-      tagline: "Trade Fair • Market Visibility",
-      title: "Saba Saba",
-      dateText: friendlyDate,
-      body: "Use this day to think about how you showcase your products. Could you join fairs, exhibitions or online campaigns to make your business more visible?",
-      bg: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
-      color: "#8e24aa",
-      onClick: null
-    };
-  }
+      if (m === 10 && d === 14){
+        return {
+          id:"nyerere-day",
+          tagline:"Leadership • Integrity • Service",
+          title:"Happy Nyerere Day",
+          dateText:friendlyDate,
+          body:"In honour of Mwalimu Julius Nyerere, review your leadership style. Are you serving your customers and team with honesty, humility and long-term vision? Choose one leadership habit to improve this week.",
+          // bg:"assets/nyerere-day.jpg",
+          bg:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80",
+          color:"#c62828",
+          onClick:null
+        };
+      }
 
-  // Nane Nane – 8 August
-  if (m === 8 && d === 8){
-    return {
-      id: "nane-nane",
-      tagline: "Agribusiness • Food Systems",
-      title: "Nane Nane Day",
-      dateText: friendlyDate,
-      body: "If you are in agribusiness, review your value chain: from production, processing to marketing. Where can you add more value or reduce loss?",
-      bg: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1400&q=80",
-      color: "#2e7d32",
-      onClick: null
-    };
-  }
+      if (m === 12 && d === 9){
+        return {
+          id:"independence-day",
+          tagline:"Uhuru • Responsibility • Opportunity",
+          title:"Independence Day",
+          dateText:friendlyDate,
+          body:"Think about financial and business independence. What steps can you take to reduce debt, diversify income and build long-term stability?",
+          bg:"https://images.unsplash.com/photo-1528744598421-b7b93e12df0b?auto=format&fit=crop&w=1400&q=80",
+          color:"#1b5e20",
+          onClick:null
+        };
+      }
 
-  // Nyerere Day – 14 October
-  if (m === 10 && d === 14){
-    return {
-      id: "nyerere-day",
-      tagline: "Leadership • Integrity • Service",
-      title: "Happy Nyerere Day",
-      dateText: friendlyDate,
-      body: "In honour of Mwalimu Julius Nyerere, review your leadership style. Are you serving your customers and team with honesty, humility and long-term vision? Choose one leadership habit to improve this week.",
-      // unaweza badala yake utumie poster yako halisi:
-      // bg: "assets/nyerere-day.jpg",
-      bg: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80",
-      color: "#c62828",
-      onClick: null
-    };
-  }
+      if (m === 12 && d === 25){
+        return {
+          id:"christmas",
+          tagline:"Gratitude • Family • Reflection",
+          title:"Merry Christmas",
+          dateText:friendlyDate,
+          body:"Take time to rest, recharge and appreciate the people who support you. Good rest is also part of a smart business strategy.",
+          bg:"https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1400&q=80",
+          color:"#d32f2f",
+          onClick:null
+        };
+      }
 
-  // Independence Day – 9 December
-  if (m === 12 && d === 9){
-    return {
-      id: "independence-day",
-      tagline: "Uhuru • Responsibility • Opportunity",
-      title: "Independence Day",
-      dateText: friendlyDate,
-      body: "Think about financial and business independence. What steps can you take to reduce debt, diversify income and build long-term stability?",
-      bg: "https://images.unsplash.com/photo-1528744598421-b7b93e12df0b?auto=format&fit=crop&w=1400&q=80",
-      color: "#1b5e20",
-      onClick: null
-    };
-  }
+      if (m === 12 && d === 26){
+        return {
+          id:"boxing-day",
+          tagline:"Clear • Organise • Prepare",
+          title:"Boxing Day Reset",
+          dateText:friendlyDate,
+          body:"Use this quiet day to organise your inventory, clean your workspace and plan stock for January. A clean start creates a sharp mind.",
+          bg:"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80",
+          color:"#5d4037",
+          onClick:null
+        };
+      }
 
-  // Christmas Day – 25 Dec
-  if (m === 12 && d === 25){
-    return {
-      id: "christmas",
-      tagline: "Gratitude • Family • Reflection",
-      title: "Merry Christmas",
-      dateText: friendlyDate,
-      body: "Take time to rest, recharge and appreciate the people who support you. Good rest is also part of a smart business strategy.",
-      bg: "https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1400&q=80",
-      color: "#d32f2f",
-      onClick: null
-    };
-  }
+      // weekend service recovery coaching
+      if (wd === 6 || wd === 0){
+        const session = (wd === 6) ? "Saturday Morning" : "Sunday Evening";
+        return {
+          id:"service-recovery-weekend",
+          tagline:"This Weekend • Coaching Live",
+          title:"Service Recovery Coaching",
+          dateText:friendlyDate + " • " + session,
+          body:"Bring one customer complaint or service mistake from this week. In the session we turn it into an apology script, recovery plan and new system for your business.",
+          bg:"https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80",
+          color:"#2e8b57",
+          onClick:()=>window.location.href="services.html"
+        };
+      }
 
-  // Boxing Day – 26 Dec
-  if (m === 12 && d === 26){
-    return {
-      id: "boxing-day",
-      tagline: "Clear • Organise • Prepare",
-      title: "Boxing Day Reset",
-      dateText: friendlyDate,
-      body: "Use this quiet day to organise your inventory, clean your workspace and plan stock for January. A clean start creates a sharp mind.",
-      bg: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80",
-      color: "#5d4037",
-      onClick: null
-    };
-  }
+      return null;
+    }
 
-  // -------- 2. Recurring weekend event: Service Recovery Coaching --------
-  if (wd === 6 || wd === 0){ // Saturday or Sunday
-    const session = (wd === 6) ? "Saturday Morning" : "Sunday Evening";
-    return {
-      id: "service-recovery-weekend",
-      tagline: "This Weekend • Coaching Live",
-      title: "Service Recovery Coaching",
-      dateText: friendlyDate + " • " + session,
-      body: "Bring one customer complaint or service mistake from this week. In the session we turn it into an apology script, recovery plan and new system for your business.",
-      bg: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80",
-      color: "#2e8b57",
-      onClick: () => window.location.href = "services.html"
-    };
-  }
+    function renderAutoCalendarPoster(){
+      const ev = getCalendarEventForToday();
+      const wrap = document.getElementById("autoEventWrap");
+      if(!wrap) return;
 
-  // -------- 3. Default (no event): return null, hide poster --------
-  return null;
-}
+      if(!ev){
+        wrap.style.display = "none";
+        return;
+      }
 
-/* render poster */
-(function renderAutoCalendarPoster(){
-  const ev = getCalendarEventForToday();
-  const wrap = document.getElementById("autoEventWrap");
-  if(!wrap){ return; }
+      const card    = document.getElementById("autoEventCard");
+      const bgImg   = document.getElementById("autoEventBg");
+      const tagEl   = document.getElementById("autoEventTagline");
+      const titleEl = document.getElementById("autoEventTitle");
+      const dateEl  = document.getElementById("autoEventDate");
+      const bodyEl  = document.getElementById("autoEventBody");
 
-  if(!ev){
-    wrap.style.display = "none";
-    return;
-  }
+      tagEl.textContent   = ev.tagline;
+      titleEl.textContent = ev.title;
+      dateEl.textContent  = ev.dateText;
+      bodyEl.textContent  = ev.body;
 
-  const card    = document.getElementById("autoEventCard");
-  const bgImg   = document.getElementById("autoEventBg");
-  const tagEl   = document.getElementById("autoEventTagline");
-  const titleEl = document.getElementById("autoEventTitle");
-  const dateEl  = document.getElementById("autoEventDate");
-  const bodyEl  = document.getElementById("autoEventBody");
+      if(ev.bg){
+        bgImg.src = ev.bg;
+        bgImg.style.display = "block";
+      }else{
+        bgImg.style.display = "none";
+        card.style.background = ev.color || "#bfa034";
+      }
+      if(ev.color && !ev.bg){
+        card.style.background = ev.color;
+      }
 
-  tagEl.textContent   = ev.tagline;
-  titleEl.textContent = ev.title;
-  dateEl.textContent  = ev.dateText;
-  bodyEl.textContent  = ev.body;
+      wrap.style.display = "block";
+      card.onclick = () => {
+        if(typeof ev.onClick === "function") ev.onClick();
+      };
+    }
 
-  if(ev.bg){
-    bgImg.src = ev.bg;
-    bgImg.style.display = "block";
-  }else{
-    bgImg.style.display = "none";
-    card.style.background = ev.color || "#bfa034";
-  }
-
-  if(ev.color && !ev.bg){
-    card.style.background = ev.color;
-  }
-
-  wrap.style.display = "block";
-
-  card.onclick = () => {
-    if(typeof ev.onClick === "function") ev.onClick();
-  };
-})();
-</script>
+    renderAutoCalendarPoster();
   </script>
 </body>
 </html>
+
