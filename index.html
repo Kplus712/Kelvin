@@ -26,6 +26,15 @@
     .announcement-cta{margin-left:12px;background:rgba(255,255,255,0.12);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;border:1px solid rgba(255,255,255,0.12);cursor:pointer}
     @keyframes scroll-left{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
 
+    <body>
+
+<div id="festiveBar">
+  🎄 Christmas Season | New Year in <span id="countdown"></span>
+</div>
+
+<nav>...</nav>
+
+
     /* nav */
     nav{background:#fff;border-bottom:1px solid #eee;padding:.8rem 1rem;position:sticky;top:0;z-index:40}
     nav .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
@@ -189,6 +198,8 @@
       </div>
     </div>
   </div>
+  <section id="eventPoster"></section>
+
 
   <!-- AUTO CALENDAR POSTER -->
   <div class="auto-event-wrap" id="autoEventWrap" style="display:none;">
@@ -277,6 +288,15 @@
   </div>
 
   <footer>© 2025 Kplus712 — All rights reserved.</footer>
+  <!-- Christmas Offer Popup -->
+<div id="xmasOffer" class="xmas-offer">
+  <div class="xmas-box">
+    <h2>🎄 Christmas Business Offer</h2>
+    <p>Get exclusive business coaching & daily tips this Christmas.</p>
+    <button onclick="closeXmas()">Explore Offers</button>
+  </div>
+</div>
+
 
   <script>
     /* ========== Daily Business Tips (Auto) ========== */
@@ -539,6 +559,50 @@
     }
 
     renderAutoCalendarPoster();
+    <script>
+/* ===== CHRISTMAS VIBE ENGINE ===== */
+(function(){
+  const month = new Date().getMonth(); // December = 11
+  if(month !== 11) return;
+
+  /* Show badge */
+  document.getElementById("xmasBadge").style.display = "block";
+
+  /* Snow Effect */
+  const canvas = document.getElementById("xmasSnow");
+  const ctx = canvas.getContext("2d");
+  let w, h;
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const flakes = Array.from({length:80}, () => ({
+    x: Math.random()*w,
+    y: Math.random()*h,
+    r: Math.random()*2 + 1,
+    d: Math.random()*1 + 0.5
+  }));
+
+  function drawSnow(){
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle = "rgba(255,255,255,.9)";
+    flakes.forEach(f=>{
+      ctx.beginPath();
+      ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+      ctx.fill();
+      f.y += f.d;
+      if(f.y > h){
+        f.y = 0;
+        f.x = Math.random()*w;
+      }
+    });
+    requestAnimationFrame(drawSnow);
+  }
+  drawSnow();
+})();
   </script>
 </body>
 </html>
