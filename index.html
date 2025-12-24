@@ -1,545 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kplus712 — Home</title>
-  <meta name="theme-color" content="#bfa034">
-  <style>
-    :root{
-      --gold:#bfa034;
-      --muted:#666;
-      --bg:#fff;
-      --maxw:1100px;
-      --card-radius:12px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:"Poppins",system-ui,Arial;background:var(--bg);color:#222;line-height:1.5}
-    a{color:inherit}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kplus712 | Daily Business Tips</title>
 
-    .small-muted{font-size:.9rem;color:var(--muted);}
+<style>
+/* ========== GLOBAL ========== */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#fff;
+  color:#333;
+}
+a{text-decoration:none}
 
-    /* Announcement bar */
-    .announcement-wrap{background:var(--gold);color:#fff;overflow:hidden;position:relative}
-    .announcement-inner{max-width:var(--maxw);margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
-    .announcement-text{white-space:nowrap;display:inline-block;font-weight:700;cursor:pointer;padding:6px 0;animation: scroll-left 18s linear infinite}
-    .announcement-cta{margin-left:12px;background:rgba(255,255,255,0.12);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;border:1px solid rgba(255,255,255,0.12);cursor:pointer}
-    @keyframes scroll-left{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+/* ========== NAV BAR ========== */
+nav{
+  background:#bfa034;
+  padding:15px;
+  text-align:center;
+}
+nav a{
+  color:#fff;
+  margin:0 15px;
+  font-weight:600;
+}
 
-    /* nav */
-    nav{background:#fff;border-bottom:1px solid #eee;padding:.8rem 1rem;position:sticky;top:0;z-index:40}
-    nav .inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    nav .brand{font-weight:800;color:var(--gold)}
-    nav .links a{margin:0 .6rem;text-decoration:none;color:#333;font-weight:600}
+/* ========== HERO ========== */
+header{
+  background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+  url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  color:#fff;
+  padding:80px 20px;
+  text-align:center;
+}
+.gold-shimmer{
+  background:linear-gradient(90deg,#bfa034,#fff1a8,#bfa034);
+  background-size:200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shimmer 4s linear infinite;
+}
+@keyframes shimmer{to{background-position:200%}}
 
-    /* hero / daily tip */
-    .hero{max-width:var(--maxw);margin:20px auto;padding:0 16px}
-    .hero h1{color:var(--gold);margin:0;font-size:clamp(20px,3.2vw,32px)}
-    .hero p{color:var(--muted);margin:6px 0 12px}
+/* ========== ANNOUNCEMENT ========== */
+.announcement-wrap{
+  background:#145a32;
+  color:#fff;
+  overflow:hidden;
+  cursor:pointer;
+}
+.announcement-text{
+  display:inline-block;
+  padding:15px;
+  white-space:nowrap;
+  animation:scroll 18s linear infinite;
+}
+@keyframes scroll{
+  from{transform:translateX(100%)}
+  to{transform:translateX(-100%)}
+}
 
-    .daily-tip{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;background:#fff;border-radius:var(--card-radius);padding:14px;border:1px solid #eee;box-shadow:0 6px 18px rgba(0,0,0,0.04);max-width:var(--maxw)}
-    .tip-img{width:120px;height:80px;object-fit:cover;border-radius:8px}
-    .tip-meta{font-size:13px;color:var(--muted)}
-    .tip-title{font-weight:700;color:#222;margin:6px 0}
+/* ========== SECTIONS ========== */
+section{
+  padding:50px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+.center{text-align:center}
 
-    /* content */
-    .content{max-width:var(--maxw);margin:18px auto;padding:12px}
-    .section-card{background:#fff;border-radius:10px;padding:14px;border:1px solid #eee;margin-bottom:12px}
+/* ========== DAILY TIP ========== */
+.tip-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  align-items:center;
+}
+.tip-card img{
+  width:100%;
+  border-radius:10px;
+}
+@media(max-width:768px){
+  .tip-card{grid-template-columns:1fr}
+}
 
-    /* modal centered */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:60;padding:18px}
-    .modal{width:100%;max-width:880px;border-radius:14px;background:linear-gradient(180deg,#fff,#fff);color:#111;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,0.25);display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
-    @media(max-width:920px){.modal{grid-template-columns:1fr;max-width:600px}}
-    .modal-left h2{color:var(--gold);margin:0 0 10px}
-    .modal-left p.lead{color:#333;margin:0 0 8px}
-    .modal-left ul{margin:8px 0 0;padding-left:18px;color:#333}
-    .btn-row{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-    .btn-primary{background:var(--gold);color:#fff;border:0;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer}
-    .btn-secondary{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 14px;border-radius:8px;cursor:pointer}
+/* ========== SERVICE RECOVERY MODAL ========== */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:1000;
+}
+.modal-content{
+  background:#fff;
+  max-width:700px;
+  margin:40px auto;
+  padding:25px;
+  border-radius:10px;
+}
+.close{
+  float:right;
+  font-size:20px;
+  cursor:pointer;
+}
 
-    .booking-preview{background:#f7f7f7;border-radius:10px;padding:12px;color:#222}
-    .stories{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
-    .story{display:flex;gap:8px;align-items:center;background:#fff;padding:8px;border-radius:10px;border:1px solid #f0f0f0}
-    .story img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+/* ========== FORM ========== */
+form input, form select{
+  width:100%;
+  padding:10px;
+  margin-bottom:12px;
+}
+form button{
+  background:#145a32;
+  color:#fff;
+  border:none;
+  padding:12px;
+  width:100%;
+  font-weight:600;
+}
 
-    /* AUTO CALENDAR POSTER */
-    .auto-event-wrap{
-      max-width:1100px;
-      margin:0 auto 18px;
-      padding:0 16px;
-    }
-    .auto-event-card{
-      position:relative;
-      border-radius:20px;
-      overflow:hidden;
-      min-height:160px;
-      color:#fff;
-      box-shadow:0 14px 40px rgba(0,0,0,0.28);
-      display:flex;
-      align-items:stretch;
-      background:#bfa034;
-      cursor:pointer;
-    }
-    .auto-event-bg{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter:brightness(1.08);
-      z-index:0;
-    }
-    .auto-event-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.35));
-      z-index:1;
-    }
-    .auto-event-content{
-      position:relative;
-      z-index:2;
-      display:flex;
-      flex:1;
-      padding:18px 20px 16px;
-      gap:18px;
-    }
-    .auto-event-logo{
-      width:95px;
-      height:auto;
-      margin-top:4px;
-    }
-    .auto-event-text{
-      flex:1;
-    }
-    .auto-event-tagline{
-      font-size:14px;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      opacity:.9;
-    }
-    .auto-event-title{
-      font-size:24px;
-      font-weight:800;
-      margin:4px 0 6px;
-    }
-    .auto-event-date{
-      font-size:13px;
-      opacity:.95;
-    }
-    .auto-event-body{
-      margin-top:6px;
-      font-size:14px;
-      opacity:.98;
-    }
-    @media(max-width:720px){
-      .auto-event-card{min-height:170px;}
-      .auto-event-content{flex-direction:row;align-items:flex-start;padding:14px;}
-      .auto-event-logo{width:78px;}
-      .auto-event-title{font-size:20px;}
-    }
+/* ========== FOOTER ========== */
+footer{
+  background:#222;
+  color:#fff;
+  padding:30px;
+  text-align:center;
+}
 
-    /* small responsive tweaks */
-    @media(max-width:520px){
-      .announcement-cta{display:none}
-      .daily-tip{grid-template-columns:1fr}
-      .tip-img{width:100%;height:140px;border-radius:8px}
-    }
-
-    footer{max-width:var(--maxw);margin:18px auto;padding:12px;text-align:center;color:var(--muted)}
-  </style>
+/* ========== CHRISTMAS ========== */
+#snowCanvas{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:999;
+}
+.christmas-glow{
+  box-shadow:0 0 20px rgba(255,215,0,.6);
+}
+</style>
 </head>
+
 <body>
-  <!-- Announcement bar -->
-  <div class="announcement-wrap" role="region" aria-label="Announcement">
-    <div class="announcement-inner">
-      <div class="announcement-text" id="announcementText" tabindex="0" aria-pressed="false">
-        📢 New! Weekend <strong>Service Recovery Coaching</strong> — master customer recovery & loyalty. Tap to learn more & book.
-      </div>
-      <button class="announcement-cta" id="announcementBtn">Jifunze Zaidi</button>
-    </div>
+
+<canvas id="snowCanvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Business Knowledge</a>
+  <a href="#">About Us</a>
+  <a href="#">Contact</a>
+  <a href="#">Services</a>
+</nav>
+
+<!-- HERO -->
+<header>
+  <h1 class="gold-shimmer">🎄 Daily Business Tips</h1>
+  <p id="liveDate"></p>
+</header>
+
+<!-- ANNOUNCEMENT -->
+<div class="announcement-wrap christmas-glow" onclick="openService()">
+  <div class="announcement-text" id="announcementText">
+    🚀 HUDUMA MPYA INAKUJA: SERVICE RECOVERY COACHING – BOFYA HAPA KUJIFUNZA ZAIDI
   </div>
+</div>
 
-  <!-- nav -->
-  <nav>
-    <div class="inner">
-      <div class="brand">Kplus712</div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="business-knowledge.html">Business Knowledge</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="services.html">Services</a>
-      </div>
+<!-- DAILY TIP -->
+<section>
+  <h2 class="center">Tip of the Day</h2>
+  <div class="tip-card">
+    <div>
+      <h3 id="tipTitle"></h3>
+      <p id="tipBody"></p>
     </div>
-  </nav>
-
-  <!-- hero + auto daily tip -->
-  <div class="hero">
-    <div style="max-width:var(--maxw);margin:0 auto;padding:0 16px">
-      <h1>Daily Business Tips </h1>
-      <p>Small tips, big impact. One short tip every day to grow your business.</p>
-
-      <div id="dailyTip" class="daily-tip" style="margin-top:14px">
-        <img id="tipImg" class="tip-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60" alt="tip image">
-        <div>
-          <div class="tip-meta" id="tipDate">Date</div>
-          <div class="tip-title" id="tipTitle">Tip title</div>
-          <div id="tipBody" class="tip-body small-muted">Tip short explanation — practice this today to improve your cash flow.</div>
-        </div>
-      </div>
-    </div>
+    <img id="tipImg">
   </div>
+</section>
 
-  <!-- AUTO CALENDAR POSTER -->
-  <div class="auto-event-wrap" id="autoEventWrap" style="display:none;">
-    <div class="auto-event-card" id="autoEventCard">
-      <img id="autoEventBg" class="auto-event-bg" src="" alt="" loading="lazy">
-      <div class="auto-event-overlay"></div>
-      <div class="auto-event-content">
-        <img src="assets/kplus712-logo.png" alt="Kplus712" class="auto-event-logo" loading="lazy">
-        <div class="auto-event-text">
-          <div class="auto-event-tagline" id="autoEventTagline">Calendar Highlight</div>
-          <div class="auto-event-title" id="autoEventTitle">Special Day</div>
-          <div class="auto-event-date" id="autoEventDate">Date</div>
-          <div class="auto-event-body" id="autoEventBody">
-            Explanation about this day and what it means for you as an entrepreneur.
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- SERVICE RECOVERY MODAL -->
+<div class="modal" id="serviceModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeService()">✖</span>
+    <h2 style="color:#145a32">Service Recovery Coaching</h2>
+    <p>
+      Jifunze jinsi ya kurejesha wateja waliokata tamaa na kubadilisha malalamiko
+      kuwa fursa za biashara. Mafunzo haya yanazingatia mifano halisi ya Tanzania.
+    </p>
+
+    <ul>
+      <li>📅 Jumamosi (Asubuhi)</li>
+      <li>🌙 Jumapili (Jioni)</li>
+      <li>💰 Gharama: Tsh 5,000 – 10,000</li>
+    </ul>
+
+    <button onclick="openBooking()">📋 Book Now</button>
   </div>
+</div>
 
-  <main class="content">
-    <section class="section-card">
-      <h3>About Kplus712</h3>
-      <p class="small-muted">We share daily business tips, short lessons and practical coaching for entrepreneurs.</p>
-    </section>
-
-    <section class="section-card">
-      <h3>Explore</h3>
-      <p class="small-muted">Visit Business Knowledge for core modules, or Services for coaching and bookings.</p>
-    </section>
-  </main>
-
-  <!-- centered modal (Service Recovery details) -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="dialog">
-    <div class="modal" role="document" aria-labelledby="modalTitle">
-      <div class="modal-left">
-        <button id="closeModal" aria-label="Close" style="float:right;background:transparent;border:0;font-size:22px;cursor:pointer">&times;</button>
-        <h2 id="modalTitle">Service Recovery Coaching</h2>
-        <p class="lead">Huduma hii inalenga kukusaidia kurejesha wateja waliopotea, kuboresha utoaji wa huduma, na kujenga imani ya wateja.</p>
-        <ul>
-          <li><strong>Wakati:</strong> Jumamosi (asubuhi) na Jumapili (jioni).</li>
-          <li><strong>Mbinu:</strong> Mafunzo ya vitendo kupitia WhatsApp, assignments na follow-up.</li>
-          <li><strong>Matokeo:</strong> Kuongezeka kwa referrals, uaminifu na mauzo.</li>
-        </ul>
-
-        <div class="btn-row">
-          <button class="btn-primary" id="goToServicePage">📘 Book Now (Service Page)</button>
-          <button class="btn-secondary" id="modalLearnMore">Soma sample module</button>
-        </div>
-
-        <div style="margin-top:12px">
-          <div style="font-weight:800;margin-bottom:6px">Success Stories</div>
-          <div class="stories">
-            <div class="story">
-              <img src="https://raw.githubusercontent.com/Kplus712/Kelvin/main/fred-vunjabei.jpg" alt="Fred Vunjabei">
-              <div>
-                <div style="font-weight:700">Fred Vunjabei</div>
-                <div style="font-size:13px;color:#666">From handmade fashion to a trusted brand.</div>
-              </div>
-            </div>
-            <div class="story">
-              <img src="https://raw.githubusercontent.com/Kplus712/Kelvin/main/david-sportware.jpg" alt="David Sportswear">
-              <div>
-                <div style="font-weight:700">David Sportswear</div>
-                <div style="font-size:13px;color:#666">Scaled from market stall to local brand.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="booking-preview" id="bookingPreview" aria-hidden="false">
-        <h3 style="margin:0 0 6px">Reserve a seat</h3>
-        <div style="font-size:13px;color:#444">Click Book Now to go to the Service Recovery page where you can select time and fill booking details.</div>
-        <div style="margin-top:12px">
-          <strong>Quick fees</strong>
-          <div style="margin-top:8px;font-size:13px;color:#333">
-            Tsh 500 — Taster (10–15 min)<br>
-            Tsh 1,000 — Short lesson (30 min)<br>
-            Tsh 5,000 — Deep session (60 min)<br>
-            Tsh 10,000 — Full program + certificate
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- BOOKING FORM -->
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeBooking()">✖</span>
+    <h2>Service Recovery Registration</h2>
+    <form>
+      <input placeholder="Full Name" required>
+      <select required>
+        <option>Elimu</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+        <option>Certificate</option>
+        <option>Diploma</option>
+        <option>Degree</option>
+      </select>
+      <input placeholder="Location" required>
+      <select required>
+        <option>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <input placeholder="WhatsApp Number" required>
+      <select required>
+        <option>Fees Package</option>
+        <option>Tsh 5,000 (Basics)</option>
+        <option>Tsh 10,000 (Full Coaching)</option>
+      </select>
+      <button>Submit Booking</button>
+    </form>
   </div>
+</div>
 
-  <footer>© 2025 Kplus712 — All rights reserved.</footer>
+<!-- FOOTER -->
+<footer>
+  <p>📧 kplus712@gmail.com | 📞 +255622266932</p>
+  <p>© 2026 Kplus712</p>
+</footer>
 
-  <script>
-    /* ========== Daily Business Tips (Auto) ========== */
-    const tips = [
-      { title:"Start your day with planning", body:"Use the first 15 minutes of your morning to set three business goals for the day.", meaning:"Helps you stay focused, reduce distractions and increase daily productivity.", img:"https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60" },
-      { title:"Keep an emergency reserve", body:"Save 10% of daily revenue as an emergency reserve — start small and stay consistent.", meaning:"Ensures business continuity in tough times such as supplier delays or low sales periods.", img:"https://images.unsplash.com/photo-1581091870627-3ca5c045d2d8?auto=format&fit=crop&w=800&q=60" },
-      { title:"Know your customer", body:"Spend 15 minutes today to ask 3 customers what they like and what to improve.", meaning:"Understanding customer needs helps you tailor products and improve satisfaction.", img:"https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60" },
-      { title:"Package offers smartly", body:"Bundle small products with a service to increase perceived value and average order.", meaning:"Packaging encourages upselling and helps customers discover more of your offers.", img:"https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=60" },
-      { title:"Invest in learning", body:"Spend at least 20 minutes reading a business article or watching a tutorial daily.", meaning:"Continuous learning keeps your strategies fresh and relevant in changing markets.", img:"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=60" },
-      { title:"Track your cash flow", body:"Record every expense — big or small — at the end of the day.", meaning:"It helps identify unnecessary costs and maintain a healthy financial balance.", img:"https://images.unsplash.com/photo-1554224155-3a58577a7f5b?auto=format&fit=crop&w=800&q=60" },
-      { title:"Network intentionally", body:"Reach out to one business contact today, offer value, and reconnect.", meaning:"Building relationships keeps your business visible and trusted.", img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60" },
-      { title:"Offer small discounts strategically", body:"Give loyal customers a small appreciation discount to encourage repeat business.", meaning:"Rewarding loyalty builds trust and customer retention.", img:"https://images.unsplash.com/photo-1578589318437-9e1d8f4b7e90?auto=format&fit=crop&w=800&q=60" },
-      { title:"Declutter your workspace", body:"Organize your working area before starting the day.", meaning:"Clean space leads to clear thinking and better productivity.", img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=60" },
-      { title:"Review customer feedback", body:"Go through your last 5 reviews and note areas for improvement.", meaning:"Customer opinions are the best indicators for growth opportunities.", img:"https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60" },
-      { title:"Improve time management", body:"Use a timer to focus for 45 minutes and then rest for 10 minutes.", meaning:"Structured work sessions increase output and reduce burnout.", img:"https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=60" },
-      { title:"Appreciate your team", body:"Say thank you to a staff member or partner who performed well today.", meaning:"Recognition increases morale, loyalty, and overall performance.", img:"https://images.unsplash.com/photo-1594745562903-6c7b8e6a97f7?auto=format&fit=crop&w=800&q=60" },
-      { title:"Promote online", body:"Post something about your business on social media today.", meaning:"Consistency in visibility builds audience engagement and awareness.", img:"https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=60" },
-      { title:"Simplify your offer", body:"Review your product list and remove items that don’t sell well.", meaning:"Focusing on bestsellers saves resources and increases profitability.", img:"https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?auto=format&fit=crop&w=800&q=60" },
-      { title:"Set weekly targets", body:"Divide big monthly goals into small weekly tasks.", meaning:"Small wins accumulate into consistent growth.", img:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60" },
-      { title:"Ask for referrals", body:"Reach out to happy customers and ask them to refer your business.", meaning:"Word-of-mouth marketing remains the most powerful growth tool.", img:"https://images.unsplash.com/photo-1573497161462-52ac2b7d7b1d?auto=format&fit=crop&w=800&q=60" },
-      { title:"Study your competitors", body:"Visit competitor shops or pages and note what you can do differently.", meaning:"Benchmarking helps you innovate while staying relevant.", img:"https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=800&q=60" },
-      { title:"Measure customer satisfaction", body:"Ask your last 5 customers to rate their experience 1–5.", meaning:"Collecting quick feedback guides product improvement.", img:"https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=800&q=60" },
-      { title:"Update your profile", body:"Check your social media bios and contact info — keep it professional.", meaning:"Accurate info ensures clients reach you easily and builds credibility.", img:"https://images.unsplash.com/photo-1556767576-cfba7a1f7c3b?auto=format&fit=crop&w=800&q=60" },
-      { title:"Track your sales", body:"Record daily sales at the same hour to identify growth trends.", meaning:"Consistency makes data analysis easier and more accurate.", img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=60" },
-      { title:"Celebrate small wins", body:"Acknowledge one progress you’ve made this week — however small.", meaning:"Celebrating progress motivates you to keep moving forward.", img:"https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=60" }
-    ];
+<script>
+/* DATE */
+setInterval(()=>{
+  document.getElementById("liveDate").innerText =
+  new Date().toLocaleString();
+},1000);
 
-    const now = new Date();
-    const idx = now.getDate() % tips.length;
-    const tip = tips[idx];
-    const dateText = now.toLocaleDateString("en-GB", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
-    const timeText = now.toLocaleTimeString("en-GB", { hour:"2-digit", minute:"2-digit" });
+/* DAILY TIPS */
+const tips=[
+{title:"Keep an emergency reserve",body:"Save 10% of daily revenue.",img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f"},
+{title:"Know your customer",body:"Talk to 3 customers daily.",img:"https://images.unsplash.com/photo-1559526324-593bc073d938"},
+{title:"Package offers",body:"Bundle products to increase value.",img:"https://images.unsplash.com/photo-1515378791036-0648a3ef77b2"}
+];
+const tip=tips[new Date().getDate()%tips.length];
+tipImg.src=tip.img;
+tipTitle.innerText=tip.title;
+tipBody.innerText=tip.body;
 
-    document.getElementById("tipDate").innerText = `${dateText} • ${timeText}`;
-    document.getElementById("tipTitle").innerText = tip.title;
-    document.getElementById("tipBody").innerHTML = `<p>${tip.body}</p><p style='margin-top:6px;color:#555;font-style:italic;'>Meaning: ${tip.meaning}</p>`;
-    document.getElementById("tipImg").src = tip.img;
+/* MODALS */
+function openService(){serviceModal.style.display="block";}
+function closeService(){serviceModal.style.display="none";}
+function openBooking(){serviceModal.style.display="none";bookingModal.style.display="block";}
+function closeBooking(){bookingModal.style.display="none";}
 
-    /* modal behaviour */
-    const announcementText = document.getElementById('announcementText');
-    const announcementBtn = document.getElementById('announcementBtn');
-    const modalBackdrop = document.getElementById('modalBackdrop');
-    const closeModal = document.getElementById('closeModal');
-    const goToServicePage = document.getElementById('goToServicePage');
-    const modalLearnMore = document.getElementById('modalLearnMore');
+/* CHRISTMAS SNOW */
+if(new Date().getMonth()==11){
+const c=document.getElementById("snowCanvas"),x=c.getContext("2d");
+let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}r();onresize=r;
+const f=[...Array(70)].map(()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,d:Math.random()+.5}));
+(function s(){
+x.clearRect(0,0,w,h);
+x.fillStyle="white";
+f.forEach(a=>{x.beginPath();x.arc(a.x,a.y,a.r,0,Math.PI*2);x.fill();a.y+=a.d;if(a.y>h)a.y=0;});
+requestAnimationFrame(s);
+})();
+}
+</script>
 
-    function openModal(){ modalBackdrop.style.display='flex'; modalBackdrop.setAttribute('aria-hidden','false'); }
-    function hideModal(){ modalBackdrop.style.display='none'; modalBackdrop.setAttribute('aria-hidden','true'); }
-
-    announcementText.addEventListener('click', openModal);
-    announcementBtn.addEventListener('click', openModal);
-    closeModal.addEventListener('click', hideModal);
-    modalBackdrop.addEventListener('click',(e)=>{ if(e.target===modalBackdrop) hideModal(); });
-
-    goToServicePage.addEventListener('click', ()=> {
-      hideModal();
-      window.location.href = 'services.html';
-    });
-
-    modalLearnMore.addEventListener('click', ()=> {
-      alert('Sample module: Service Recovery — apology scripts, root cause analysis, follow-up plays.');
-    });
-
-    /* ================== AUTO-CALENDAR LOGIC (TZ EVENTS) ================== */
-    function getCalendarEventForToday(){
-      const now = new Date();
-      const m  = now.getMonth() + 1;
-      const d  = now.getDate();
-      const wd = now.getDay();
-      const friendlyDate = now.toLocaleDateString("en-GB", {
-        weekday:"long", day:"numeric", month:"long", year:"numeric"
-      });
-
-      if (m === 1 && d === 1){
-        return {
-          id:"new-year",
-          tagline:"New Year • Fresh Business Vision",
-          title:"Happy New Year",
-          dateText:friendlyDate,
-          body:"Use today to set three clear business goals: revenue, number of customers and one system you will improve. Write them down and keep them where you can see them daily.",
-          bg:"https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
-          color:"#1e88e5",
-          onClick:()=>window.location.href="business-knowledge.html"
-        };
-      }
-
-      if (m === 1 && d === 12){
-        return {
-          id:"zanzibar-revolution",
-          tagline:"History • Change • Leadership",
-          title:"Zanzibar Revolution Day",
-          dateText:friendlyDate,
-          body:"Reflect on how bold decisions and courage can transform a nation — and your business. Which old habit must you remove this year to move forward?",
-          bg:"https://images.unsplash.com/photo-1578924608828-78f8bca464e1?auto=format&fit=crop&w=1400&q=80",
-          color:"#2e7d32",
-          onClick:null
-        };
-      }
-
-      if (m === 4 && d === 26){
-        return {
-          id:"union-day",
-          tagline:"Unity • Partnership • Strategy",
-          title:"Union Day",
-          dateText:friendlyDate,
-          body:"Think about the power of partnerships in business. Identify one person, brand or supplier you could collaborate with to expand your reach or improve quality.",
-          bg:"https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80",
-          color:"#1565c0",
-          onClick:null
-        };
-      }
-
-      if (m === 5 && d === 1){
-        return {
-          id:"workers-day",
-          tagline:"Appreciate People Who Build Value",
-          title:"Workers' Day",
-          dateText:friendlyDate,
-          body:"Celebrate your own effort and the people who help your business move. Send a message of appreciation to at least one staff member, supplier or partner today.",
-          bg:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
-          color:"#f57c00",
-          onClick:null
-        };
-      }
-
-      if (m === 7 && d === 7){
-        return {
-          id:"saba-saba",
-          tagline:"Trade Fair • Market Visibility",
-          title:"Saba Saba",
-          dateText:friendlyDate,
-          body:"Use this day to think about how you showcase your products. Could you join fairs, exhibitions or online campaigns to make your business more visible?",
-          bg:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
-          color:"#8e24aa",
-          onClick:null
-        };
-      }
-
-      if (m === 8 && d === 8){
-        return {
-          id:"nane-nane",
-          tagline:"Agribusiness • Food Systems",
-          title:"Nane Nane Day",
-          dateText:friendlyDate,
-          body:"If you are in agribusiness, review your value chain: from production, processing to marketing. Where can you add more value or reduce loss?",
-          bg:"https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1400&q=80",
-          color:"#2e7d32",
-          onClick:null
-        };
-      }
-
-      if (m === 10 && d === 14){
-        return {
-          id:"nyerere-day",
-          tagline:"Leadership • Integrity • Service",
-          title:"Happy Nyerere Day",
-          dateText:friendlyDate,
-          body:"In honour of Mwalimu Julius Nyerere, review your leadership style. Are you serving your customers and team with honesty, humility and long-term vision? Choose one leadership habit to improve this week.",
-          // bg:"assets/nyerere-day.jpg",
-          bg:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80",
-          color:"#c62828",
-          onClick:null
-        };
-      }
-
-      if (m === 12 && d === 9){
-        return {
-          id:"independence-day",
-          tagline:"Uhuru • Responsibility • Opportunity",
-          title:"Independence Day",
-          dateText:friendlyDate,
-          body:"Think about financial and business independence. What steps can you take to reduce debt, diversify income and build long-term stability?",
-          bg:"https://images.unsplash.com/photo-1528744598421-b7b93e12df0b?auto=format&fit=crop&w=1400&q=80",
-          color:"#1b5e20",
-          onClick:null
-        };
-      }
-
-      if (m === 12 && d === 25){
-        return {
-          id:"christmas",
-          tagline:"Gratitude • Family • Reflection",
-          title:"Merry Christmas",
-          dateText:friendlyDate,
-          body:"Take time to rest, recharge and appreciate the people who support you. Good rest is also part of a smart business strategy.",
-          bg:"https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1400&q=80",
-          color:"#d32f2f",
-          onClick:null
-        };
-      }
-
-      if (m === 12 && d === 26){
-        return {
-          id:"boxing-day",
-          tagline:"Clear • Organise • Prepare",
-          title:"Boxing Day Reset",
-          dateText:friendlyDate,
-          body:"Use this quiet day to organise your inventory, clean your workspace and plan stock for January. A clean start creates a sharp mind.",
-          bg:"https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80",
-          color:"#5d4037",
-          onClick:null
-        };
-      }
-
-      // weekend service recovery coaching
-      if (wd === 6 || wd === 0){
-        const session = (wd === 6) ? "Saturday Morning" : "Sunday Evening";
-        return {
-          id:"service-recovery-weekend",
-          tagline:"This Weekend • Coaching Live",
-          title:"Service Recovery Coaching",
-          dateText:friendlyDate + " • " + session,
-          body:"Bring one customer complaint or service mistake from this week. In the session we turn it into an apology script, recovery plan and new system for your business.",
-          bg:"https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80",
-          color:"#2e8b57",
-          onClick:()=>window.location.href="services.html"
-        };
-      }
-
-      return null;
-    }
-
-    function renderAutoCalendarPoster(){
-      const ev = getCalendarEventForToday();
-      const wrap = document.getElementById("autoEventWrap");
-      if(!wrap) return;
-
-      if(!ev){
-        wrap.style.display = "none";
-        return;
-      }
-
-      const card    = document.getElementById("autoEventCard");
-      const bgImg   = document.getElementById("autoEventBg");
-      const tagEl   = document.getElementById("autoEventTagline");
-      const titleEl = document.getElementById("autoEventTitle");
-      const dateEl  = document.getElementById("autoEventDate");
-      const bodyEl  = document.getElementById("autoEventBody");
-
-      tagEl.textContent   = ev.tagline;
-      titleEl.textContent = ev.title;
-      dateEl.textContent  = ev.dateText;
-      bodyEl.textContent  = ev.body;
-
-      if(ev.bg){
-        bgImg.src = ev.bg;
-        bgImg.style.display = "block";
-      }else{
-        bgImg.style.display = "none";
-        card.style.background = ev.color || "#bfa034";
-      }
-      if(ev.color && !ev.bg){
-        card.style.background = ev.color;
-      }
-
-      wrap.style.display = "block";
-      card.onclick = () => {
-        if(typeof ev.onClick === "function") ev.onClick();
-      };
-    }
-
-    renderAutoCalendarPoster();
-  </script>
 </body>
 </html>
 
