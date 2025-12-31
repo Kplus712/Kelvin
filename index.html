@@ -742,7 +742,7 @@
       gap: 8px;
     }
     
-    /* FEATURE 4: Business Metrics Calculator Widget */
+    /* FEATURE 4: Business Metrics Calculator Widget - FIXED */
     .calculator-widget {
       background: var(--card-bg);
       border-radius: var(--card-radius);
@@ -791,6 +791,14 @@
       padding: 24px;
     }
     
+    .calc-content:not(.active) {
+      display: none;
+    }
+    
+    .calc-content.active {
+      display: block;
+    }
+    
     .input-group {
       margin-bottom: 20px;
     }
@@ -813,7 +821,7 @@
       color: var(--text);
     }
     
-    .calc-content button {
+    .calc-btn {
       background: var(--gold);
       color: white;
       border: none;
@@ -826,7 +834,7 @@
       margin-top: 16px;
     }
     
-    .calc-content button:hover {
+    .calc-btn:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
     }
@@ -845,7 +853,7 @@
       margin-bottom: 12px;
     }
     
-    /* FEATURE 5: Community Success Stories Slider */
+    /* FEATURE 5: Community Success Stories Slider - FIXED */
     .live-stories {
       max-width: var(--maxw);
       margin: 40px auto;
@@ -874,6 +882,7 @@
       padding: 20px 0;
       scrollbar-width: thin;
       scrollbar-color: var(--gold) var(--bg-alt);
+      -webkit-overflow-scrolling: touch;
     }
     
     .stories-slider::-webkit-scrollbar {
@@ -908,6 +917,7 @@
       width: 100%;
       height: 180px;
       object-fit: cover;
+      display: block;
     }
     
     .story-content {
@@ -1452,7 +1462,7 @@
         </p>
       </div>
 
-      <!-- Daily Tip Card with Voting System (FEATURE 2) -->
+      <!-- Daily Tip Card with Voting System (FEATURE 2) - FIXED -->
       <div id="dailyTip" class="daily-tip" role="article" aria-labelledby="tipTitle">
         <div class="tip-img-container">
           <img id="tipImg" class="tip-img" 
@@ -1481,16 +1491,20 @@
               👎 <span class="vote-count" id="dislikeCount">3</span>
             </button>
             <button class="comment-btn" id="commentBtn">
-              💬 Share Your Experience
+              💬 Show Comments
             </button>
           </div>
           
-          <div class="comments-section" id="commentsSection" style="display: none;">
+          <!-- Comments Section - FIXED: Now properly hidden by default -->
+          <div class="comments-section" id="commentsSection">
             <div class="comment">
               <strong>John (Tanga):</strong> "Nimetumika hii tip na nimeona mabadiliko!"
             </div>
             <div class="comment">
               <strong>Maria (Dar):</strong> "Imenisaidia kuongeza mauzo kwa 30%!"
+            </div>
+            <div class="comment">
+              <strong>James (Mwanza):</strong> "Tip nzuri sana, nimeanza kufanya kila siku!"
             </div>
           </div>
         </div>
@@ -1603,7 +1617,7 @@
       </div>
     </section>
 
-    <!-- FEATURE 4: Business Metrics Calculator Widget -->
+    <!-- FEATURE 4: Business Metrics Calculator Widget - FIXED -->
     <section class="calculator-widget" aria-labelledby="calcTitle">
       <h3 id="calcTitle">🧮 Business Calculator</h3>
       
@@ -1613,7 +1627,8 @@
         <button data-calc="roi">ROI Calculator</button>
       </div>
       
-      <div class="calc-content" id="profitCalc">
+      <!-- Profit Margin Calculator -->
+      <div class="calc-content active" id="profitCalc">
         <div class="input-group">
           <label for="revenue">Revenue (TZS):</label>
           <input type="number" id="revenue" placeholder="e.g., 1,000,000">
@@ -1622,15 +1637,16 @@
           <label for="cost">Cost (TZS):</label>
           <input type="number" id="cost" placeholder="e.g., 700,000">
         </div>
-        <button onclick="calculateProfit()">Calculate Profit Margin</button>
+        <button class="calc-btn" onclick="calculateProfit()">Calculate Profit Margin</button>
         
-        <div class="calc-result" id="profitResult" style="display: none;">
+        <div class="calc-result" id="profitResult">
           <h4>Profit Margin: <span id="profitPercentage">0%</span></h4>
           <p class="interpretation" id="profitInterpretation"></p>
         </div>
       </div>
       
-      <div class="calc-content" id="breakEvenCalc" style="display: none;">
+      <!-- Break-even Calculator -->
+      <div class="calc-content" id="breakEvenCalc">
         <div class="input-group">
           <label for="fixedCosts">Fixed Costs (TZS):</label>
           <input type="number" id="fixedCosts" placeholder="e.g., 500,000">
@@ -1643,16 +1659,34 @@
           <label for="variableCostPerUnit">Variable Cost per Unit (TZS):</label>
           <input type="number" id="variableCostPerUnit" placeholder="e.g., 6,000">
         </div>
-        <button onclick="calculateBreakEven()">Calculate Break-even</button>
+        <button class="calc-btn" onclick="calculateBreakEven()">Calculate Break-even</button>
         
-        <div class="calc-result" id="breakEvenResult" style="display: none;">
+        <div class="calc-result" id="breakEvenResult">
           <h4>Break-even Point: <span id="breakEvenUnits">0</span> units</h4>
           <p class="interpretation" id="breakEvenInterpretation"></p>
         </div>
       </div>
+      
+      <!-- ROI Calculator -->
+      <div class="calc-content" id="roiCalc">
+        <div class="input-group">
+          <label for="investment">Total Investment (TZS):</label>
+          <input type="number" id="investment" placeholder="e.g., 2,000,000">
+        </div>
+        <div class="input-group">
+          <label for="netProfit">Net Profit from Investment (TZS):</label>
+          <input type="number" id="netProfit" placeholder="e.g., 500,000">
+        </div>
+        <button class="calc-btn" onclick="calculateROI()">Calculate ROI</button>
+        
+        <div class="calc-result" id="roiResult">
+          <h4>ROI: <span id="roiPercentage">0%</span></h4>
+          <p class="interpretation" id="roiInterpretation"></p>
+        </div>
+      </div>
     </section>
 
-    <!-- FEATURE 5: Community Success Stories Slider -->
+    <!-- FEATURE 5: Community Success Stories Slider - FIXED -->
     <section class="live-stories" aria-labelledby="storiesTitle">
       <div class="stories-header">
         <h3 id="storiesTitle">🎯 Live Success Stories</h3>
@@ -1701,6 +1735,21 @@
             <div class="story-stats">
               <span>👍 56</span>
               <span>💬 12</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="story-slide">
+          <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?auto=format&fit=crop&w=800&q=80" alt="David, Dodoma">
+          <div class="story-content">
+            <div class="story-header">
+              <strong>David, Dodoma</strong>
+              <span class="story-time">5 days ago</span>
+            </div>
+            <p>"Started with 3 customers, now I have 50 regulars thanks to Kplus712 tips!"</p>
+            <div class="story-stats">
+              <span>👍 34</span>
+              <span>💬 7</span>
             </div>
           </div>
         </div>
@@ -2120,7 +2169,7 @@
       });
     }
 
-    /* ========== FEATURE 2: Tip Voting System ========== */
+    /* ========== FEATURE 2: Tip Voting System - FIXED ========== */
     const likeBtn = document.getElementById('likeBtn');
     const dislikeBtn = document.getElementById('dislikeBtn');
     const commentBtn = document.getElementById('commentBtn');
@@ -2136,6 +2185,9 @@
     };
     
     function initVotingSystem() {
+      // Hide comments section by default
+      commentsSection.style.display = 'none';
+      
       // Update counts
       likeCount.textContent = tipVotes.likes;
       dislikeCount.textContent = tipVotes.dislikes;
@@ -2189,14 +2241,14 @@
         updateVotes();
       });
       
-      // Comment button event
+      // Comment button event - FIXED
       commentBtn.addEventListener('click', function() {
         if (commentsSection.style.display === 'none') {
           commentsSection.style.display = 'block';
           this.textContent = '💬 Hide Comments';
         } else {
           commentsSection.style.display = 'none';
-          this.textContent = '💬 Share Your Experience';
+          this.textContent = '💬 Show Comments';
         }
       });
     }
@@ -2229,11 +2281,16 @@
       });
     }
 
-    /* ========== FEATURE 4: Business Calculator ========== */
+    /* ========== FEATURE 4: Business Calculator - FIXED ========== */
     const calcTabs = document.querySelectorAll('.calc-tabs button');
     const calcContents = document.querySelectorAll('.calc-content');
     
     function initCalculator() {
+      // Hide all results initially
+      document.querySelectorAll('.calc-result').forEach(result => {
+        result.style.display = 'none';
+      });
+      
       // Tab switching
       calcTabs.forEach(tab => {
         tab.addEventListener('click', function() {
@@ -2244,13 +2301,21 @@
           this.classList.add('active');
           
           // Show corresponding calculator
-          calcContents.forEach(content => content.style.display = 'none');
-          document.getElementById(`${calcType}Calc`).style.display = 'block';
+          calcContents.forEach(content => {
+            content.classList.remove('active');
+          });
+          document.getElementById(`${calcType}Calc`).classList.add('active');
           
-          // Clear previous results
-          document.getElementById(`${calcType}Result`).style.display = 'none';
+          // Hide previous results
+          document.querySelectorAll('.calc-result').forEach(result => {
+            result.style.display = 'none';
+          });
         });
       });
+      
+      // Set profit calculator as active by default
+      document.getElementById('profitCalc').classList.add('active');
+      document.querySelector('.calc-tabs button[data-calc="profit"]').classList.add('active');
     }
     
     function calculateProfit() {
@@ -2309,32 +2374,73 @@
       document.getElementById('breakEvenInterpretation').textContent = interpretation;
       document.getElementById('breakEvenResult').style.display = 'block';
     }
+    
+    function calculateROI() {
+      const investment = parseFloat(document.getElementById('investment').value);
+      const netProfit = parseFloat(document.getElementById('netProfit').value);
+      
+      if (!investment || !netProfit || investment <= 0) {
+        alert('Please enter valid numbers (Investment should be greater than 0)');
+        return;
+      }
+      
+      const roi = ((netProfit / investment) * 100).toFixed(1);
+      
+      document.getElementById('roiPercentage').textContent = `${roi}%`;
+      
+      let interpretation = '';
+      if (roi > 100) {
+        interpretation = 'Outstanding ROI! Your investment is performing exceptionally well.';
+      } else if (roi > 50) {
+        interpretation = 'Good ROI. Your investment is generating solid returns.';
+      } else if (roi > 20) {
+        interpretation = 'Average ROI. Consider optimizing your investment strategy.';
+      } else if (roi > 0) {
+        interpretation = 'Low ROI. Review your investment for better opportunities.';
+      } else {
+        interpretation = 'Negative ROI. Your investment is losing money. Reconsider this strategy.';
+      }
+      
+      document.getElementById('roiInterpretation').textContent = interpretation;
+      document.getElementById('roiResult').style.display = 'block';
+    }
 
-    /* ========== FEATURE 5: Success Stories ========== */
+    /* ========== FEATURE 5: Success Stories - FIXED ========== */
+    let autoScrollInterval;
+    
     function initStories() {
       // Auto-scroll slider
       const slider = document.querySelector('.stories-slider');
       let scrollAmount = 0;
+      const slideWidth = 320; // Width of one slide + gap
       
       function autoScroll() {
+        if (!slider) return;
+        
         if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
           scrollAmount = 0;
         } else {
-          scrollAmount += 320; // Width of one slide + gap
+          scrollAmount += slideWidth;
         }
         slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
       }
       
       // Auto-scroll every 5 seconds
-      setInterval(autoScroll, 5000);
+      autoScrollInterval = setInterval(autoScroll, 5000);
       
       // Pause auto-scroll on hover
       slider.addEventListener('mouseenter', () => {
-        clearInterval(autoScroll);
+        clearInterval(autoScrollInterval);
       });
       
       slider.addEventListener('mouseleave', () => {
-        setInterval(autoScroll, 5000);
+        autoScrollInterval = setInterval(autoScroll, 5000);
+      });
+      
+      // Make sure images are visible
+      const storyImages = document.querySelectorAll('.story-slide img');
+      storyImages.forEach(img => {
+        img.style.display = 'block';
       });
     }
     
@@ -2396,6 +2502,13 @@
         img.style.opacity = '0';
         img.style.transition = 'opacity 0.3s ease';
       });
+    });
+
+    // Clean up interval on page unload
+    window.addEventListener('beforeunload', () => {
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+      }
     });
 
     // Service Worker Registration (optional)
