@@ -1,328 +1,1600 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Knowledge | Kplus712</title>
+  <title>Business Knowledge | Kplus712 - Entrepreneur Resources & Learning</title>
+  <meta name="description" content="Comprehensive business education, growth strategies, and practical knowledge for entrepreneurs at every stage.">
+  <meta name="theme-color" content="#bfa034">
+  
+  <!-- Preload Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" as="style">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <style>
+    /* CSS Reset & Variables */
+    :root {
+      --gold: #bfa034;
+      --gold-light: #d4b63a;
+      --gold-dark: #9c852a;
+      --primary: #bfa034;
+      --secondary: #2c3e50;
+      --accent: #3498db;
+      --text: #333;
+      --text-light: #666;
+      --bg: #fff;
+      --bg-alt: #f8f9fa;
+      --card-bg: #fff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --max-width: 1200px;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --bg-alt: #1e293b;
+        --card-bg: #1e293b;
+        --text: #f1f5f9;
+        --text-light: #cbd5e1;
+        --secondary: #94a3b8;
+      }
+    }
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: #333;
+      font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    header {
-      background-color: #bfa14a;
+    
+    .no-js .js-only { display: none; }
+    
+    /* Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 16px;
+      background: var(--gold);
       color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      background-image: url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-    }
-    header p {
-      font-size: 1.1rem;
-    }
-    nav {
-      background: #fff;
-      text-align: center;
-      border-bottom: 2px solid #bfa14a;
-    }
-    nav a {
-      display: inline-block;
-      padding: 1rem;
-      color: #bfa14a;
+      padding: 12px 20px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      z-index: 1000;
+      transition: var(--transition);
     }
-    nav a:hover {
-      background-color: #bfa14a;
+    
+    .skip-link:focus {
+      top: 16px;
+    }
+    
+    /* Announcement Bar */
+    .announcement-bar {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
       color: white;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      border: 1px solid #eee;
-      border-left: 5px solid #bfa14a;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 10px 0;
+      text-align: center;
+      font-weight: 600;
+      position: relative;
       overflow: hidden;
     }
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
+    
+    .announcement-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
-    .card-content {
-      padding: 1rem 1.5rem;
+    
+    .announcement-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
     }
-    .card-content h3 {
-      color: #bfa14a;
-      margin-bottom: 0.5rem;
+    
+    /* Navigation */
+    .main-nav {
+      background: var(--card-bg);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
     }
-    .reflection {
-      text-align: center;
-      background: #fff8e1;
-      border-top: 2px solid #bfa14a;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
+    
+    @media (prefers-color-scheme: dark) {
+      .main-nav {
+        background: rgba(30, 41, 59, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
     }
-    footer {
-      text-align: center;
-      background-color: #bfa14a;
+    
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    
+    .logo span {
+      color: var(--text);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(191, 160, 52, 0.1);
+      color: var(--gold);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 70%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+    }
+    
+    /* Hero Header */
+    .hero-header {
+      background: linear-gradient(135deg, rgba(191, 160, 52, 0.9), rgba(44, 62, 80, 0.9)),
+                  url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: white;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(191, 160, 52, 0.3), rgba(44, 62, 80, 0.7));
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+    
+    .stat-label {
       font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Table of Contents */
+    .toc-container {
+      max-width: var(--max-width);
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    
+    .toc-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .toc-card h2 {
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .toc-item {
+      padding: 16px;
+      border-radius: var(--radius);
+      background: var(--bg-alt);
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    
+    .toc-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--gold);
+      background: rgba(191, 160, 52, 0.05);
+    }
+    
+    .toc-item h3 {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .toc-item p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    /* Main Content */
+    .main-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+    
+    .section-header p {
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    
+    /* Growth Stages Cards */
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .stage-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stage-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .stage-number {
+      background: var(--gold);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+    
+    .stage-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .stage-card:hover .stage-img {
+      transform: scale(1.05);
+    }
+    
+    .stage-content {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stage-content h3 {
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    
+    .stage-content p {
+      color: var(--text-light);
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    
+    .stage-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    
+    .stage-tag {
+      background: rgba(191, 160, 52, 0.1);
+      color: var(--gold);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    /* Steps Grid */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .step-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-left: 4px solid var(--gold);
+    }
+    
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      color: white;
+      border-radius: 50%;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    
+    .step-card h3 {
+      color: var(--text);
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+    
+    .step-example {
+      background: rgba(191, 160, 52, 0.08);
+      padding: 16px;
+      border-radius: var(--radius);
+      margin-top: 16px;
+      border-left: 3px solid var(--gold);
+    }
+    
+    .step-example strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    /* Business Essentials */
+    .essentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .essential-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .essential-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+    }
+    
+    .essential-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .essential-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: var(--gold);
+    }
+    
+    .essential-card h3 {
+      color: var(--text);
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+    
+    .tip-box {
+      background: rgba(52, 152, 219, 0.1);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      margin-top: 16px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    
+    .tip-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+    
+    /* Interactive Quiz */
+    .quiz-section {
+      background: linear-gradient(135deg, var(--bg-alt), var(--card-bg));
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin: 60px 0;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .quiz-section h2 {
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    
+    .quiz-section p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    
+    .quiz-btn {
+      background: var(--gold);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .quiz-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(191, 160, 52, 0.3);
+    }
+    
+    /* Download Resources */
+    .resources-section {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin: 60px 0;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    .resource-card {
+      background: var(--bg-alt);
+      padding: 24px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+    
+    .resource-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: var(--gold);
+    }
+    
+    .download-btn {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      padding: 8px 20px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      margin-top: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .download-btn:hover {
+      background: var(--gold);
+      color: white;
+    }
+    
+    /* Daily Reflection */
+    .reflection-section {
+      background: linear-gradient(135deg, rgba(191, 160, 52, 0.1), rgba(52, 152, 219, 0.1));
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      margin: 60px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .reflection-section::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      font-size: 8rem;
+      color: rgba(191, 160, 52, 0.1);
+      font-family: serif;
+      z-index: 1;
+    }
+    
+    .reflection-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .reflection-section h2 {
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    
+    #reflectionDate {
+      color: var(--text-light);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    
+    .quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 24px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+    
+    .author {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--gold);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(191, 160, 52, 0.3);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .back-to-top:hover {
+      background: var(--gold-light);
+      transform: translateY(-4px);
+    }
+    
+    /* Footer */
+    .main-footer {
+      background: var(--secondary);
+      color: white;
+      padding: 60px 24px 30px;
+      margin-top: 80px;
+    }
+    
+    .footer-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+    
+    .footer-section h3 {
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-left: 8px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        flex-direction: column;
+        padding: 20px;
+        gap: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        box-shadow: var(--shadow-lg);
+        z-index: 100;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+      }
+      
+      .hero-header {
+        padding: 60px 20px;
+        background-attachment: scroll;
+      }
+      
+      .hero-stats {
+        gap: 20px;
+      }
+      
+      .toc-card,
+      .quiz-section,
+      .resources-section,
+      .reflection-section {
+        padding: 30px 20px;
+      }
+      
+      .stage-card,
+      .step-card,
+      .essential-card {
+        padding: 20px;
+      }
+      
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      .stages-grid,
+      .steps-grid,
+      .essentials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Print Styles */
+    @media print {
+      .announcement-bar,
+      .mobile-menu-btn,
+      .quiz-section,
+      .back-to-top {
+        display: none !important;
+      }
+      
+      body {
+        background: white;
+        color: black;
+      }
+      
+      .stage-card,
+      .step-card,
+      .essential-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+    }
+    
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 101;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+      width: 0%;
+      transition: width 0.3s ease;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Master Your Business Growth Journey</h1>
-    <p>Learn from real entrepreneurs across all stages of growth</p>
-  </header>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="business-knowledge.html">Business Knowledge</a>
-    <a href="archive.html">Archive</a>
+  <!-- Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span class="announcement-badge">NEW</span>
+      <span>Download our free Business Planning Template →</span>
+    </div>
+  </div>
+  
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Kplus<span>712</span></a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        ☰
+      </button>
+      
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="business-knowledge.html" class="active">Business Knowledge</a>
+        <a href="services.html">Services</a>
+        <a href="archive.html">Archive</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
   </nav>
-
-  <section id="growth-journey">
-    <h2 style="color:#bfa14a;text-align:center;">The Five Stages of Business Growth</h2>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1200&q=80" alt="Existence Stage">
-      <div class="card-content">
-        <h3>1. Existence Stage</h3>
-        <p>This is where the business idea comes to life. Entrepreneurs focus on acquiring customers and delivering the first product or service. Example: A small vendor testing a new product in the local market.</p>
+  
+  <!-- Hero Header -->
+  <header class="hero-header">
+    <div class="hero-content">
+      <h1>Master Your Business Growth Journey</h1>
+      <p>Learn from real entrepreneurs across all stages of growth. Practical knowledge, proven strategies, and actionable insights.</p>
+      
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Growth Stages</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Customer Strategies</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Startup Essentials</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Learning Paths</span>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80" alt="Survival Stage">
-      <div class="card-content">
-        <h3>2. Survival Stage</h3>
-        <p>At this stage, businesses struggle to balance expenses and revenue. The goal is to stay afloat and find a stable customer base. Example: Managing cash flow and customer retention.</p>
+  </header>
+  
+  <!-- Table of Contents -->
+  <div class="toc-container">
+    <div class="toc-card">
+      <h2>📚 Table of Contents</h2>
+      <div class="toc-grid">
+        <div class="toc-item" onclick="scrollToSection('growth-stages')">
+          <h3>📈 5 Growth Stages</h3>
+          <p>Understand each phase of business development and what to focus on</p>
+        </div>
+        <div class="toc-item" onclick="scrollToSection('repeat-customers')">
+          <h3>🔄 7 Steps to Repeat Customers</h3>
+          <p>Build customer loyalty and increase lifetime value</p>
+        </div>
+        <div class="toc-item" onclick="scrollToSection('startup-essentials')">
+          <h3>🚀 Startup Essentials</h3>
+          <p>Key considerations when launching your business</p>
+        </div>
+        <div class="toc-item" onclick="scrollToSection('resources')">
+          <h3>📥 Free Resources</h3>
+          <p>Downloadable templates and guides for your business</p>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Success Stage">
-      <div class="card-content">
-        <h3>3. Success Stage</h3>
-        <p>The business is now profitable and stable. The focus shifts to improving operations and exploring new opportunities. Example: Expanding to a new branch or product line.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" alt="Take-off Stage">
-      <div class="card-content">
-        <h3>4. Take-off Stage</h3>
-        <p>The business experiences rapid growth and scaling. It requires strong management and financial strategies. Example: Securing investment to expand globally.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80" alt="Maturity Stage">
-      <div class="card-content">
-        <h3>5. Maturity Stage</h3>
-        <p>At maturity, the business has established its place in the market. Innovation and leadership are key to maintaining long-term success. Example: Rebranding to stay competitive.</p>
-      </div>
-    </div>
-
-    <!-- NEW SECTION: 7 Steps to Get Repeat Customers Online -->
-<section style="margin-top:2rem;">
-  <h2 style="color:#bfa034;text-align:center;">7 Steps to Get Repeat Customers Online</h2>
-  <p style="text-align:center;color:#555;max-width:800px;margin:0 auto 1rem;">
-    Building repeat customers in today’s digital marketplace requires consistency, value, and trust.
-    Below are seven actionable strategies supported by real-life examples in modern business.
-  </p>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;max-width:1100px;margin:0 auto;padding:1rem;">
+  </div>
+  
+  <!-- Main Content -->
+  <main id="main-content" class="main-content">
     
-    <!-- Step 1 -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Customer Experience" style="width:100%;height:200px;object-fit:cover;">
-      <div class="card-content" style="padding:1rem;">
-        <h3 style="color:#bfa034;">1. Deliver Outstanding Experience</h3>
-        <p>Ensure every online interaction — from ordering to feedback — feels personal and satisfying.
-        Great experience drives loyalty naturally.</p>
-        <p><strong>Example:</strong> Glovo ensures customers get fast support through in-app live chat, increasing repeat usage.</p>
+    <!-- Five Stages of Business Growth -->
+    <section id="growth-stages" class="section">
+      <div class="section-header">
+        <h2>The Five Stages of Business Growth</h2>
+        <p>Every business goes through distinct phases of development. Understanding where you are helps you focus on the right priorities.</p>
+      </div>
+      
+      <div class="stages-grid">
+        <!-- Stage 1 -->
+        <article class="stage-card">
+          <div class="stage-number">1</div>
+          <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1200&q=80" 
+               alt="Existence Stage" class="stage-img">
+          <div class="stage-content">
+            <h3>Existence Stage</h3>
+            <p>This is where the business idea comes to life. Entrepreneurs focus on acquiring customers and delivering the first product or service. Example: A small vendor testing a new product in the local market.</p>
+            <div class="stage-tags">
+              <span class="stage-tag">Startup</span>
+              <span class="stage-tag">Validation</span>
+              <span class="stage-tag">First Customers</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Stage 2 -->
+        <article class="stage-card">
+          <div class="stage-number">2</div>
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80" 
+               alt="Survival Stage" class="stage-img">
+          <div class="stage-content">
+            <h3>Survival Stage</h3>
+            <p>At this stage, businesses struggle to balance expenses and revenue. The goal is to stay afloat and find a stable customer base. Example: Managing cash flow and customer retention.</p>
+            <div class="stage-tags">
+              <span class="stage-tag">Cash Flow</span>
+              <span class="stage-tag">Stability</span>
+              <span class="stage-tag">Retention</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Stage 3 -->
+        <article class="stage-card">
+          <div class="stage-number">3</div>
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" 
+               alt="Success Stage" class="stage-img">
+          <div class="stage-content">
+            <h3>Success Stage</h3>
+            <p>The business is now profitable and stable. The focus shifts to improving operations and exploring new opportunities. Example: Expanding to a new branch or product line.</p>
+            <div class="stage-tags">
+              <span class="stage-tag">Profitability</span>
+              <span class="stage-tag">Optimization</span>
+              <span class="stage-tag">Expansion</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Stage 4 -->
+        <article class="stage-card">
+          <div class="stage-number">4</div>
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" 
+               alt="Take-off Stage" class="stage-img">
+          <div class="stage-content">
+            <h3>Take-off Stage</h3>
+            <p>The business experiences rapid growth and scaling. It requires strong management and financial strategies. Example: Securing investment to expand globally.</p>
+            <div class="stage-tags">
+              <span class="stage-tag">Scaling</span>
+              <span class="stage-tag">Investment</span>
+              <span class="stage-tag">Management</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Stage 5 -->
+        <article class="stage-card">
+          <div class="stage-number">5</div>
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80" 
+               alt="Maturity Stage" class="stage-img">
+          <div class="stage-content">
+            <h3>Maturity Stage</h3>
+            <p>At maturity, the business has established its place in the market. Innovation and leadership are key to maintaining long-term success. Example: Rebranding to stay competitive.</p>
+            <div class="stage-tags">
+              <span class="stage-tag">Innovation</span>
+              <span class="stage-tag">Leadership</span>
+              <span class="stage-tag">Sustainability</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- 7 Steps to Repeat Customers -->
+    <section id="repeat-customers" class="section" style="margin-top: 80px;">
+      <div class="section-header">
+        <h2>7 Steps to Get Repeat Customers Online</h2>
+        <p>Building repeat customers in today's digital marketplace requires consistency, value, and trust.</p>
+      </div>
+      
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <article class="step-card">
+          <div class="step-number">1</div>
+          <h3>Deliver Outstanding Experience</h3>
+          <p>Ensure every online interaction — from ordering to feedback — feels personal and satisfying. Great experience drives loyalty naturally.</p>
+          <div class="step-example">
+            <strong>Example:</strong>
+            <p>Glovo ensures customers get fast support through in-app live chat, increasing repeat usage.</p>
+          </div>
+        </article>
+        
+        <!-- Step 2 -->
+        <article class="step-card">
+          <div class="step-number">2</div>
+          <h3>Follow Up After Purchase</h3>
+          <p>Send thank-you messages, feedback requests, or discount codes. It reminds the customer they're valued.</p>
+          <div class="step-example">
+            <strong>Example:</strong>
+            <p>NMB and Tigo send personalized "thank you" messages and reminders for upcoming offers.</p>
+          </div>
+        </article>
+        
+        <!-- Step 3 -->
+        <article class="step-card">
+          <div class="step-number">3</div>
+          <h3>Create Loyalty Programs</h3>
+          <p>Offer points, discounts, or special access for loyal customers. A sense of reward keeps people returning.</p>
+          <div class="step-example">
+            <strong>Example:</strong>
+            <p>KFC and Bata Tanzania use reward coupons for frequent buyers.</p>
+          </div>
+        </article>
+        
+        <!-- Step 4 -->
+        <article class="step-card">
+          <div class="step-number">4</div>
+          <h3>Engage Consistently on Social Media</h3>
+          <p>Post valuable content regularly and reply to comments. Let customers see your brand's human side.</p>
+          <div class="step-example">
+            <strong>Example:</strong>
+            <p>Vunjabei posts behind-the-scenes stories, strengthening customer connection online.</p>
+          </div>
+        </article>
+        
+        <!-- Step 5 -->
+        <article class="step-card">
+          <div class="step-number">5</div>
+          <h3>Use Data Analytics</h3>
+          <p>Analyze buying trends and predict what your customers will need next — then serve it early.</p>
+          <div class="step-example">
+            <strong>Example:</strong>
+            <p>Instagram Shops use AI insights to recommend relevant products, improving conversion.</p>
+          </div>
+        </article>
+        
+        <!-- Step 6 -->
+        <article class="step-card">
+          <div class="step-number">6</div>
+          <h3>Build Email or WhatsApp Communities</h3>
+          <p>Collect contacts and send weekly business updates or offers. Direct communication builds trust.</p>
+          <div class="step-example">
+            <strong>Example:</strong>
+            <p>Beehiiv and Mailchimp power personalized newsletters for thousands of small businesses.</p>
+          </div>
+        </article>
+        
+        <!-- Step 7 -->
+        <article class="step-card">
+          <div class="step-number">7</div>
+          <h3>Offer After-Sales Support</h3>
+          <p>Don't end the relationship at purchase. Offer follow-up support, guidance, or small gifts.</p>
+          <div class="step-example">
+            <strong>Example:</strong>
+            <p>Samsung Tanzania provides free consultation after every major sale to strengthen loyalty.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Business Startup Essentials -->
+    <section id="startup-essentials" class="section" style="margin-top: 80px;">
+      <div class="section-header">
+        <h2>Key Things to Consider When Starting a Business</h2>
+        <p>Starting a business goes beyond an idea — it requires strategy, discipline, and clear understanding of the environment.</p>
+      </div>
+      
+      <div class="essentials-grid">
+        <!-- Essential 1 -->
+        <article class="essential-card">
+          <div class="essential-icon">🎯</div>
+          <h3>Understand Your Market and Audience</h3>
+          <p>Before investing your time or money, take time to <strong>research who your customers are</strong>, what they need, and how they currently solve that problem. Market understanding saves you from producing products no one wants.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>Use surveys, WhatsApp groups, or simple interviews to understand your potential clients before launching.</p>
+          </div>
+        </article>
+        
+        <!-- Essential 2 -->
+        <article class="essential-card">
+          <div class="essential-icon">📈</div>
+          <h3>Start Small but Think Big</h3>
+          <p>Start with a small version of your idea (a <strong>minimum viable product — MVP</strong>). Focus on testing the idea before investing everything. But while starting small, build with a growth mindset — your business can expand later.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>You don't need to be perfect to start — just consistent and willing to learn.</p>
+          </div>
+        </article>
+        
+        <!-- Essential 3 -->
+        <article class="essential-card">
+          <div class="essential-icon">💰</div>
+          <h3>Manage Finances and Costs Wisely</h3>
+          <p>Money is the lifeblood of every business. Keep records from day one, separate personal and business accounts, and plan for emergencies. Avoid spending profits too early; reinvest them for growth.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>Use simple tools like notebooks, Excel, or mobile apps (e.g., Wave Accounting) to track expenses and profits.</p>
+          </div>
+        </article>
+        
+        <!-- Essential 4 -->
+        <article class="essential-card">
+          <div class="essential-icon">⚖️</div>
+          <h3>Choose the Right Legal Structure</h3>
+          <p>Registering your business not only makes it official but also builds trust with customers, suppliers, and partners. In Tanzania, registration through <strong>BRELA</strong> or the local government is simple and affordable for small businesses.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>Always check taxes, licenses, and business name availability before printing your logo or materials.</p>
+          </div>
+        </article>
+        
+        <!-- Essential 5 -->
+        <article class="essential-card">
+          <div class="essential-icon">🏷️</div>
+          <h3>Build a Unique and Trustworthy Brand</h3>
+          <p>Your brand is more than a logo — it's how people feel when they think about your business. A strong brand connects emotionally with customers and builds loyalty over time.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>Keep a consistent color, tone, and promise across all social media and packaging.</p>
+          </div>
+        </article>
+        
+        <!-- Essential 6 -->
+        <article class="essential-card">
+          <div class="essential-icon">🌐</div>
+          <h3>Build a Digital Presence Early</h3>
+          <p>Even if your business operates offline, online visibility gives credibility and access to a larger market. Use social media pages, Google Maps listings, or a simple website to share updates and attract clients.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>Start with free platforms like Facebook and Instagram, then upgrade as you grow.</p>
+          </div>
+        </article>
+        
+        <!-- Essential 7 -->
+        <article class="essential-card">
+          <div class="essential-icon">⏳</div>
+          <h3>Be Consistent and Patient</h3>
+          <p>Many businesses fail not because of poor ideas, but because owners give up too early. Progress may be slow at first — stay consistent, evaluate results monthly, and keep improving.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            <p>Success takes time. Commit to learning, networking, and refining your process every day.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Interactive Quiz -->
+    <section class="quiz-section">
+      <h2>Test Your Business Knowledge</h2>
+      <p>Take this quick quiz to assess your understanding of business growth stages and customer retention strategies.</p>
+      <button class="quiz-btn" id="startQuizBtn">
+        <span>🧠</span> Start Knowledge Quiz
+      </button>
+    </section>
+    
+    <!-- Downloadable Resources -->
+    <section id="resources" class="resources-section">
+      <h2>Free Business Resources</h2>
+      <p>Download these templates and guides to help you implement what you've learned.</p>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">📋</div>
+          <h3>Business Plan Template</h3>
+          <p>Simple template to structure your business idea and strategy</p>
+          <button class="download-btn" onclick="downloadResource('business-plan')">
+            Download PDF
+          </button>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-icon">📊</div>
+          <h3>Financial Tracker</h3>
+          <p>Excel template to track income, expenses, and profits</p>
+          <button class="download-btn" onclick="downloadResource('financial-tracker')">
+            Download Excel
+          </button>
+        </div>
+        
+        <div class="resource-card">
+          <div class="resource-icon">🎯</div>
+          <h3>Customer Retention Checklist</h3>
+          <p>Step-by-step guide to keep customers coming back</p>
+          <button class="download-btn" onclick="downloadResource('retention-checklist')">
+            Download PDF
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Daily Reflection -->
+    <section class="reflection-section">
+      <div class="reflection-content">
+        <h2>Daily Reflection</h2>
+        <div id="reflectionDate"></div>
+        <div class="quote">
+          "Develop success from failure — every setback teaches you how to move forward."
+        </div>
+        <div class="author">— Business Wisdom</div>
+        <p style="margin-top: 24px; color: var(--text-light);">
+          In real business life, failure is a teacher that shapes resilience and innovation. What did you learn today?
+        </p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Back to Top -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+  </a>
+  
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Kplus712</h3>
+        <p>Empowering entrepreneurs with practical knowledge and actionable insights for sustainable business growth.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="business-knowledge.html">Business Knowledge</a>
+          <a href="services.html">Coaching Services</a>
+          <a href="archive.html">Article Archive</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <div class="footer-links">
+          <a href="#" onclick="downloadResource('business-plan')">Business Templates</a>
+          <a href="#" onclick="downloadResource('financial-tracker')">Financial Tools</a>
+          <a href="#resources">Free Downloads</a>
+          <a href="contact.html">Consultation</a>
+        </div>
       </div>
     </div>
-
-    <!-- Step 2 -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <img src="https://images.unsplash.com/photo-1556741533-f6acd6477e9c?auto=format&fit=crop&w=1200&q=80" alt="Follow Up" style="width:100%;height:200px;object-fit:cover;">
-      <div class="card-content" style="padding:1rem;">
-        <h3 style="color:#bfa034;">2. Follow Up After Purchase</h3>
-        <p>Send thank-you messages, feedback requests, or discount codes. It reminds the customer they’re valued.</p>
-        <p><strong>Example:</strong> NMB and Tigo send personalized “thank you” messages and reminders for upcoming offers.</p>
-      </div>
+    
+    <div class="copyright">
+      © 2025 Kplus712 | All Rights Reserved
     </div>
-
-    <!-- Step 3 -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <img src="https://images.unsplash.com/photo-1515168833906-d2a3b82b302f?auto=format&fit=crop&w=1200&q=80" alt="Loyalty Program" style="width:100%;height:200px;object-fit:cover;">
-      <div class="card-content" style="padding:1rem;">
-        <h3 style="color:#bfa034;">3. Create Loyalty Programs</h3>
-        <p>Offer points, discounts, or special access for loyal customers. A sense of reward keeps people returning.</p>
-        <p><strong>Example:</strong> KFC and Bata Tanzania use reward coupons for frequent buyers.</p>
-      </div>
-    </div>
-
-    <!-- Step 4 -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Engagement" style="width:100%;height:200px;object-fit:cover;">
-      <div class="card-content" style="padding:1rem;">
-        <h3 style="color:#bfa034;">4. Engage Consistently on Social Media</h3>
-        <p>Post valuable content regularly and reply to comments. Let customers see your brand’s human side.</p>
-        <p><strong>Example:</strong> Vunjabei posts behind-the-scenes stories, strengthening customer connection online.</p>
-      </div>
-    </div>
-
-    <!-- Step 5 -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80" alt="Data Analytics" style="width:100%;height:200px;object-fit:cover;">
-      <div class="card-content" style="padding:1rem;">
-        <h3 style="color:#bfa034;">5. Use Data Analytics</h3>
-        <p>Analyze buying trends and predict what your customers will need next — then serve it early.</p>
-        <p><strong>Example:</strong> Instagram Shops use AI insights to recommend relevant products, improving conversion.</p>
-      </div>
-    </div>
-
-    <!-- Step 6 -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Email Marketing" style="width:100%;height:200px;object-fit:cover;">
-      <div class="card-content" style="padding:1rem;">
-        <h3 style="color:#bfa034;">6. Build Email or WhatsApp Communities</h3>
-        <p>Collect contacts and send weekly business updates or offers. Direct communication builds trust.</p>
-        <p><strong>Example:</strong> Beehiiv and Mailchimp power personalized newsletters for thousands of small businesses.</p>
-      </div>
-    </div>
-
-    <!-- Step 7 -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="After Sales Support" style="width:100%;height:200px;object-fit:cover;">
-      <div class="card-content" style="padding:1rem;">
-        <h3 style="color:#bfa034;">7. Offer After-Sales Support</h3>
-        <p>Don’t end the relationship at purchase. Offer follow-up support, guidance, or small gifts.</p>
-        <p><strong>Example:</strong> Samsung Tanzania provides free consultation after every major sale to strengthen loyalty.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-  </section>
-
-  <section class="reflection">
-    <h2 style="color:#bfa14a;">Daily Reflection</h2>
-    <p id="date"></p>
-    <blockquote style="font-style:italic;margin:1rem 0;">
-      “Develop success from failure — every setback teaches you how to move forward.”
-    </blockquote>
-    <p>In real business life, failure is a teacher that shapes resilience and innovation.</p>
-  </section>
-
-  <!-- NEW SECTION: Key Things to Consider When Starting a Business -->
-<section style="margin-top:3rem;">
-  <h2 style="color:#bfa034;text-align:center;">Key Things to Consider When Starting a Business</h2>
-  <p style="max-width:900px;margin:0 auto 1rem;text-align:center;color:#555;">
-    Starting a business goes beyond an idea — it requires strategy, discipline, and clear understanding of the environment.
-    Below are essential areas every entrepreneur should deeply understand before launching.
-  </p>
-
-  <div style="display:flex;flex-direction:column;gap:1.5rem;max-width:1000px;margin:0 auto;padding:1rem;">
-
-    <!-- 1. Understanding Your Market -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;padding:1.5rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <h3 style="color:#bfa034;">1. Understand Your Market and Audience</h3>
-      <p>Before investing your time or money, take time to <strong>research who your customers are</strong>, what they need, and how they currently solve that problem. 
-      Market understanding saves you from producing products no one wants.</p>
-      <p><strong>Example:</strong> A young entrepreneur in Dar es Salaam opened a mobile accessories shop after realizing most customers wanted affordable earphones, not expensive brands. 
-      He focused on the specific demand, not just passion — and the business grew quickly.</p>
-      <p><strong>Tip:</strong> Use surveys, WhatsApp groups, or simple interviews to understand your potential clients before launching.</p>
-    </div>
-
-    <!-- 2. Start Small but Think Big -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;padding:1.5rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <h3 style="color:#bfa034;">2. Start Small but Think Big</h3>
-      <p>Start with a small version of your idea (a <strong>minimum viable product — MVP</strong>). 
-      Focus on testing the idea before investing everything. But while starting small, build with a growth mindset — your business can expand later.</p>
-      <p><strong>Example:</strong> Vunjabei began with simple printed T-shirts sold online. As the brand gained attention, it expanded into full clothing lines and accessories.</p>
-      <p><strong>Tip:</strong> You don’t need to be perfect to start — just consistent and willing to learn.</p>
-    </div>
-
-    <!-- 3. Plan Your Finances Wisely -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;padding:1.5rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <h3 style="color:#bfa034;">3. Manage Finances and Costs Wisely</h3>
-      <p>Money is the lifeblood of every business. Keep records from day one, separate personal and business accounts, and plan for emergencies.
-      Avoid spending profits too early; reinvest them for growth.</p>
-      <p><strong>Example:</strong> A local food vendor started saving 5% of every sale. After six months, she had enough capital to buy better cooking equipment, doubling her profit margin.</p>
-      <p><strong>Tip:</strong> Use simple tools like notebooks, Excel, or mobile apps (e.g., Wave Accounting) to track expenses and profits.</p>
-    </div>
-
-    <!-- 4. Legal Structure and Registration -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;padding:1.5rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <h3 style="color:#bfa034;">4. Choose the Right Legal Structure</h3>
-      <p>Registering your business not only makes it official but also builds trust with customers, suppliers, and partners. 
-      In Tanzania, registration through <strong>BRELA</strong> or the local government is simple and affordable for small businesses.</p>
-      <p><strong>Example:</strong> Many online shops on Instagram now register officially to access corporate deals, participate in exhibitions, and open business accounts.</p>
-      <p><strong>Tip:</strong> Always check taxes, licenses, and business name availability before printing your logo or materials.</p>
-    </div>
-
-    <!-- 5. Build a Unique Brand -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;padding:1.5rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <h3 style="color:#bfa034;">5. Build a Unique and Trustworthy Brand</h3>
-      <p>Your brand is more than a logo — it’s how people feel when they think about your business.
-      A strong brand connects emotionally with customers and builds loyalty over time.</p>
-      <p><strong>Example:</strong> David Sportswear grew by using storytelling — showing local athletes wearing their products instead of just advertising prices.</p>
-      <p><strong>Tip:</strong> Keep a consistent color, tone, and promise across all social media and packaging.</p>
-    </div>
-
-    <!-- 6. Understand Digital Presence -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;padding:1.5rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <h3 style="color:#bfa034;">6. Build a Digital Presence Early</h3>
-      <p>Even if your business operates offline, online visibility gives credibility and access to a larger market.
-      Use social media pages, Google Maps listings, or a simple website like <strong>Kplus712</strong> to share updates and attract clients.</p>
-      <p><strong>Example:</strong> A fruit vendor in Mwanza uses WhatsApp Status and Google My Business to share daily prices and receive pre-orders — doubling her daily reach.</p>
-      <p><strong>Tip:</strong> Start with free platforms like Facebook and Instagram, then upgrade as you grow.</p>
-    </div>
-
-    <!-- 7. Consistency and Patience -->
-    <div class="card" style="border:1px solid #eee;border-radius:12px;padding:1.5rem;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,0.04);">
-      <h3 style="color:#bfa034;">7. Be Consistent and Patient</h3>
-      <p>Many businesses fail not because of poor ideas, but because owners give up too early. 
-      Progress may be slow at first — stay consistent, evaluate results monthly, and keep improving.</p>
-      <p><strong>Example:</strong> Many successful Tanzanian brands like Azam, Vunjabei, and FarmClinic started small but stayed consistent for years before national recognition.</p>
-      <p><strong>Tip:</strong> Success takes time. Commit to learning, networking, and refining your process every day.</p>
-    </div>
-
-  </div>
-</section>
-
-  <footer>
-    © 2025 Kplus712 | All Rights Reserved
   </footer>
 
   <script>
+    // Remove no-js class
+    document.documentElement.classList.remove('no-js');
+    
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('active');
+      }
+    });
+    
+    // Set current date
     const today = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("date").innerText = today.toLocaleDateString("en-US", options);
+    document.getElementById('reflectionDate').textContent = today.toLocaleDateString('en-US', options);
+    
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+      
+      // Progress bar
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+    
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Smooth scrolling for table of contents
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const offset = 80;
+        const sectionTop = section.offsetTop - offset;
+        window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+        
+        // Highlight section briefly
+        section.style.transition = 'box-shadow 0.3s ease';
+        section.style.boxShadow = '0 0 0 3px rgba(191, 160, 52, 0.3)';
+        setTimeout(() => {
+          section.style.boxShadow = '';
+        }, 1500);
+      }
+    }
+    
+    // Quiz functionality
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    startQuizBtn.addEventListener('click', () => {
+      const questions = [
+        {
+          question: "Which stage focuses on acquiring first customers?",
+          options: ["Survival", "Existence", "Success", "Take-off"],
+          answer: 1
+        },
+        {
+          question: "What's the best way to build customer loyalty online?",
+          options: ["Lower prices always", "Consistent engagement", "Aggressive advertising", "Complex websites"],
+          answer: 1
+        },
+        {
+          question: "What does MVP stand for in business?",
+          options: ["Maximum Value Product", "Minimum Viable Product", "Most Valuable Player", "Market Validation Process"],
+          answer: 1
+        }
+      ];
+      
+      let score = 0;
+      
+      questions.forEach((q, index) => {
+        const userAnswer = prompt(`Question ${index + 1}: ${q.question}\n\nOptions:\n1. ${q.options[0]}\n2. ${q.options[1]}\n3. ${q.options[2]}\n4. ${q.options[3]}\n\nEnter option number (1-4):`);
+        
+        if (parseInt(userAnswer) - 1 === q.answer) {
+          score++;
+          alert("✅ Correct!");
+        } else {
+          alert(`❌ Incorrect. The correct answer was: ${q.options[q.answer]}`);
+        }
+      });
+      
+      const percentage = Math.round((score / questions.length) * 100);
+      alert(`Quiz complete! You scored ${score}/${questions.length} (${percentage}%).\n\n${percentage >= 70 ? "Excellent! You understand business fundamentals well." : "Good effort! Review the material to improve your knowledge."}`);
+    });
+    
+    // Download resources
+    function downloadResource(type) {
+      const resources = {
+        'business-plan': {
+          name: 'Business-Plan-Template.pdf',
+          message: 'Business Plan Template downloaded! Start planning your success.'
+        },
+        'financial-tracker': {
+          name: 'Financial-Tracker.xlsx',
+          message: 'Financial Tracker downloaded! Take control of your finances.'
+        },
+        'retention-checklist': {
+          name: 'Customer-Retention-Checklist.pdf',
+          message: 'Customer Retention Checklist downloaded! Keep your customers coming back.'
+        }
+      };
+      
+      const resource = resources[type];
+      if (resource) {
+        // In a real implementation, this would link to actual files
+        // For demo, we'll show a notification
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: var(--gold);
+          color: white;
+          padding: 16px 24px;
+          border-radius: 12px;
+          z-index: 10000;
+          animation: fadeIn 0.3s ease;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+          max-width: 90%;
+          text-align: center;
+        `;
+        notification.textContent = resource.message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.animation = 'fadeIn 0.3s ease reverse';
+          setTimeout(() => notification.remove(), 300);
+        }, 4000);
+        
+        // Simulate download
+        console.log(`Downloading: ${resource.name}`);
+      }
+    }
+    
+    // Add animation to cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    // Observe cards for animation
+    document.querySelectorAll('.stage-card, .step-card, .essential-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('active');
+      }
+      
+      // Quick navigation shortcuts (Ctrl + number)
+      if (e.ctrlKey && e.key >= '1' && e.key <= '4') {
+        e.preventDefault();
+        const sections = ['growth-stages', 'repeat-customers', 'startup-essentials', 'resources'];
+        const index = parseInt(e.key) - 1;
+        if (sections[index]) {
+          scrollToSection(sections[index]);
+        }
+      }
+    });
+    
+    // Print functionality
+    window.addEventListener('beforeprint', () => {
+      // Add print-specific classes
+      document.body.classList.add('printing');
+    });
+    
+    window.addEventListener('afterprint', () => {
+      document.body.classList.remove('printing');
+    });
   </script>
 </body>
 </html>
-
