@@ -399,6 +399,18 @@
       font-style: italic;
     }
     
+    /* Tip Category Badge */
+    .tip-category {
+      display: inline-block;
+      background: rgba(191, 160, 52, 0.1);
+      color: var(--gold);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      border: 1px solid rgba(191, 160, 52, 0.2);
+    }
+    
     /* Tip Interaction - FEATURE 2 */
     .tip-interaction {
       display: flex;
@@ -458,6 +470,7 @@
       max-height: 200px;
       overflow-y: auto;
       padding-right: 10px;
+      display: none;
     }
     
     .comment {
@@ -846,6 +859,7 @@
       border-radius: 8px;
       border-left: 4px solid var(--gold);
       animation: fadeIn 0.5s ease;
+      display: none;
     }
     
     .calc-result h4 {
@@ -1466,7 +1480,7 @@
       <div id="dailyTip" class="daily-tip" role="article" aria-labelledby="tipTitle">
         <div class="tip-img-container">
           <img id="tipImg" class="tip-img" 
-               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60" 
+               src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60" 
                alt="Daily business tip illustration" 
                loading="lazy">
         </div>
@@ -1474,6 +1488,7 @@
           <div class="tip-date" id="tipDate">
             <span>📅</span> Date loading...
           </div>
+          <div class="tip-category" id="tipCategory">Strategic Planning</div>
           <h2 class="tip-title" id="tipTitle">Tip title</h2>
           <div id="tipBody" class="tip-body">
             <p>Tip short explanation — practice this today to improve your cash flow.</p>
@@ -1517,7 +1532,7 @@
         <img id="autoEventBg" class="auto-event-bg" src="" alt="" loading="lazy">
         <div class="auto-event-overlay"></div>
         <div class="auto-event-content">
-          <img src="assets/kplus712-logo.png" alt="Kplus712 Logo" class="auto-event-logo" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Kplus712 Logo" class="auto-event-logo" loading="lazy">
           <div class="auto-event-text">
             <div class="auto-event-tagline" id="autoEventTagline">Calendar Highlight</div>
             <h3 class="auto-event-title" id="autoEventTitle">Special Day</h3>
@@ -1850,6 +1865,15 @@
       <div class="copyright">
         © 2025 Kplus712 — All rights reserved.
       </div>
+      <div id="yearProgress" style="margin-top: 20px; font-size: 0.9rem; color: var(--muted);">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span>Year Progress: <strong id="progressPercent">0%</strong></span>
+          <span id="dayCounter">Tip 0 of 366</span>
+        </div>
+        <div style="width: 100%; height: 6px; background: rgba(191, 160, 52, 0.2); border-radius: 3px; overflow: hidden;">
+          <div id="progressBar" style="width: 0%; height: 100%; background: var(--gold); border-radius: 3px;"></div>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -1883,262 +1907,283 @@
       }
     });
 
-    /* ========== Daily Business Tips (Auto) ========== */
-    const tips = [
-   { 
-    day: 1,
-    title: "Yearly Goal Setting Session", 
-    body: "Dedicate 2 hours to write down your top 5 business goals for the entire year with specific metrics.", 
-    meaning: "Clear annual goals provide direction and help measure progress throughout the year.", 
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
-    category: "Strategic Planning"
-  },
-  { 
-    day: 2,
-    title: "Financial Health Checkup", 
-    body: "Review all bank statements, outstanding invoices, and debts from last year. Create a financial summary.", 
-    meaning: "Understanding your complete financial position helps make informed decisions for the new year.", 
-    img: "https://images.unsplash.com/photo-1580894908361-9679a9ee0c8a?auto=format&fit=crop&w=800&q=60",
-    category: "Finance"
-  },
-  { 
-    day: 3,
-    title: "Customer Database Update", 
-    body: "Clean your customer contact list. Remove duplicates, update contacts, and segment by purchase history.", 
-    meaning: "A clean database improves marketing efficiency and customer relationship management.", 
-    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-    category: "CRM"
-  },]
-  { 
-    day: 4,
-    title: "Supplier Relationship Review", 
-    body: "Contact your top 3 suppliers to discuss terms, pricing for the new year, and build stronger partnerships.", 
-    meaning: "Strong supplier relationships can lead to better prices, priority service, and reliability.", 
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-    category: "Supply Chain"
-  },
-  { 
-    day: 5,
-    title: "Digital Security Audit", 
-    body: "Change all business passwords, enable two-factor authentication, and backup critical data.", 
-    meaning: "Protects against data breaches and ensures business continuity in case of cyber incidents.", 
-    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60",
-    category: "Security"
-  },
-  { 
-    day: 6,
-    title: "Competitor Analysis Deep Dive", 
-    body: "Analyze 5 competitors' new year strategies, pricing changes, and marketing campaigns.", 
-    meaning: "Identifies market gaps and opportunities for differentiation in the new year.", 
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
-    category: "Market Research"
-  },
-  { 
-    day: 7,
-    title: "Process Documentation Day", 
-    body: "Document one key business process that's only in your head. Create a step-by-step guide.", 
-    meaning: "Makes your business scalable and reduces dependency on specific individuals.", 
-    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
-    category: "Operations"
-  },
-  { 
-    day: 8,
-    title: "Employee/Team Goals Alignment", 
-    body: "If you have a team, align their personal goals with business objectives for the year.", 
-    meaning: "Increases motivation and ensures everyone works toward common objectives.", 
-    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
-    category: "Team Management"
-  },
-  { 
-    day: 9,
-    title: "Marketing Calendar Creation", 
-    body: "Plan your marketing activities for Q1 including promotions, content, and advertising schedules.", 
-    meaning: "Ensures consistent marketing efforts and better campaign coordination.", 
-    img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
-    category: "Marketing Planning"
-  },
-  { 
-    day: 10,
-    title: "Technology Tools Evaluation", 
-    body: "Review all software/tools you're paying for. Cancel unused subscriptions and research better alternatives.", 
-    meaning: "Optimizes operational costs and ensures you're using the most efficient tools available.", 
-    img: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=60",
-    category: "Technology"
-  },
-  { 
-    day: 11,
-    title: "Customer Feedback Analysis", 
-    body: "Compile all customer feedback from last year and identify 3 key areas for improvement.", 
-    meaning: "Data-driven improvements increase customer satisfaction and retention.", 
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Experience"
-  },
-  { 
-    day: 12,
-    title: "Cash Flow Forecasting", 
-    body: "Project your cash flow for the next 3 months based on historical data and expected changes.", 
-    meaning: "Prevents cash shortages and helps plan investments more effectively.", 
-    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-    category: "Financial Planning"
-  },
-  { 
-    day: 13,
-    title: "Professional Development Plan", 
-    body: "Identify 2-3 skills you need to develop this year and find relevant courses/resources.", 
-    meaning: "Continuous learning keeps you competitive and adaptable to market changes.", 
-    img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=60",
-    category: "Personal Growth"
-  },
-  { 
-    day: 14,
-    title: "Website Performance Check", 
-    body: "Test your website speed, mobile responsiveness, and fix any broken links or pages.", 
-    meaning: "Better user experience leads to higher conversions and improved SEO rankings.", 
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
-    category: "Digital Presence"
-  },
-  { 
-    day: 15,
-    title: "Mid-Month Progress Review", 
-    body: "Assess progress on January goals and adjust your approach for the second half of the month.", 
-    meaning: "Regular check-ins prevent drifting off course and enable timely adjustments.", 
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-    category: "Performance Review"
-  },
-  { 
-    day: 16,
-    title: "Networking Strategy Session", 
-    body: "Identify 5 key people/organizations you should connect with this quarter to grow your business.", 
-    meaning: "Strategic networking opens doors to partnerships, referrals, and new opportunities.", 
-    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-    category: "Networking"
-  },
-  { 
-    day: 17,
-    title: "Inventory Optimization", 
-    body: "Analyze inventory turnover rates and adjust stock levels to minimize holding costs.", 
-    meaning: "Optimized inventory improves cash flow and reduces waste or obsolescence.", 
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-    category: "Inventory Management"
-  },
-  { 
-    day: 18,
-    title: "Social Media Strategy Refresh", 
-    body: "Update your social media profiles, bio, and plan content themes for the next 90 days.", 
-    meaning: "Consistent, strategic social presence builds brand authority and engages customers.", 
-    img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=60",
-    category: "Social Media"
-  },
-  { 
-    day: 19,
-    title: "Legal Compliance Check", 
-    body: "Review business licenses, permits, and regulations to ensure everything is current and compliant.", 
-    meaning: "Prevents legal issues, fines, and business disruptions due to non-compliance.", 
-    img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60",
-    category: "Legal"
-  },
-  { 
-    day: 20,
-    title: "Pricing Strategy Analysis", 
-    body: "Compare your pricing with market rates and consider seasonal adjustments or package changes.", 
-    meaning: "Optimal pricing balances profitability with competitiveness in the market.", 
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-    category: "Pricing Strategy"
-  },
-  { 
-    day: 21,
-    title: "Customer Retention Plan", 
-    body: "Design a loyalty program or retention strategy to keep existing customers coming back.", 
-    meaning: "Retaining customers is 5-25x cheaper than acquiring new ones and builds stable revenue.", 
-    img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Retention"
-  },
-  { 
-    day: 22,
-    title: "Business Insurance Review", 
-    body: "Review your insurance coverage and ensure it matches your current business size and risks.", 
-    meaning: "Adequate insurance protects against unexpected losses that could cripple the business.", 
-    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-    category: "Risk Management"
-  },
-  { 
-    day: 23,
-    title: "Time Management System Setup", 
-    body: "Implement a time tracking system for a week to identify where your hours are actually going.", 
-    meaning: "Understanding time expenditure helps eliminate inefficiencies and prioritize high-value tasks.", 
-    img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=60",
-    category: "Productivity"
-  },
-  { 
-    day: 24,
-    title: "Brand Consistency Audit", 
-    body: "Check all customer touchpoints (website, social media, packaging) for consistent branding.", 
-    meaning: "Consistent branding builds trust, recognition, and professional appearance.", 
-    img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
-    category: "Branding"
-  },
-  { 
-    day: 25,
-    title: "Break-Even Analysis Update", 
-    body: "Recalculate your break-even point based on current costs and pricing.", 
-    meaning: "Knowing your break-even point helps set realistic sales targets and pricing strategies.", 
-    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-    category: "Financial Analysis"
-  },
-  { 
-    day: 26,
-    title: "Crisis Management Plan", 
-    body: "Create a basic crisis response plan for potential business disruptions (supplier issues, PR crises).", 
-    meaning: "Preparation minimizes damage and recovery time when unexpected problems occur.", 
-    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=60",
-    category: "Contingency Planning"
-  },
-  { 
-    day: 27,
-    title: "Metrics Dashboard Creation", 
-    body: "Set up a simple dashboard to track your 5 most important business metrics weekly.", 
-    meaning: "Regular monitoring of key metrics enables data-driven decisions and early problem detection.", 
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-    category: "Performance Metrics"
-  },
-  { 
-    day: 28,
-    title: "Product/Service Innovation Session", 
-    body: "Brainstorm 3 new product/service ideas or improvements to existing offerings.", 
-    meaning: "Continuous innovation keeps your business relevant and competitive in changing markets.", 
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=60",
-    category: "Innovation"
-  },
-  { 
-    day: 29,
-    title: "Referral Program Launch", 
-    body: "Design and implement a customer referral program with attractive incentives.", 
-    meaning: "Word-of-mouth referrals are highly effective and cost-efficient for acquiring new customers.", 
-    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-    category: "Growth Strategy"
-  },
-  { 
-    day: 30,
-    title: "Monthly Financial Close Process", 
-    body: "Complete January's bookkeeping, reconcile accounts, and prepare financial statements.", 
-    meaning: "Timely financial closure provides accurate data for decision-making and tax preparation.", 
-    img: "https://images.unsplash.com/photo-1580894908361-9679a9ee0c8a?auto=format&fit=crop&w=800&q=60",
-    category: "Accounting"
-  },
-  { 
-    day: 31,
-    title: "January Reflection & February Planning", 
-    body: "Review what you accomplished this month and plan specific actions for February.", 
-    meaning: "Monthly reflection accelerates learning and maintains momentum throughout the year.", 
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
-    category: "Strategic Review"
-  }
-];
+    /* ========== Daily Business Tips (January - 31 Days) ========== */
+    const januaryTips = [
+      { 
+        day: 1,
+        title: "Yearly Goal Setting Session", 
+        body: "Dedicate 2 hours to write down your top 5 business goals for the entire year with specific metrics.", 
+        meaning: "Clear annual goals provide direction and help measure progress throughout the year.", 
+        img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
+        category: "Strategic Planning"
+      },
+      { 
+        day: 2,
+        title: "Financial Health Checkup", 
+        body: "Review all bank statements, outstanding invoices, and debts from last year. Create a financial summary.", 
+        meaning: "Understanding your complete financial position helps make informed decisions for the new year.", 
+        img: "https://images.unsplash.com/photo-1580894908361-9679a9ee0c8a?auto=format&fit=crop&w=800&q=60",
+        category: "Finance"
+      },
+      { 
+        day: 3,
+        title: "Customer Database Update", 
+        body: "Clean your customer contact list. Remove duplicates, update contacts, and segment by purchase history.", 
+        meaning: "A clean database improves marketing efficiency and customer relationship management.", 
+        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
+        category: "CRM"
+      },
+      { 
+        day: 4,
+        title: "Supplier Relationship Review", 
+        body: "Contact your top 3 suppliers to discuss terms, pricing for the new year, and build stronger partnerships.", 
+        meaning: "Strong supplier relationships can lead to better prices, priority service, and reliability.", 
+        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
+        category: "Supply Chain"
+      },
+      { 
+        day: 5,
+        title: "Digital Security Audit", 
+        body: "Change all business passwords, enable two-factor authentication, and backup critical data.", 
+        meaning: "Protects against data breaches and ensures business continuity in case of cyber incidents.", 
+        img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60",
+        category: "Security"
+      },
+      { 
+        day: 6,
+        title: "Competitor Analysis Deep Dive", 
+        body: "Analyze 5 competitors' new year strategies, pricing changes, and marketing campaigns.", 
+        meaning: "Identifies market gaps and opportunities for differentiation in the new year.", 
+        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
+        category: "Market Research"
+      },
+      { 
+        day: 7,
+        title: "Process Documentation Day", 
+        body: "Document one key business process that's only in your head. Create a step-by-step guide.", 
+        meaning: "Makes your business scalable and reduces dependency on specific individuals.", 
+        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
+        category: "Operations"
+      },
+      { 
+        day: 8,
+        title: "Employee/Team Goals Alignment", 
+        body: "If you have a team, align their personal goals with business objectives for the year.", 
+        meaning: "Increases motivation and ensures everyone works toward common objectives.", 
+        img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
+        category: "Team Management"
+      },
+      { 
+        day: 9,
+        title: "Marketing Calendar Creation", 
+        body: "Plan your marketing activities for Q1 including promotions, content, and advertising schedules.", 
+        meaning: "Ensures consistent marketing efforts and better campaign coordination.", 
+        img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
+        category: "Marketing Planning"
+      },
+      { 
+        day: 10,
+        title: "Technology Tools Evaluation", 
+        body: "Review all software/tools you're paying for. Cancel unused subscriptions and research better alternatives.", 
+        meaning: "Optimizes operational costs and ensures you're using the most efficient tools available.", 
+        img: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=60",
+        category: "Technology"
+      },
+      { 
+        day: 11,
+        title: "Customer Feedback Analysis", 
+        body: "Compile all customer feedback from last year and identify 3 key areas for improvement.", 
+        meaning: "Data-driven improvements increase customer satisfaction and retention.", 
+        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Experience"
+      },
+      { 
+        day: 12,
+        title: "Cash Flow Forecasting", 
+        body: "Project your cash flow for the next 3 months based on historical data and expected changes.", 
+        meaning: "Prevents cash shortages and helps plan investments more effectively.", 
+        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
+        category: "Financial Planning"
+      },
+      { 
+        day: 13,
+        title: "Professional Development Plan", 
+        body: "Identify 2-3 skills you need to develop this year and find relevant courses/resources.", 
+        meaning: "Continuous learning keeps you competitive and adaptable to market changes.", 
+        img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=60",
+        category: "Personal Growth"
+      },
+      { 
+        day: 14,
+        title: "Website Performance Check", 
+        body: "Test your website speed, mobile responsiveness, and fix any broken links or pages.", 
+        meaning: "Better user experience leads to higher conversions and improved SEO rankings.", 
+        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
+        category: "Digital Presence"
+      },
+      { 
+        day: 15,
+        title: "Mid-Month Progress Review", 
+        body: "Assess progress on January goals and adjust your approach for the second half of the month.", 
+        meaning: "Regular check-ins prevent drifting off course and enable timely adjustments.", 
+        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
+        category: "Performance Review"
+      },
+      { 
+        day: 16,
+        title: "Networking Strategy Session", 
+        body: "Identify 5 key people/organizations you should connect with this quarter to grow your business.", 
+        meaning: "Strategic networking opens doors to partnerships, referrals, and new opportunities.", 
+        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
+        category: "Networking"
+      },
+      { 
+        day: 17,
+        title: "Inventory Optimization", 
+        body: "Analyze inventory turnover rates and adjust stock levels to minimize holding costs.", 
+        meaning: "Optimized inventory improves cash flow and reduces waste or obsolescence.", 
+        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
+        category: "Inventory Management"
+      },
+      { 
+        day: 18,
+        title: "Social Media Strategy Refresh", 
+        body: "Update your social media profiles, bio, and plan content themes for the next 90 days.", 
+        meaning: "Consistent, strategic social presence builds brand authority and engages customers.", 
+        img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=60",
+        category: "Social Media"
+      },
+      { 
+        day: 19,
+        title: "Legal Compliance Check", 
+        body: "Review business licenses, permits, and regulations to ensure everything is current and compliant.", 
+        meaning: "Prevents legal issues, fines, and business disruptions due to non-compliance.", 
+        img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60",
+        category: "Legal"
+      },
+      { 
+        day: 20,
+        title: "Pricing Strategy Analysis", 
+        body: "Compare your pricing with market rates and consider seasonal adjustments or package changes.", 
+        meaning: "Optimal pricing balances profitability with competitiveness in the market.", 
+        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
+        category: "Pricing Strategy"
+      },
+      { 
+        day: 21,
+        title: "Customer Retention Plan", 
+        body: "Design a loyalty program or retention strategy to keep existing customers coming back.", 
+        meaning: "Retaining customers is 5-25x cheaper than acquiring new ones and builds stable revenue.", 
+        img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Retention"
+      },
+      { 
+        day: 22,
+        title: "Business Insurance Review", 
+        body: "Review your insurance coverage and ensure it matches your current business size and risks.", 
+        meaning: "Adequate insurance protects against unexpected losses that could cripple the business.", 
+        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
+        category: "Risk Management"
+      },
+      { 
+        day: 23,
+        title: "Time Management System Setup", 
+        body: "Implement a time tracking system for a week to identify where your hours are actually going.", 
+        meaning: "Understanding time expenditure helps eliminate inefficiencies and prioritize high-value tasks.", 
+        img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=60",
+        category: "Productivity"
+      },
+      { 
+        day: 24,
+        title: "Brand Consistency Audit", 
+        body: "Check all customer touchpoints (website, social media, packaging) for consistent branding.", 
+        meaning: "Consistent branding builds trust, recognition, and professional appearance.", 
+        img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
+        category: "Branding"
+      },
+      { 
+        day: 25,
+        title: "Break-Even Analysis Update", 
+        body: "Recalculate your break-even point based on current costs and pricing.", 
+        meaning: "Knowing your break-even point helps set realistic sales targets and pricing strategies.", 
+        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
+        category: "Financial Analysis"
+      },
+      { 
+        day: 26,
+        title: "Crisis Management Plan", 
+        body: "Create a basic crisis response plan for potential business disruptions (supplier issues, PR crises).", 
+        meaning: "Preparation minimizes damage and recovery time when unexpected problems occur.", 
+        img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=60",
+        category: "Contingency Planning"
+      },
+      { 
+        day: 27,
+        title: "Metrics Dashboard Creation", 
+        body: "Set up a simple dashboard to track your 5 most important business metrics weekly.", 
+        meaning: "Regular monitoring of key metrics enables data-driven decisions and early problem detection.", 
+        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
+        category: "Performance Metrics"
+      },
+      { 
+        day: 28,
+        title: "Product/Service Innovation Session", 
+        body: "Brainstorm 3 new product/service ideas or improvements to existing offerings.", 
+        meaning: "Continuous innovation keeps your business relevant and competitive in changing markets.", 
+        img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=60",
+        category: "Innovation"
+      },
+      { 
+        day: 29,
+        title: "Referral Program Launch", 
+        body: "Design and implement a customer referral program with attractive incentives.", 
+        meaning: "Word-of-mouth referrals are highly effective and cost-efficient for acquiring new customers.", 
+        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
+        category: "Growth Strategy"
+      },
+      { 
+        day: 30,
+        title: "Monthly Financial Close Process", 
+        body: "Complete January's bookkeeping, reconcile accounts, and prepare financial statements.", 
+        meaning: "Timely financial closure provides accurate data for decision-making and tax preparation.", 
+        img: "https://images.unsplash.com/photo-1580894908361-9679a9ee0c8a?auto=format&fit=crop&w=800&q=60",
+        category: "Accounting"
+      },
+      { 
+        day: 31,
+        title: "January Reflection & February Planning", 
+        body: "Review what you accomplished this month and plan specific actions for February.", 
+        meaning: "Monthly reflection accelerates learning and maintains momentum throughout the year.", 
+        img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
+        category: "Strategic Review"
+      }
+    ];
 
-    // Initialize daily tip
+    // Create full year tips array (366 days for leap year)
+    const fullYearTips = [...januaryTips];
+    // Fill rest of year with default tips for now
+    for (let i = 32; i <= 366; i++) {
+      fullYearTips.push({
+        day: i,
+        title: `Day ${i} - Coming Soon`,
+        body: "New tip is being prepared for this day. Check back soon!",
+        meaning: "This tip will help you grow your business systematically throughout the year.",
+        img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=60",
+        category: "Coming Soon"
+      });
+    }
+
+    const tips = fullYearTips; // Use full year tips array
+
+    // Initialize daily tip - UPDATED for full year
     function initializeDailyTip() {
       const now = new Date();
-      const idx = now.getDate() % tips.length;
+      const startOfYear = new Date(now.getFullYear(), 0, 0);
+      const diff = now - startOfYear;
+      const oneDay = 1000 * 60 * 60 * 24;
+      const dayOfYear = Math.floor(diff / oneDay);
+      
+      const idx = Math.min(dayOfYear - 1, 365); // 0-365 for 366 days
       const tip = tips[idx];
       
       const dateText = now.toLocaleDateString("en-GB", { 
@@ -2154,13 +2199,27 @@
       });
 
       // Update DOM elements
-      document.getElementById("tipDate").innerHTML = `<span>📅</span> ${dateText} • ${timeText}`;
-      document.getElementById("tipTitle").textContent = tip.title;
-      document.getElementById("tipMeaning").textContent = `Meaning: ${tip.meaning}`;
-      document.getElementById("tipImg").src = tip.img;
+      const tipDateElement = document.getElementById("tipDate");
+      if (tipDateElement) {
+        tipDateElement.innerHTML = `<span>📅</span> ${dateText} • ${timeText} • Day ${tip.day}/366`;
+      }
       
-      // Update image alt text for accessibility
+      document.getElementById("tipTitle").textContent = tip.title;
+      document.getElementById("tipBody").innerHTML = `
+        <p>${tip.body}</p>
+        <div class="tip-meaning" id="tipMeaning">
+          Meaning: ${tip.meaning}
+        </div>
+      `;
+      document.getElementById("tipImg").src = tip.img;
       document.getElementById("tipImg").alt = `Illustration for tip: ${tip.title}`;
+      document.getElementById("tipCategory").textContent = tip.category;
+      
+      // Update progress in footer
+      const progress = ((dayOfYear / 366) * 100).toFixed(1);
+      document.getElementById("progressPercent").textContent = `${progress}%`;
+      document.getElementById("dayCounter").textContent = `Tip ${dayOfYear} of 366`;
+      document.getElementById("progressBar").style.width = `${progress}%`;
     }
 
     // Modal functionality
@@ -2174,9 +2233,8 @@
     function openModal() {
       modalBackdrop.style.display = 'flex';
       modalBackdrop.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      document.body.style.overflow = 'hidden';
       
-      // Set focus to modal
       setTimeout(() => {
         closeModal.focus();
       }, 100);
@@ -2185,7 +2243,7 @@
     function closeModalFunc() {
       modalBackdrop.style.display = 'none';
       modalBackdrop.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = ''; // Re-enable scrolling
+      document.body.style.overflow = '';
     }
 
     // Event listeners for modal
@@ -2193,14 +2251,12 @@
     announcementBtn.addEventListener('click', openModal);
     closeModal.addEventListener('click', closeModalFunc);
     
-    // Close modal with escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modalBackdrop.style.display === 'flex') {
         closeModalFunc();
       }
     });
 
-    // Close modal when clicking on backdrop
     modalBackdrop.addEventListener('click', (e) => {
       if (e.target === modalBackdrop) {
         closeModalFunc();
@@ -2260,6 +2316,32 @@
           bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
           color: "#1e88e5",
           onClick: () => window.location.href = "business-knowledge.html"
+        },
+        '1-15': {
+          id: "mid-month-review",
+          tagline: "Mid-Month Progress Check",
+          title: "Mid-January Review Day",
+          dateText: friendlyDate,
+          body: "Perfect time to review your January goals and make adjustments for the second half of the month.",
+          bg: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
+          color: "#bfa034",
+          onClick: () => {
+            const todayTip = document.querySelector('.daily-tip');
+            todayTip.scrollIntoView({ behavior: 'smooth' });
+          }
+        },
+        '1-31': {
+          id: "end-of-january",
+          tagline: "Month-End Reflection",
+          title: "January Wrap-up Day",
+          dateText: friendlyDate,
+          body: "Review what you accomplished this month and prepare your action plan for February.",
+          bg: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80",
+          color: "#2e8b57",
+          onClick: () => {
+            const todayTip = document.querySelector('.daily-tip');
+            todayTip.scrollIntoView({ behavior: 'smooth' });
+          }
         },
         '5-1': {
           id: "workers-day",
@@ -2356,20 +2438,17 @@
     const questions = document.querySelectorAll('.question');
     const quizResult = document.getElementById('quizResult');
     
-    // Initialize quiz
     function initQuiz() {
       quizButtons.forEach(button => {
         button.addEventListener('click', function() {
           const score = parseInt(this.getAttribute('data-score'));
           quizScore += score;
           
-          // Move to next question
           if (currentQuestion < totalQuestions) {
             questions.forEach(q => q.classList.remove('active'));
             currentQuestion++;
             document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
           } else {
-            // Show results
             document.querySelector('.quiz-questions').style.display = 'none';
             quizResult.style.display = 'block';
             
@@ -2393,7 +2472,7 @@
       });
     }
 
-    /* ========== FEATURE 2: Tip Voting System - FIXED ========== */
+    /* ========== FEATURE 2: Tip Voting System ========== */
     const likeBtn = document.getElementById('likeBtn');
     const dislikeBtn = document.getElementById('dislikeBtn');
     const commentBtn = document.getElementById('commentBtn');
@@ -2401,7 +2480,6 @@
     const likeCount = document.getElementById('likeCount');
     const dislikeCount = document.getElementById('dislikeCount');
     
-    // Load saved votes from localStorage
     let tipVotes = JSON.parse(localStorage.getItem('tipVotes')) || {
       likes: 24,
       dislikes: 3,
@@ -2409,29 +2487,23 @@
     };
     
     function initVotingSystem() {
-      // Hide comments section by default
       commentsSection.style.display = 'none';
       
-      // Update counts
       likeCount.textContent = tipVotes.likes;
       dislikeCount.textContent = tipVotes.dislikes;
       
-      // Set active state
       if (tipVotes.userVote === 'like') {
         likeBtn.classList.add('active');
       } else if (tipVotes.userVote === 'dislike') {
         dislikeBtn.classList.add('active');
       }
       
-      // Like button event
       likeBtn.addEventListener('click', function() {
         if (tipVotes.userVote === 'like') {
-          // Remove like
           tipVotes.likes--;
           tipVotes.userVote = null;
           this.classList.remove('active');
         } else {
-          // Add like, remove dislike if exists
           if (tipVotes.userVote === 'dislike') {
             tipVotes.dislikes--;
             dislikeBtn.classList.remove('active');
@@ -2444,15 +2516,12 @@
         updateVotes();
       });
       
-      // Dislike button event
       dislikeBtn.addEventListener('click', function() {
         if (tipVotes.userVote === 'dislike') {
-          // Remove dislike
           tipVotes.dislikes--;
           tipVotes.userVote = null;
           this.classList.remove('active');
         } else {
-          // Add dislike, remove like if exists
           if (tipVotes.userVote === 'like') {
             tipVotes.likes--;
             likeBtn.classList.remove('active');
@@ -2465,7 +2534,6 @@
         updateVotes();
       });
       
-      // Comment button event - FIXED
       commentBtn.addEventListener('click', function() {
         if (commentsSection.style.display === 'none') {
           commentsSection.style.display = 'block';
@@ -2485,16 +2553,12 @@
 
     /* ========== FEATURE 3: Personalized Recommendations ========== */
     function initRecommendations() {
-      // Simulate user interests based on quiz score
       const userScore = quizScore;
-      
-      // Update recommendations based on score
       const recCards = document.querySelectorAll('.rec-card');
       
       recCards.forEach(card => {
         const category = card.getAttribute('data-category');
         
-        // Update descriptions based on user's likely needs
         if (userScore < 3 && category === 'finance') {
           card.querySelector('p').textContent = 'Essential for improving your business fundamentals';
         } else if (userScore >= 3 && userScore < 5 && category === 'marketing') {
@@ -2505,39 +2569,33 @@
       });
     }
 
-    /* ========== FEATURE 4: Business Calculator - FIXED ========== */
+    /* ========== FEATURE 4: Business Calculator ========== */
     const calcTabs = document.querySelectorAll('.calc-tabs button');
     const calcContents = document.querySelectorAll('.calc-content');
     
     function initCalculator() {
-      // Hide all results initially
       document.querySelectorAll('.calc-result').forEach(result => {
         result.style.display = 'none';
       });
       
-      // Tab switching
       calcTabs.forEach(tab => {
         tab.addEventListener('click', function() {
           const calcType = this.getAttribute('data-calc');
           
-          // Update active tab
           calcTabs.forEach(t => t.classList.remove('active'));
           this.classList.add('active');
           
-          // Show corresponding calculator
           calcContents.forEach(content => {
             content.classList.remove('active');
           });
           document.getElementById(`${calcType}Calc`).classList.add('active');
           
-          // Hide previous results
           document.querySelectorAll('.calc-result').forEach(result => {
             result.style.display = 'none';
           });
         });
       });
       
-      // Set profit calculator as active by default
       document.getElementById('profitCalc').classList.add('active');
       document.querySelector('.calc-tabs button[data-calc="profit"]').classList.add('active');
     }
@@ -2629,14 +2687,13 @@
       document.getElementById('roiResult').style.display = 'block';
     }
 
-    /* ========== FEATURE 5: Success Stories - FIXED ========== */
+    /* ========== FEATURE 5: Success Stories ========== */
     let autoScrollInterval;
     
     function initStories() {
-      // Auto-scroll slider
       const slider = document.querySelector('.stories-slider');
       let scrollAmount = 0;
-      const slideWidth = 320; // Width of one slide + gap
+      const slideWidth = 320;
       
       function autoScroll() {
         if (!slider) return;
@@ -2649,10 +2706,8 @@
         slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
       }
       
-      // Auto-scroll every 5 seconds
       autoScrollInterval = setInterval(autoScroll, 5000);
       
-      // Pause auto-scroll on hover
       slider.addEventListener('mouseenter', () => {
         clearInterval(autoScrollInterval);
       });
@@ -2661,7 +2716,6 @@
         autoScrollInterval = setInterval(autoScroll, 5000);
       });
       
-      // Make sure images are visible
       const storyImages = document.querySelectorAll('.story-slide img');
       storyImages.forEach(img => {
         img.style.display = 'block';
@@ -2681,7 +2735,6 @@
         return;
       }
       
-      // Simulate submission
       const notification = document.createElement('div');
       notification.style.cssText = `
         position: fixed;
@@ -2698,7 +2751,6 @@
       notification.textContent = 'Thank you for sharing! Your story will be reviewed and may appear on the homepage.';
       document.body.appendChild(notification);
       
-      // Clear textarea
       document.getElementById('storyText').value = '';
       
       setTimeout(() => {
@@ -2717,7 +2769,6 @@
       initCalculator();
       initStories();
       
-      // Add loading animation to images
       const images = document.querySelectorAll('img');
       images.forEach(img => {
         img.addEventListener('load', function() {
