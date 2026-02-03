@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kplus712 — Professional Business Coaching & Daily Tips</title>
   <meta name="description" content="Daily business tips, coaching, and practical strategies for entrepreneurs. Grow your business with Kplus712.">
-  <meta name="theme-color" content="#bfa034">
+  <meta name="theme-color" content="#2e7d32">
   
   <!-- Preload critical resources -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style">
@@ -15,9 +15,9 @@
     /* CSS Reset & Base */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --gold: #bfa034;
-      --gold-light: #d4b63a;
-      --gold-dark: #9c852a;
+      --gold: #2e7d32; /* Changed to green */
+      --gold-light: #4caf50;
+      --gold-dark: #1b5e20;
       --muted: #666;
       --muted-light: #888;
       --bg: #fff;
@@ -227,15 +227,28 @@
       width: 100%;
     }
     
-    nav .brand {
+    /* Logo Style */
+    .brand-logo {
       font-weight: 800;
-      color: var(--gold);
       font-size: 1.5rem;
       letter-spacing: -0.5px;
+      color: var(--gold);
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
     }
     
-    nav .brand span {
+    .brand-logo .logo-main {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    
+    .brand-logo .logo-tagline {
+      font-size: 0.7rem;
+      font-weight: 600;
       color: var(--text);
+      letter-spacing: 0.5px;
     }
     
     .nav-links {
@@ -266,7 +279,7 @@
     }
     
     .nav-links a:hover {
-      background: rgba(191, 160, 52, 0.1);
+      background: rgba(46, 125, 50, 0.1);
     }
     
     .nav-links a:hover::after {
@@ -299,22 +312,41 @@
     }
     
     .hero h1 {
-      color: var(--gold);
-      margin: 0;
+      color: white;
+      margin: 0 auto 20px;
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 800;
       line-height: 1.2;
-      background: linear-gradient(135deg, var(--gold), #ffd700);
+      background: #2e7d32;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      padding: 15px 30px;
+      border-radius: 16px;
+      display: inline-block;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
+    }
+    
+    .hero h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #2e7d32;
+      border-radius: 16px;
+      z-index: -1;
+      opacity: 0.15;
     }
     
     .hero-subtitle {
-      color: var(--muted);
+      color: #388e3c;
       font-size: 1.1rem;
       max-width: 600px;
       margin: 16px auto 0;
+      font-weight: 500;
     }
     
     /* Daily Tip Card - Enhanced with Voting System */
@@ -393,7 +425,7 @@
     .tip-meaning {
       margin-top: 12px;
       padding: 12px;
-      background: rgba(191, 160, 52, 0.08);
+      background: rgba(46, 125, 50, 0.08);
       border-radius: 8px;
       border-left: 3px solid var(--gold);
       font-style: italic;
@@ -402,13 +434,13 @@
     /* Tip Category Badge */
     .tip-category {
       display: inline-block;
-      background: rgba(191, 160, 52, 0.1);
+      background: rgba(46, 125, 50, 0.1);
       color: var(--gold);
       padding: 4px 12px;
       border-radius: 50px;
       font-size: 0.85rem;
       margin-bottom: 8px;
-      border: 1px solid rgba(191, 160, 52, 0.2);
+      border: 1px solid rgba(46, 125, 50, 0.2);
     }
     
     /* Tip Interaction - FEATURE 2 */
@@ -425,8 +457,8 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(191, 160, 52, 0.1);
-      border: 1px solid rgba(191, 160, 52, 0.2);
+      background: rgba(46, 125, 50, 0.1);
+      border: 1px solid rgba(46, 125, 50, 0.2);
       color: var(--gold);
       padding: 8px 16px;
       border-radius: 50px;
@@ -436,7 +468,7 @@
     }
     
     .vote-btn:hover {
-      background: rgba(191, 160, 52, 0.2);
+      background: rgba(46, 125, 50, 0.2);
       transform: translateY(-2px);
     }
     
@@ -589,428 +621,6 @@
       max-width: 600px;
     }
     
-    /* FEATURE 1: Interactive Business Quiz Widget */
-    .quiz-widget {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      border-radius: var(--card-radius);
-      padding: 32px;
-      margin: 40px auto;
-      max-width: var(--maxw);
-      color: white;
-      text-align: center;
-      box-shadow: var(--shadow-lg);
-      animation: slideInUp 0.6s ease-out;
-    }
-    
-    .quiz-widget h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    
-    .quiz-widget p {
-      opacity: 0.9;
-      margin-bottom: 24px;
-      font-size: 1rem;
-    }
-    
-    .quiz-questions {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 24px;
-      backdrop-filter: blur(10px);
-    }
-    
-    .question {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    .question.active {
-      display: block;
-    }
-    
-    .question p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-    
-    .quiz-btn {
-      background: white;
-      color: var(--gold);
-      border: none;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      margin: 8px;
-      min-width: 150px;
-    }
-    
-    .quiz-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    .quiz-result {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    .quiz-result h4 {
-      font-size: 1.3rem;
-      margin-bottom: 16px;
-    }
-    
-    .quiz-result a {
-      display: inline-block;
-      background: white;
-      color: var(--gold);
-      padding: 12px 24px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 16px;
-      transition: var(--transition);
-    }
-    
-    .quiz-result a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* FEATURE 3: Personalized Content Recommendations */
-    .recommendations {
-      max-width: var(--maxw);
-      margin: 40px auto;
-      padding: 0 24px;
-    }
-    
-    .rec-header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    
-    .rec-header h3 {
-      color: var(--gold);
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    
-    .rec-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    
-    .rec-card {
-      background: var(--card-bg);
-      border-radius: var(--card-radius);
-      padding: 24px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      text-align: center;
-    }
-    
-    .rec-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .rec-card span {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-      display: block;
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    .rec-card h4 {
-      color: var(--text);
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-    }
-    
-    .rec-card p {
-      color: var(--text-light);
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-    
-    .rec-card a {
-      color: var(--gold);
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    /* FEATURE 4: Business Metrics Calculator Widget - FIXED */
-    .calculator-widget {
-      background: var(--card-bg);
-      border-radius: var(--card-radius);
-      padding: 32px;
-      margin: 40px auto;
-      max-width: var(--maxw);
-      box-shadow: var(--shadow);
-      animation: slideInUp 0.6s ease-out;
-    }
-    
-    .calculator-widget h3 {
-      color: var(--gold);
-      font-size: 1.5rem;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .calc-tabs {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-    
-    .calc-tabs button {
-      background: var(--bg-alt);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      color: var(--text);
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    
-    .calc-tabs button.active {
-      background: var(--gold);
-      color: white;
-    }
-    
-    .calc-content {
-      background: var(--bg-alt);
-      border-radius: 12px;
-      padding: 24px;
-    }
-    
-    .calc-content:not(.active) {
-      display: none;
-    }
-    
-    .calc-content.active {
-      display: block;
-    }
-    
-    .input-group {
-      margin-bottom: 20px;
-    }
-    
-    .input-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: var(--text);
-    }
-    
-    .input-group input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 1rem;
-      background: var(--bg);
-      color: var(--text);
-    }
-    
-    .calc-btn {
-      background: var(--gold);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      width: 100%;
-      margin-top: 16px;
-    }
-    
-    .calc-btn:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-    
-    .calc-result {
-      margin-top: 24px;
-      padding: 20px;
-      background: rgba(191, 160, 52, 0.1);
-      border-radius: 8px;
-      border-left: 4px solid var(--gold);
-      animation: fadeIn 0.5s ease;
-      display: none;
-    }
-    
-    .calc-result h4 {
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-    
-    /* FEATURE 5: Community Success Stories Slider - FIXED */
-    .live-stories {
-      max-width: var(--maxw);
-      margin: 40px auto;
-      padding: 0 24px;
-    }
-    
-    .stories-header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    
-    .stories-header h3 {
-      color: var(--gold);
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    
-    .stories-slider {
-      display: flex;
-      overflow-x: auto;
-      gap: 24px;
-      padding: 20px 0;
-      scrollbar-width: thin;
-      scrollbar-color: var(--gold) var(--bg-alt);
-      -webkit-overflow-scrolling: touch;
-    }
-    
-    .stories-slider::-webkit-scrollbar {
-      height: 6px;
-    }
-    
-    .stories-slider::-webkit-scrollbar-track {
-      background: var(--bg-alt);
-      border-radius: 3px;
-    }
-    
-    .stories-slider::-webkit-scrollbar-thumb {
-      background: var(--gold);
-      border-radius: 3px;
-    }
-    
-    .story-slide {
-      flex: 0 0 320px;
-      background: var(--card-bg);
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-    
-    .story-slide:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .story-slide img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-    }
-    
-    .story-content {
-      padding: 20px;
-    }
-    
-    .story-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-    
-    .story-header strong {
-      color: var(--text);
-      font-size: 1.1rem;
-    }
-    
-    .story-time {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-    
-    .story-content p {
-      color: var(--text-light);
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    
-    .story-stats {
-      display: flex;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    
-    .share-story {
-      background: var(--bg-alt);
-      border-radius: var(--card-radius);
-      padding: 24px;
-      margin-top: 32px;
-      text-align: center;
-    }
-    
-    .share-story h4 {
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    
-    .share-story textarea {
-      width: 100%;
-      padding: 16px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 1rem;
-      margin-bottom: 16px;
-      resize: vertical;
-      min-height: 100px;
-      background: var(--bg);
-      color: var(--text);
-    }
-    
-    .submit-story {
-      background: var(--gold);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    
-    .submit-story:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-    
     /* Content Sections */
     .content {
       max-width: var(--maxw);
@@ -1040,6 +650,127 @@
       color: var(--gold);
       margin-bottom: 12px;
       font-size: 1.3rem;
+    }
+    
+    /* SMS Campaign Section */
+    .sms-campaign {
+      max-width: var(--maxw);
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+    
+    .campaign-card {
+      background: linear-gradient(135deg, #2e7d32, #4caf50);
+      color: white;
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
+      animation: slideInUp 0.6s ease-out;
+    }
+    
+    .campaign-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .campaign-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .campaign-card h3 {
+      margin: 0 0 16px;
+      font-size: 1.5rem;
+      color: white;
+    }
+    
+    .campaign-card p {
+      margin-bottom: 24px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    
+    #smsSubscriptionForm {
+      display: grid;
+      gap: 16px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .form-input {
+      padding: 16px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      text-align: center;
+      font-family: inherit;
+    }
+    
+    .form-input:focus {
+      outline: 3px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
+    
+    .submit-btn {
+      background: white;
+      color: #2e7d32;
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+    
+    .campaign-benefits {
+      margin-top: 24px;
+      display: grid;
+      gap: 8px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .campaign-benefits p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    #subscriptionResult {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .result-message {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 16px;
+      border-radius: 12px;
+      border-left: 4px solid #4caf50;
+    }
+    
+    .result-message.error {
+      background: #ffebee;
+      color: #c62828;
+      border-left-color: #f44336;
     }
     
     /* Modal - Modernized */
@@ -1171,13 +902,13 @@
     .btn-primary {
       background: var(--gold);
       color: white;
-      box-shadow: 0 4px 12px rgba(191, 160, 52, 0.3);
+      box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
     }
     
     .btn-primary:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(191, 160, 52, 0.4);
+      box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
     }
     
     .btn-secondary {
@@ -1187,7 +918,7 @@
     }
     
     .btn-secondary:hover {
-      background: rgba(191, 160, 52, 0.1);
+      background: rgba(46, 125, 50, 0.1);
       transform: translateY(-2px);
     }
     
@@ -1202,16 +933,16 @@
       display: flex;
       gap: 12px;
       align-items: center;
-      background: rgba(191, 160, 52, 0.08);
+      background: rgba(46, 125, 50, 0.08);
       padding: 16px;
       border-radius: 12px;
-      border: 1px solid rgba(191, 160, 52, 0.2);
+      border: 1px solid rgba(46, 125, 50, 0.2);
       transition: var(--transition);
     }
     
     .story:hover {
       transform: translateY(-2px);
-      background: rgba(191, 160, 52, 0.12);
+      background: rgba(46, 125, 50, 0.12);
     }
     
     .story img {
@@ -1340,12 +1071,20 @@
         font-size: 1.5rem;
       }
       
-      .calc-tabs {
-        justify-content: center;
+      .campaign-card {
+        padding: 24px;
       }
       
-      .story-slide {
-        flex: 0 0 280px;
+      .campaign-card h3 {
+        font-size: 1.3rem;
+      }
+      
+      .brand-logo {
+        font-size: 1.3rem;
+      }
+      
+      .brand-logo .logo-main {
+        font-size: 1.5rem;
       }
     }
     
@@ -1356,6 +1095,7 @@
       
       .hero h1 {
         font-size: 1.8rem;
+        padding: 12px 20px;
       }
       
       .btn-row {
@@ -1370,13 +1110,29 @@
         padding: 24px;
       }
       
-      .quiz-btn {
-        width: 100%;
-        margin: 8px 0;
+      .daily-tip {
+        padding: 16px;
       }
       
-      .story-slide {
-        flex: 0 0 260px;
+      .tip-interaction {
+        flex-wrap: wrap;
+      }
+      
+      .vote-btn, .comment-btn {
+        flex: 1;
+        min-width: 120px;
+      }
+      
+      .brand-logo {
+        font-size: 1.1rem;
+      }
+      
+      .brand-logo .logo-main {
+        font-size: 1.3rem;
+      }
+      
+      .brand-logo .logo-tagline {
+        font-size: 0.6rem;
       }
     }
     
@@ -1413,8 +1169,7 @@
       .menu-toggle,
       .btn,
       .modal-backdrop,
-      .quiz-widget,
-      .calculator-widget {
+      .sms-campaign {
         display: none !important;
       }
       
@@ -1449,7 +1204,10 @@
   <!-- Navigation -->
   <nav aria-label="Main navigation">
     <div class="inner">
-      <div class="brand">Kplus<span>712</span></div>
+      <div class="brand-logo">
+        <div class="logo-main">KPLUS712</div>
+        <div class="logo-tagline">YOUR VISION, OUR STRATEGY</div>
+      </div>
       
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         ☰
@@ -1476,24 +1234,24 @@
         </p>
       </div>
 
-      <!-- Daily Tip Card with Voting System (FEATURE 2) - FIXED -->
+      <!-- Daily Tip Card with Voting System -->
       <div id="dailyTip" class="daily-tip" role="article" aria-labelledby="tipTitle">
         <div class="tip-img-container">
           <img id="tipImg" class="tip-img" 
-               src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60" 
-               alt="Daily business tip illustration" 
+               src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60" 
+               alt="Customer profile definition illustration" 
                loading="lazy">
         </div>
         <div>
           <div class="tip-date" id="tipDate">
-            <span>📅</span> Date loading...
+            <span>📅</span> Monday, 3 February 2025 • 10:00 AM • Day 34/366
           </div>
-          <div class="tip-category" id="tipCategory">Strategic Planning</div>
-          <h2 class="tip-title" id="tipTitle">Tip title</h2>
+          <div class="tip-category" id="tipCategory">Customer Strategy</div>
+          <h2 class="tip-title" id="tipTitle">Customer Profile Definition</h2>
           <div id="tipBody" class="tip-body">
-            <p>Tip short explanation — practice this today to improve your cash flow.</p>
+            <p>Clearly define your ideal customer: age, needs, problems, and buying behavior.</p>
             <div class="tip-meaning" id="tipMeaning">
-              Meaning: Loading...
+              Meaning: Understanding your ideal customer helps you attract the right people and avoid wasted marketing.
             </div>
           </div>
           
@@ -1510,7 +1268,7 @@
             </button>
           </div>
           
-          <!-- Comments Section - FIXED: Now properly hidden by default -->
+          <!-- Comments Section -->
           <div class="comments-section" id="commentsSection">
             <div class="comment">
               <strong>John (Tanga):</strong> "Nimetumika hii tip na nimeona mabadiliko!"
@@ -1547,41 +1305,6 @@
       </div>
     </div>
 
-    <!-- FEATURE 1: Interactive Business Quiz Widget -->
-    <section class="quiz-widget" aria-labelledby="quizTitle">
-      <h3 id="quizTitle">📊 Business Health Check</h3>
-      <p>Take this 2-minute quiz to assess your business status and get personalized recommendations</p>
-      
-      <div class="quiz-questions">
-        <div class="question active" data-question="1">
-          <p>How often do you track your business expenses?</p>
-          <button class="quiz-btn" data-score="2">Daily</button>
-          <button class="quiz-btn" data-score="1">Weekly</button>
-          <button class="quiz-btn" data-score="0">Rarely</button>
-        </div>
-        
-        <div class="question" data-question="2">
-          <p>Do you have a separate business account from personal?</p>
-          <button class="quiz-btn" data-score="2">Yes, always</button>
-          <button class="quiz-btn" data-score="1">Sometimes</button>
-          <button class="quiz-btn" data-score="0">No</button>
-        </div>
-        
-        <div class="question" data-question="3">
-          <p>How do you handle customer complaints?</p>
-          <button class="quiz-btn" data-score="2">Immediately with a system</button>
-          <button class="quiz-btn" data-score="1">When I get time</button>
-          <button class="quiz-btn" data-score="0">I ignore them</button>
-        </div>
-      </div>
-      
-      <div class="quiz-result" id="quizResult">
-        <h4>Your Score: <span id="quizScore">0</span>/6</h4>
-        <p id="quizFeedback">Based on your answers, your business health is: Loading...</p>
-        <a href="business-knowledge.html">📚 Read recommended articles</a>
-      </div>
-    </section>
-
     <!-- Content Sections -->
     <div class="content">
       <section class="section-card" aria-labelledby="about-title">
@@ -1601,181 +1324,51 @@
       </section>
     </div>
 
-    <!-- FEATURE 3: Personalized Content Recommendations -->
-    <section class="recommendations" aria-labelledby="recTitle">
-      <div class="rec-header">
-        <h3 id="recTitle">📌 Recommended For You</h3>
-        <p class="small-muted">Content personalized based on your interests and business needs</p>
-      </div>
-      
-      <div class="rec-grid" id="recommendations">
-        <div class="rec-card" data-category="finance">
-          <span>💰</span>
-          <h4>Cash Flow Management</h4>
-          <p>Based on your interest in daily financial tips</p>
-          <a href="business-knowledge.html#finance">Read More →</a>
+    <!-- SMS Campaign Section -->
+    <section class="sms-campaign" aria-labelledby="campaignTitle">
+      <div class="campaign-card">
+        <div class="campaign-header">
+          <div class="campaign-icon">📱</div>
+          <h3 id="campaignTitle">Pata Somo Fupi la Wateja Kila Ijumaa!</h3>
+          <p>Jiunge na kampeni yetu ya SMS. Tutakutumia somo moja la wateja kila Ijumaa bure.</p>
         </div>
         
-        <div class="rec-card" data-category="marketing">
-          <span>🎯</span>
-          <h4>Customer Retention</h4>
-          <p>Since you liked customer engagement tips</p>
-          <a href="business-knowledge.html#customers">Read More →</a>
-        </div>
+        <form id="smsSubscriptionForm">
+          <input type="tel" 
+                 id="phoneNumber" 
+                 class="form-input" 
+                 placeholder="Namba yako ya simu (07xxxxxxxx)" 
+                 required
+                 aria-label="Phone number">
+          
+          <input type="text" 
+                 id="userName" 
+                 class="form-input" 
+                 placeholder="Jina lako (si lazima)"
+                 aria-label="Your name">
+          
+          <select id="businessType" class="form-input" aria-label="Business type">
+            <option value="">Aina ya biashara yako</option>
+            <option value="retail">Duka rejareja</option>
+            <option value="service">Huduma</option>
+            <option value="restaurant">Mgahawa</option>
+            <option value="agriculture">Kilimo</option>
+            <option value="other">Nyingine</option>
+          </select>
+          
+          <button type="submit" class="submit-btn">
+            ✅ Jiunge Sasa (BURE)
+          </button>
+        </form>
         
-        <div class="rec-card" data-category="planning">
-          <span>📈</span>
-          <h4>Business Planning</h4>
-          <p>Essential for sustainable growth</p>
-          <a href="business-knowledge.html#planning">Read More →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE 4: Business Metrics Calculator Widget - FIXED -->
-    <section class="calculator-widget" aria-labelledby="calcTitle">
-      <h3 id="calcTitle">🧮 Business Calculator</h3>
-      
-      <div class="calc-tabs">
-        <button class="active" data-calc="profit">Profit Margin</button>
-        <button data-calc="break-even">Break-even Point</button>
-        <button data-calc="roi">ROI Calculator</button>
-      </div>
-      
-      <!-- Profit Margin Calculator -->
-      <div class="calc-content active" id="profitCalc">
-        <div class="input-group">
-          <label for="revenue">Revenue (TZS):</label>
-          <input type="number" id="revenue" placeholder="e.g., 1,000,000">
-        </div>
-        <div class="input-group">
-          <label for="cost">Cost (TZS):</label>
-          <input type="number" id="cost" placeholder="e.g., 700,000">
-        </div>
-        <button class="calc-btn" onclick="calculateProfit()">Calculate Profit Margin</button>
-        
-        <div class="calc-result" id="profitResult">
-          <h4>Profit Margin: <span id="profitPercentage">0%</span></h4>
-          <p class="interpretation" id="profitInterpretation"></p>
+        <div class="campaign-benefits">
+          <p>✓ Somo moja kila Ijumaa</p>
+          <p>✓ Bila malipo yoyote</p>
+          <p>✓ Unaweza kusitisha wakati wowote</p>
         </div>
       </div>
       
-      <!-- Break-even Calculator -->
-      <div class="calc-content" id="breakEvenCalc">
-        <div class="input-group">
-          <label for="fixedCosts">Fixed Costs (TZS):</label>
-          <input type="number" id="fixedCosts" placeholder="e.g., 500,000">
-        </div>
-        <div class="input-group">
-          <label for="pricePerUnit">Price per Unit (TZS):</label>
-          <input type="number" id="pricePerUnit" placeholder="e.g., 10,000">
-        </div>
-        <div class="input-group">
-          <label for="variableCostPerUnit">Variable Cost per Unit (TZS):</label>
-          <input type="number" id="variableCostPerUnit" placeholder="e.g., 6,000">
-        </div>
-        <button class="calc-btn" onclick="calculateBreakEven()">Calculate Break-even</button>
-        
-        <div class="calc-result" id="breakEvenResult">
-          <h4>Break-even Point: <span id="breakEvenUnits">0</span> units</h4>
-          <p class="interpretation" id="breakEvenInterpretation"></p>
-        </div>
-      </div>
-      
-      <!-- ROI Calculator -->
-      <div class="calc-content" id="roiCalc">
-        <div class="input-group">
-          <label for="investment">Total Investment (TZS):</label>
-          <input type="number" id="investment" placeholder="e.g., 2,000,000">
-        </div>
-        <div class="input-group">
-          <label for="netProfit">Net Profit from Investment (TZS):</label>
-          <input type="number" id="netProfit" placeholder="e.g., 500,000">
-        </div>
-        <button class="calc-btn" onclick="calculateROI()">Calculate ROI</button>
-        
-        <div class="calc-result" id="roiResult">
-          <h4>ROI: <span id="roiPercentage">0%</span></h4>
-          <p class="interpretation" id="roiInterpretation"></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE 5: Community Success Stories Slider - FIXED -->
-    <section class="live-stories" aria-labelledby="storiesTitle">
-      <div class="stories-header">
-        <h3 id="storiesTitle">🎯 Live Success Stories</h3>
-        <p class="small-muted">Real entrepreneurs sharing their wins this week</p>
-      </div>
-      
-      <div class="stories-slider">
-        <div class="story-slide">
-          <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80" alt="Maria, Dar es Salaam">
-          <div class="story-content">
-            <div class="story-header">
-              <strong>Maria, Dar es Salaam</strong>
-              <span class="story-time">2 hours ago</span>
-            </div>
-            <p>"Using the daily tips, I increased my restaurant sales by 30% this month!"</p>
-            <div class="story-stats">
-              <span>👍 42</span>
-              <span>💬 8</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="story-slide">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="John, Arusha">
-          <div class="story-content">
-            <div class="story-header">
-              <strong>John, Arusha</strong>
-              <span class="story-time">Yesterday</span>
-            </div>
-            <p>"The cash flow management tip saved my business during tough season!"</p>
-            <div class="story-stats">
-              <span>👍 28</span>
-              <span>💬 5</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="story-slide">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Fatuma, Mwanza">
-          <div class="story-content">
-            <div class="story-header">
-              <strong>Fatuma, Mwanza</strong>
-              <span class="story-time">3 days ago</span>
-            </div>
-            <p>"Customer retention strategies doubled my repeat business in 2 months!"</p>
-            <div class="story-stats">
-              <span>👍 56</span>
-              <span>💬 12</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="story-slide">
-          <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?auto=format&fit=crop&w=800&q=80" alt="David, Dodoma">
-          <div class="story-content">
-            <div class="story-header">
-              <strong>David, Dodoma</strong>
-              <span class="story-time">5 days ago</span>
-            </div>
-            <p>"Started with 3 customers, now I have 50 regulars thanks to Kplus712 tips!"</p>
-            <div class="story-stats">
-              <span>👍 34</span>
-              <span>💬 7</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="share-story">
-        <h4>Share Your Success Story</h4>
-        <textarea id="storyText" placeholder="Share your business win this week..."></textarea>
-        <button class="submit-story" onclick="submitStory()">Submit Story</button>
-        <small>Selected stories appear on homepage</small>
-      </div>
+      <div id="subscriptionResult"></div>
     </section>
   </main>
 
@@ -1861,17 +1454,20 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="brand" style="font-size: 1.2rem;">Kplus712</div>
+      <div class="brand-logo">
+        <div class="logo-main">KPLUS712</div>
+        <div class="logo-tagline">YOUR VISION, OUR STRATEGY</div>
+      </div>
       <div class="copyright">
-        © 2025 Kplus712 — All rights reserved.
+        © 2026 Kplus712 — All rights reserved.
       </div>
       <div id="yearProgress" style="margin-top: 20px; font-size: 0.9rem; color: var(--muted);">
         <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-          <span>Year Progress: <strong id="progressPercent">0%</strong></span>
-          <span id="dayCounter">Tip 0 of 366</span>
+          <span>Year Progress: <strong id="progressPercent">9.3%</strong></span>
+          <span id="dayCounter">Tip 34 of 366</span>
         </div>
-        <div style="width: 100%; height: 6px; background: rgba(191, 160, 52, 0.2); border-radius: 3px; overflow: hidden;">
-          <div id="progressBar" style="width: 0%; height: 100%; background: var(--gold); border-radius: 3px;"></div>
+        <div style="width: 100%; height: 6px; background: rgba(46, 125, 50, 0.2); border-radius: 3px; overflow: hidden;">
+          <div id="progressBar" style="width: 9.3%; height: 100%; background: var(--gold); border-radius: 3px;"></div>
         </div>
       </div>
     </div>
@@ -1928,7 +1524,7 @@ const februaryTips = [
   { 
     day: 3,
     title: "First Impression Audit", 
-    body: "Review your shop, website, or social media from a first-time customer’s view.", 
+    body: "Review your shop, website, or social media from a first-time customer's view.", 
     meaning: "Strong first impressions increase trust and reduce customer drop-off.", 
     img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
     category: "Brand Image"
@@ -2135,51 +1731,30 @@ const februaryTips = [
   }
 ];
 
-    // Create full year tips array (366 days for leap year)
-    const fullYearTips = [...januaryTips];
-    // Fill rest of year with default tips for now
-    for (let i = 32; i <= 366; i++) {
-      fullYearTips.push({
-        day: i,
-        title: `Day ${i} - Coming Soon`,
-        body: "New tip is being prepared for this day. Check back soon!",
-        meaning: "This tip will help you grow your business systematically throughout the year.",
-        img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=60",
-        category: "Coming Soon"
-      });
-    }
-
-    const tips = fullYearTips; // Use full year tips array
-
-    // Initialize daily tip - UPDATED for full year
+    // Set current date to February 3, 2025 for testing
+    const currentDate = new Date('2025-02-03T10:00:00');
+    const dayOfMonth = currentDate.getDate();
+    const tipIndex = dayOfMonth - 1; // Array is 0-indexed
+    
+    // Initialize daily tip
     function initializeDailyTip() {
-      const now = new Date();
-      const startOfYear = new Date(now.getFullYear(), 0, 0);
-      const diff = now - startOfYear;
-      const oneDay = 1000 * 60 * 60 * 24;
-      const dayOfYear = Math.floor(diff / oneDay);
+      const tip = februaryTips[tipIndex];
       
-      const idx = Math.min(dayOfYear - 1, 365); // 0-365 for 366 days
-      const tip = tips[idx];
-      
-      const dateText = now.toLocaleDateString("en-GB", { 
+      const dateText = currentDate.toLocaleDateString("en-GB", { 
         weekday: "long", 
         day: "numeric", 
         month: "long", 
         year: "numeric" 
       });
       
-      const timeText = now.toLocaleTimeString("en-GB", { 
+      const timeText = currentDate.toLocaleTimeString("en-GB", { 
         hour: "2-digit", 
         minute: "2-digit" 
       });
 
-      // Update DOM elements
-      const tipDateElement = document.getElementById("tipDate");
-      if (tipDateElement) {
-        tipDateElement.innerHTML = `<span>📅</span> ${dateText} • ${timeText} • Day ${tip.day}/366`;
-      }
-      
+      // Update DOM elements - Already set in HTML for immediate display
+      // But we update dynamically in case date changes
+      document.getElementById("tipDate").innerHTML = `<span>📅</span> ${dateText} • ${timeText} • Day 34/366`;
       document.getElementById("tipTitle").textContent = tip.title;
       document.getElementById("tipBody").innerHTML = `
         <p>${tip.body}</p>
@@ -2192,10 +1767,9 @@ const februaryTips = [
       document.getElementById("tipCategory").textContent = tip.category;
       
       // Update progress in footer
-      const progress = ((dayOfYear / 366) * 100).toFixed(1);
-      document.getElementById("progressPercent").textContent = `${progress}%`;
-      document.getElementById("dayCounter").textContent = `Tip ${dayOfYear} of 366`;
-      document.getElementById("progressBar").style.width = `${progress}%`;
+      document.getElementById("progressPercent").textContent = `9.3%`;
+      document.getElementById("dayCounter").textContent = `Tip 34 of 366`;
+      document.getElementById("progressBar").style.width = `9.3%`;
     }
 
     // Modal functionality
@@ -2250,7 +1824,7 @@ const februaryTips = [
         position: fixed;
         top: 20px;
         right: 20px;
-        background: var(--gold);
+        background: #2e7d32;
         color: white;
         padding: 16px 24px;
         border-radius: 12px;
@@ -2269,7 +1843,7 @@ const februaryTips = [
 
     /* ================== AUTO-CALENDAR LOGIC ================== */
     function getCalendarEventForToday() {
-      const now = new Date();
+      const now = currentDate; // Use our fixed date
       const m = now.getMonth() + 1;
       const d = now.getDate();
       const wd = now.getDay();
@@ -2283,41 +1857,28 @@ const februaryTips = [
 
       // Calendar events mapping
       const events = {
-        '1-1': {
-          id: "new-year",
-          tagline: "New Year • Fresh Business Vision",
-          title: "Happy New Year",
+        '2-3': {
+          id: "customer-profile-day",
+          tagline: "Customer Strategy Day",
+          title: "Customer Profile Definition Day",
           dateText: friendlyDate,
-          body: "Use today to set three clear business goals: revenue, number of customers and one system you will improve.",
-          bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
-          color: "#1e88e5",
-          onClick: () => window.location.href = "business-knowledge.html"
-        },
-        '1-15': {
-          id: "mid-month-review",
-          tagline: "Mid-Month Progress Check",
-          title: "Mid-January Review Day",
-          dateText: friendlyDate,
-          body: "Perfect time to review your January goals and make adjustments for the second half of the month.",
-          bg: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
-          color: "#bfa034",
+          body: "Today's focus: Clearly define your ideal customer. This helps you target the right people and avoid wasted marketing efforts.",
+          bg: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1400&q=80",
+          color: "#2e7d32",
           onClick: () => {
-            const todayTip = document.querySelector('.daily-tip');
-            todayTip.scrollIntoView({ behavior: 'smooth' });
+            const tipCard = document.querySelector('.daily-tip');
+            tipCard.scrollIntoView({ behavior: 'smooth' });
           }
         },
-        '1-31': {
-          id: "end-of-january",
-          tagline: "Month-End Reflection",
-          title: "January Wrap-up Day",
+        '2-14': {
+          id: "valentines",
+          tagline: "Customer Appreciation Day",
+          title: "Show Love to Your Customers",
           dateText: friendlyDate,
-          body: "Review what you accomplished this month and prepare your action plan for February.",
-          bg: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80",
-          color: "#2e8b57",
-          onClick: () => {
-            const todayTip = document.querySelector('.daily-tip');
-            todayTip.scrollIntoView({ behavior: 'smooth' });
-          }
+          body: "Perfect day to appreciate your loyal customers with a special message or small gift.",
+          bg: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?auto=format&fit=crop&w=1400&q=80",
+          color: "#e91e63",
+          onClick: null
         },
         '5-1': {
           id: "workers-day",
@@ -2328,29 +1889,22 @@ const februaryTips = [
           bg: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
           color: "#f57c00",
           onClick: null
-        },
-        '12-25': {
-          id: "christmas",
-          tagline: "Gratitude • Family • Reflection",
-          title: "Merry Christmas",
-          dateText: friendlyDate,
-          body: "Take time to rest, recharge and appreciate the people who support you.",
-          bg: "https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1400&q=80",
-          color: "#d32f2f",
-          onClick: null
         }
       };
 
       // Return appropriate event or null
-      return events[`${m}-${d}`] || (wd === 6 || wd === 0 ? {
-        id: "service-recovery-weekend",
-        tagline: "This Weekend • Coaching Live",
-        title: "Service Recovery Coaching",
-        dateText: friendlyDate + " • " + (wd === 6 ? "Saturday Morning" : "Sunday Evening"),
-        body: "Bring one customer complaint or service mistake from this week. In the session we turn it into an apology script, recovery plan and new system for your business.",
-        bg: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80",
-        color: "#2e8b57",
-        onClick: () => window.location.href = "services.html"
+      return events[`${m}-${d}`] || (wd === 5 ? { // Friday special
+        id: "friday-customer-tip",
+        tagline: "Friday • Customer Tip Day",
+        title: "Today's Customer Focus",
+        dateText: friendlyDate + " • Friday Special",
+        body: "Remember to send appreciation messages to your best customers today. Small gestures build big loyalty.",
+        bg: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80",
+        color: "#2e7d32",
+        onClick: () => {
+          const smsSection = document.querySelector('.sms-campaign');
+          smsSection.scrollIntoView({ behavior: 'smooth' });
+        }
       } : null);
     }
 
@@ -2381,7 +1935,7 @@ const februaryTips = [
         bgImg.alt = `Background image for ${ev.title}`;
       } else {
         bgImg.style.display = "none";
-        card.style.background = ev.color || "#bfa034";
+        card.style.background = ev.color || "#2e7d32";
       }
       
       if (ev.color && !ev.bg) {
@@ -2404,48 +1958,6 @@ const februaryTips = [
       // Show the element
       wrap.style.display = "block";
       wrap.setAttribute('aria-hidden', 'false');
-    }
-
-    /* ========== FEATURE 1: Interactive Quiz ========== */
-    let quizScore = 0;
-    let currentQuestion = 1;
-    const totalQuestions = 3;
-    const quizButtons = document.querySelectorAll('.quiz-btn');
-    const questions = document.querySelectorAll('.question');
-    const quizResult = document.getElementById('quizResult');
-    
-    function initQuiz() {
-      quizButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const score = parseInt(this.getAttribute('data-score'));
-          quizScore += score;
-          
-          if (currentQuestion < totalQuestions) {
-            questions.forEach(q => q.classList.remove('active'));
-            currentQuestion++;
-            document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
-          } else {
-            document.querySelector('.quiz-questions').style.display = 'none';
-            quizResult.style.display = 'block';
-            
-            const scoreElement = document.getElementById('quizScore');
-            const feedbackElement = document.getElementById('quizFeedback');
-            
-            scoreElement.textContent = quizScore;
-            
-            let feedback = '';
-            if (quizScore >= 5) {
-              feedback = 'Excellent! Your business practices are solid. Focus on scaling.';
-            } else if (quizScore >= 3) {
-              feedback = 'Good! Your business has potential. Work on financial tracking.';
-            } else {
-              feedback = 'Needs improvement! Focus on basic business systems and tracking.';
-            }
-            
-            feedbackElement.textContent = `Based on your answers, your business health is: ${feedback}`;
-          }
-        });
-      });
     }
 
     /* ========== FEATURE 2: Tip Voting System ========== */
@@ -2527,223 +2039,93 @@ const februaryTips = [
       localStorage.setItem('tipVotes', JSON.stringify(tipVotes));
     }
 
-    /* ========== FEATURE 3: Personalized Recommendations ========== */
-    function initRecommendations() {
-      const userScore = quizScore;
-      const recCards = document.querySelectorAll('.rec-card');
+    /* ========== SMS CAMPAIGN SUBSCRIPTION ========== */
+    document.getElementById('smsSubscriptionForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
       
-      recCards.forEach(card => {
-        const category = card.getAttribute('data-category');
+      const phone = document.getElementById('phoneNumber').value;
+      const name = document.getElementById('userName').value;
+      const business = document.getElementById('businessType').value;
+      
+      // Validate phone number
+      const phoneRegex = /^0[67]\d{8}$/;
+      if (!phoneRegex.test(phone)) {
+        showSubscriptionResult('Tafadhali weka namba sahihi ya Tanzania (07xxxxxxxx au 06xxxxxxxx)', 'error');
+        return;
+      }
+      
+      // Show loading
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Inatumwa...';
+      submitBtn.disabled = true;
+      
+      try {
+        // In a real app, this would call your backend API
+        // For GitHub Pages demo, we'll simulate success
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
-        if (userScore < 3 && category === 'finance') {
-          card.querySelector('p').textContent = 'Essential for improving your business fundamentals';
-        } else if (userScore >= 3 && userScore < 5 && category === 'marketing') {
-          card.querySelector('p').textContent = 'Take your business to the next level with better marketing';
-        } else if (userScore >= 5 && category === 'planning') {
-          card.querySelector('p').textContent = 'Time to scale with strategic planning';
-        }
-      });
-    }
-
-    /* ========== FEATURE 4: Business Calculator ========== */
-    const calcTabs = document.querySelectorAll('.calc-tabs button');
-    const calcContents = document.querySelectorAll('.calc-content');
-    
-    function initCalculator() {
-      document.querySelectorAll('.calc-result').forEach(result => {
-        result.style.display = 'none';
-      });
-      
-      calcTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          const calcType = this.getAttribute('data-calc');
-          
-          calcTabs.forEach(t => t.classList.remove('active'));
-          this.classList.add('active');
-          
-          calcContents.forEach(content => {
-            content.classList.remove('active');
-          });
-          document.getElementById(`${calcType}Calc`).classList.add('active');
-          
-          document.querySelectorAll('.calc-result').forEach(result => {
-            result.style.display = 'none';
-          });
-        });
-      });
-      
-      document.getElementById('profitCalc').classList.add('active');
-      document.querySelector('.calc-tabs button[data-calc="profit"]').classList.add('active');
-    }
-    
-    function calculateProfit() {
-      const revenue = parseFloat(document.getElementById('revenue').value);
-      const cost = parseFloat(document.getElementById('cost').value);
-      
-      if (!revenue || !cost || cost > revenue) {
-        alert('Please enter valid numbers (Revenue should be greater than Cost)');
-        return;
-      }
-      
-      const profit = revenue - cost;
-      const margin = ((profit / revenue) * 100).toFixed(1);
-      
-      document.getElementById('profitPercentage').textContent = `${margin}%`;
-      
-      let interpretation = '';
-      if (margin > 50) {
-        interpretation = 'Excellent profit margin! Your business is very profitable.';
-      } else if (margin > 30) {
-        interpretation = 'Good profit margin. You have room to invest in growth.';
-      } else if (margin > 15) {
-        interpretation = 'Average profit margin. Look for ways to reduce costs or increase prices.';
-      } else {
-        interpretation = 'Low profit margin. Consider cost reduction strategies or price adjustments.';
-      }
-      
-      document.getElementById('profitInterpretation').textContent = interpretation;
-      document.getElementById('profitResult').style.display = 'block';
-    }
-    
-    function calculateBreakEven() {
-      const fixedCosts = parseFloat(document.getElementById('fixedCosts').value);
-      const price = parseFloat(document.getElementById('pricePerUnit').value);
-      const variableCost = parseFloat(document.getElementById('variableCostPerUnit').value);
-      
-      if (!fixedCosts || !price || !variableCost || price <= variableCost) {
-        alert('Please enter valid numbers (Price should be greater than Variable Cost)');
-        return;
-      }
-      
-      const contributionMargin = price - variableCost;
-      const breakEvenUnits = Math.ceil(fixedCosts / contributionMargin);
-      
-      document.getElementById('breakEvenUnits').textContent = breakEvenUnits.toLocaleString();
-      
-      let interpretation = `You need to sell ${breakEvenUnits} units to cover your costs.`;
-      if (breakEvenUnits < 100) {
-        interpretation += ' Achievable target!';
-      } else if (breakEvenUnits < 500) {
-        interpretation += ' Set realistic sales targets.';
-      } else {
-        interpretation += ' Consider lowering costs or increasing price to make this more achievable.';
-      }
-      
-      document.getElementById('breakEvenInterpretation').textContent = interpretation;
-      document.getElementById('breakEvenResult').style.display = 'block';
-    }
-    
-    function calculateROI() {
-      const investment = parseFloat(document.getElementById('investment').value);
-      const netProfit = parseFloat(document.getElementById('netProfit').value);
-      
-      if (!investment || !netProfit || investment <= 0) {
-        alert('Please enter valid numbers (Investment should be greater than 0)');
-        return;
-      }
-      
-      const roi = ((netProfit / investment) * 100).toFixed(1);
-      
-      document.getElementById('roiPercentage').textContent = `${roi}%`;
-      
-      let interpretation = '';
-      if (roi > 100) {
-        interpretation = 'Outstanding ROI! Your investment is performing exceptionally well.';
-      } else if (roi > 50) {
-        interpretation = 'Good ROI. Your investment is generating solid returns.';
-      } else if (roi > 20) {
-        interpretation = 'Average ROI. Consider optimizing your investment strategy.';
-      } else if (roi > 0) {
-        interpretation = 'Low ROI. Review your investment for better opportunities.';
-      } else {
-        interpretation = 'Negative ROI. Your investment is losing money. Reconsider this strategy.';
-      }
-      
-      document.getElementById('roiInterpretation').textContent = interpretation;
-      document.getElementById('roiResult').style.display = 'block';
-    }
-
-    /* ========== FEATURE 5: Success Stories ========== */
-    let autoScrollInterval;
-    
-    function initStories() {
-      const slider = document.querySelector('.stories-slider');
-      let scrollAmount = 0;
-      const slideWidth = 320;
-      
-      function autoScroll() {
-        if (!slider) return;
+        // Simulate API response
+        const response = {
+          success: true,
+          message: 'Umefanikiwa kujiunga! Utapokea somo la kwanza Ijumaa ijayo.'
+        };
         
-        if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
-          scrollAmount = 0;
+        if (response.success) {
+          showSubscriptionResult('✅ ' + response.message, 'success');
+          document.getElementById('smsSubscriptionForm').reset();
+          
+          // Store in localStorage for demo
+          const subscription = {
+            phone: phone,
+            name: name,
+            business: business,
+            date: new Date().toISOString()
+          };
+          
+          let subscriptions = JSON.parse(localStorage.getItem('sms_subscriptions') || '[]');
+          subscriptions.push(subscription);
+          localStorage.setItem('sms_subscriptions', JSON.stringify(subscriptions));
+          
+          // Track in analytics if available
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'sms_subscription', {
+              'event_category': 'engagement',
+              'event_label': 'Friday Campaign'
+            });
+          }
         } else {
-          scrollAmount += slideWidth;
+          showSubscriptionResult('❌ ' + (response.message || 'Hitilafu imetokea, tafadhali jaribu tena.'), 'error');
         }
-        slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      } catch (error) {
+        console.error('Subscription error:', error);
+        showSubscriptionResult('❌ Hitilafu ya mtandao, tafadhali jaribu tena.', 'error');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
       }
-      
-      autoScrollInterval = setInterval(autoScroll, 5000);
-      
-      slider.addEventListener('mouseenter', () => {
-        clearInterval(autoScrollInterval);
-      });
-      
-      slider.addEventListener('mouseleave', () => {
-        autoScrollInterval = setInterval(autoScroll, 5000);
-      });
-      
-      const storyImages = document.querySelectorAll('.story-slide img');
-      storyImages.forEach(img => {
-        img.style.display = 'block';
-      });
-    }
+    });
     
-    function submitStory() {
-      const storyText = document.getElementById('storyText').value.trim();
-      
-      if (!storyText) {
-        alert('Please enter your success story!');
-        return;
-      }
-      
-      if (storyText.length < 20) {
-        alert('Please write a more detailed story (at least 20 characters)');
-        return;
-      }
-      
-      const notification = document.createElement('div');
-      notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--gold);
-        color: white;
-        padding: 16px 24px;
-        border-radius: 12px;
-        z-index: 10000;
-        animation: fadeIn 0.3s ease;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    function showSubscriptionResult(message, type) {
+      const resultDiv = document.getElementById('subscriptionResult');
+      resultDiv.innerHTML = `
+        <div class="result-message ${type === 'error' ? 'error' : ''}">
+          ${message}
+        </div>
       `;
-      notification.textContent = 'Thank you for sharing! Your story will be reviewed and may appear on the homepage.';
-      document.body.appendChild(notification);
+      resultDiv.style.display = 'block';
       
-      document.getElementById('storyText').value = '';
-      
+      // Auto-hide after 5 seconds
       setTimeout(() => {
-        notification.style.animation = 'fadeIn 0.3s ease reverse';
-        setTimeout(() => notification.remove(), 300);
-      }, 4000);
+        resultDiv.style.display = 'none';
+      }, 5000);
     }
 
     /* ========== INITIALIZE EVERYTHING ========== */
     document.addEventListener('DOMContentLoaded', () => {
       initializeDailyTip();
       renderAutoCalendarPoster();
-      initQuiz();
       initVotingSystem();
-      initRecommendations();
-      initCalculator();
-      initStories();
       
       const images = document.querySelectorAll('img');
       images.forEach(img => {
@@ -2753,13 +2135,6 @@ const februaryTips = [
         img.style.opacity = '0';
         img.style.transition = 'opacity 0.3s ease';
       });
-    });
-
-    // Clean up interval on page unload
-    window.addEventListener('beforeunload', () => {
-      if (autoScrollInterval) {
-        clearInterval(autoScrollInterval);
-      }
     });
 
     // Service Worker Registration (optional)
