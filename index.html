@@ -1907,257 +1907,233 @@
       }
     });
 
-    /* ========== Daily Business Tips (January - 31 Days) ========== */
-    const januaryTips = [
-      { 
-        day: 1,
-        title: "Yearly Goal Setting Session", 
-        body: "Dedicate 2 hours to write down your top 5 business goals for the entire year with specific metrics.", 
-        meaning: "Clear annual goals provide direction and help measure progress throughout the year.", 
-        img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
-        category: "Strategic Planning"
-      },
-      { 
-        day: 2,
-        title: "Financial Health Checkup", 
-        body: "Review all bank statements, outstanding invoices, and debts from last year. Create a financial summary.", 
-        meaning: "Understanding your complete financial position helps make informed decisions for the new year.", 
-        img: "https://images.unsplash.com/photo-1580894908361-9679a9ee0c8a?auto=format&fit=crop&w=800&q=60",
-        category: "Finance"
-      },
-      { 
-        day: 3,
-        title: "Customer Database Update", 
-        body: "Clean your customer contact list. Remove duplicates, update contacts, and segment by purchase history.", 
-        meaning: "A clean database improves marketing efficiency and customer relationship management.", 
-        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-        category: "CRM"
-      },
-      { 
-        day: 4,
-        title: "Supplier Relationship Review", 
-        body: "Contact your top 3 suppliers to discuss terms, pricing for the new year, and build stronger partnerships.", 
-        meaning: "Strong supplier relationships can lead to better prices, priority service, and reliability.", 
-        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-        category: "Supply Chain"
-      },
-      { 
-        day: 5,
-        title: "Digital Security Audit", 
-        body: "Change all business passwords, enable two-factor authentication, and backup critical data.", 
-        meaning: "Protects against data breaches and ensures business continuity in case of cyber incidents.", 
-        img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60",
-        category: "Security"
-      },
-      { 
-        day: 6,
-        title: "Competitor Analysis Deep Dive", 
-        body: "Analyze 5 competitors' new year strategies, pricing changes, and marketing campaigns.", 
-        meaning: "Identifies market gaps and opportunities for differentiation in the new year.", 
-        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
-        category: "Market Research"
-      },
-      { 
-        day: 7,
-        title: "Process Documentation Day", 
-        body: "Document one key business process that's only in your head. Create a step-by-step guide.", 
-        meaning: "Makes your business scalable and reduces dependency on specific individuals.", 
-        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
-        category: "Operations"
-      },
-      { 
-        day: 8,
-        title: "Employee/Team Goals Alignment", 
-        body: "If you have a team, align their personal goals with business objectives for the year.", 
-        meaning: "Increases motivation and ensures everyone works toward common objectives.", 
-        img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
-        category: "Team Management"
-      },
-      { 
-        day: 9,
-        title: "Marketing Calendar Creation", 
-        body: "Plan your marketing activities for Q1 including promotions, content, and advertising schedules.", 
-        meaning: "Ensures consistent marketing efforts and better campaign coordination.", 
-        img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
-        category: "Marketing Planning"
-      },
-      { 
-        day: 10,
-        title: "Technology Tools Evaluation", 
-        body: "Review all software/tools you're paying for. Cancel unused subscriptions and research better alternatives.", 
-        meaning: "Optimizes operational costs and ensures you're using the most efficient tools available.", 
-        img: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=60",
-        category: "Technology"
-      },
-      { 
-        day: 11,
-        title: "Customer Feedback Analysis", 
-        body: "Compile all customer feedback from last year and identify 3 key areas for improvement.", 
-        meaning: "Data-driven improvements increase customer satisfaction and retention.", 
-        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Experience"
-      },
-      { 
-        day: 12,
-        title: "Cash Flow Forecasting", 
-        body: "Project your cash flow for the next 3 months based on historical data and expected changes.", 
-        meaning: "Prevents cash shortages and helps plan investments more effectively.", 
-        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-        category: "Financial Planning"
-      },
-      { 
-        day: 13,
-        title: "Professional Development Plan", 
-        body: "Identify 2-3 skills you need to develop this year and find relevant courses/resources.", 
-        meaning: "Continuous learning keeps you competitive and adaptable to market changes.", 
-        img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=60",
-        category: "Personal Growth"
-      },
-      { 
-        day: 14,
-        title: "Website Performance Check", 
-        body: "Test your website speed, mobile responsiveness, and fix any broken links or pages.", 
-        meaning: "Better user experience leads to higher conversions and improved SEO rankings.", 
-        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
-        category: "Digital Presence"
-      },
-      { 
-        day: 15,
-        title: "Mid-Month Progress Review", 
-        body: "Assess progress on January goals and adjust your approach for the second half of the month.", 
-        meaning: "Regular check-ins prevent drifting off course and enable timely adjustments.", 
-        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-        category: "Performance Review"
-      },
-      { 
-        day: 16,
-        title: "Networking Strategy Session", 
-        body: "Identify 5 key people/organizations you should connect with this quarter to grow your business.", 
-        meaning: "Strategic networking opens doors to partnerships, referrals, and new opportunities.", 
-        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-        category: "Networking"
-      },
-      { 
-        day: 17,
-        title: "Inventory Optimization", 
-        body: "Analyze inventory turnover rates and adjust stock levels to minimize holding costs.", 
-        meaning: "Optimized inventory improves cash flow and reduces waste or obsolescence.", 
-        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-        category: "Inventory Management"
-      },
-      { 
-        day: 18,
-        title: "Social Media Strategy Refresh", 
-        body: "Update your social media profiles, bio, and plan content themes for the next 90 days.", 
-        meaning: "Consistent, strategic social presence builds brand authority and engages customers.", 
-        img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=60",
-        category: "Social Media"
-      },
-      { 
-        day: 19,
-        title: "Legal Compliance Check", 
-        body: "Review business licenses, permits, and regulations to ensure everything is current and compliant.", 
-        meaning: "Prevents legal issues, fines, and business disruptions due to non-compliance.", 
-        img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60",
-        category: "Legal"
-      },
-      { 
-        day: 20,
-        title: "Pricing Strategy Analysis", 
-        body: "Compare your pricing with market rates and consider seasonal adjustments or package changes.", 
-        meaning: "Optimal pricing balances profitability with competitiveness in the market.", 
-        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-        category: "Pricing Strategy"
-      },
-      { 
-        day: 21,
-        title: "Customer Retention Plan", 
-        body: "Design a loyalty program or retention strategy to keep existing customers coming back.", 
-        meaning: "Retaining customers is 5-25x cheaper than acquiring new ones and builds stable revenue.", 
-        img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Retention"
-      },
-      { 
-        day: 22,
-        title: "Business Insurance Review", 
-        body: "Review your insurance coverage and ensure it matches your current business size and risks.", 
-        meaning: "Adequate insurance protects against unexpected losses that could cripple the business.", 
-        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-        category: "Risk Management"
-      },
-      { 
-        day: 23,
-        title: "Time Management System Setup", 
-        body: "Implement a time tracking system for a week to identify where your hours are actually going.", 
-        meaning: "Understanding time expenditure helps eliminate inefficiencies and prioritize high-value tasks.", 
-        img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=60",
-        category: "Productivity"
-      },
-      { 
-        day: 24,
-        title: "Brand Consistency Audit", 
-        body: "Check all customer touchpoints (website, social media, packaging) for consistent branding.", 
-        meaning: "Consistent branding builds trust, recognition, and professional appearance.", 
-        img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
-        category: "Branding"
-      },
-      { 
-        day: 25,
-        title: "Break-Even Analysis Update", 
-        body: "Recalculate your break-even point based on current costs and pricing.", 
-        meaning: "Knowing your break-even point helps set realistic sales targets and pricing strategies.", 
-        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-        category: "Financial Analysis"
-      },
-      { 
-        day: 26,
-        title: "Crisis Management Plan", 
-        body: "Create a basic crisis response plan for potential business disruptions (supplier issues, PR crises).", 
-        meaning: "Preparation minimizes damage and recovery time when unexpected problems occur.", 
-        img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=60",
-        category: "Contingency Planning"
-      },
-      { 
-        day: 27,
-        title: "Metrics Dashboard Creation", 
-        body: "Set up a simple dashboard to track your 5 most important business metrics weekly.", 
-        meaning: "Regular monitoring of key metrics enables data-driven decisions and early problem detection.", 
-        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-        category: "Performance Metrics"
-      },
-      { 
-        day: 28,
-        title: "Product/Service Innovation Session", 
-        body: "Brainstorm 3 new product/service ideas or improvements to existing offerings.", 
-        meaning: "Continuous innovation keeps your business relevant and competitive in changing markets.", 
-        img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=60",
-        category: "Innovation"
-      },
-      { 
-        day: 29,
-        title: "Referral Program Launch", 
-        body: "Design and implement a customer referral program with attractive incentives.", 
-        meaning: "Word-of-mouth referrals are highly effective and cost-efficient for acquiring new customers.", 
-        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-        category: "Growth Strategy"
-      },
-      { 
-        day: 30,
-        title: "Monthly Financial Close Process", 
-        body: "Complete January's bookkeeping, reconcile accounts, and prepare financial statements.", 
-        meaning: "Timely financial closure provides accurate data for decision-making and tax preparation.", 
-        img: "https://images.unsplash.com/photo-1580894908361-9679a9ee0c8a?auto=format&fit=crop&w=800&q=60",
-        category: "Accounting"
-      },
-      { 
-        day: 31,
-        title: "January Reflection & February Planning", 
-        body: "Review what you accomplished this month and plan specific actions for February.", 
-        meaning: "Monthly reflection accelerates learning and maintains momentum throughout the year.", 
-        img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
-        category: "Strategic Review"
-      }
-    ];
+    /* ========== Daily Business Tips (February - 28 Days) ========== */
+const februaryTips = [
+  { 
+    day: 1,
+    title: "Customer Profile Definition", 
+    body: "Clearly define your ideal customer: age, needs, problems, and buying behavior.", 
+    meaning: "Understanding your ideal customer helps you attract the right people and avoid wasted marketing.", 
+    img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Strategy"
+  },
+  { 
+    day: 2,
+    title: "Customer Journey Mapping", 
+    body: "Map out every step a customer takes from first contact to repeat purchase.", 
+    meaning: "Improving weak points in the journey increases conversions and satisfaction.", 
+    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Experience"
+  },
+  { 
+    day: 3,
+    title: "First Impression Audit", 
+    body: "Review your shop, website, or social media from a first-time customer’s view.", 
+    meaning: "Strong first impressions increase trust and reduce customer drop-off.", 
+    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
+    category: "Brand Image"
+  },
+  { 
+    day: 4,
+    title: "Customer Communication Review", 
+    body: "Check how fast and clearly you respond to customer messages and inquiries.", 
+    meaning: "Quick and clear communication builds confidence and closes more sales.", 
+    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Service"
+  },
+  { 
+    day: 5,
+    title: "Customer Feedback Collection", 
+    body: "Ask at least 5 customers what they like and what can be improved.", 
+    meaning: "Customer feedback reveals hidden problems and growth opportunities.", 
+    img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Insights"
+  },
+  { 
+    day: 6,
+    title: "Referral Opportunity Identification", 
+    body: "Identify customers who are happy and likely to refer others.", 
+    meaning: "Satisfied customers are your cheapest and most powerful marketers.", 
+    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Growth"
+  },
+  { 
+    day: 7,
+    title: "Customer Appreciation Message", 
+    body: "Send a thank-you message to loyal customers without selling anything.", 
+    meaning: "Appreciation builds emotional connection and long-term loyalty.", 
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Retention"
+  },
+  { 
+    day: 8,
+    title: "Customer Complaint Review", 
+    body: "Analyze past complaints and identify common issues.", 
+    meaning: "Fixing recurring problems improves trust and reduces customer loss.", 
+    img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Support"
+  },
+  { 
+    day: 9,
+    title: "Value Proposition Check", 
+    body: "Clearly state why customers should choose you over competitors.", 
+    meaning: "A clear value proposition increases customer confidence and conversions.", 
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
+    category: "Marketing"
+  },
+  { 
+    day: 10,
+    title: "Customer Follow-Up System", 
+    body: "Create a simple follow-up routine after every sale.", 
+    meaning: "Follow-ups show care and increase repeat purchases.", 
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Care"
+  },
+  { 
+    day: 11,
+    title: "Customer Education Content", 
+    body: "Create content that teaches customers how to use your product or service better.", 
+    meaning: "Educated customers are more loyal and satisfied.", 
+    img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Engagement"
+  },
+  { 
+    day: 12,
+    title: "Trust-Building Audit", 
+    body: "Review reviews, testimonials, and guarantees you show to customers.", 
+    meaning: "Trust reduces hesitation and speeds up buying decisions.", 
+    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
+    category: "Trust & Credibility"
+  },
+  { 
+    day: 13,
+    title: "Customer Segmentation", 
+    body: "Group customers based on behavior, frequency, or value.", 
+    meaning: "Segmentation allows personalized offers and better retention.", 
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
+    category: "CRM"
+  },
+  { 
+    day: 14,
+    title: "Customer Loyalty Idea", 
+    body: "Design a simple loyalty reward for repeat customers.", 
+    meaning: "Rewards encourage customers to stay and buy more often.", 
+    img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Loyalty"
+  },
+  { 
+    day: 15,
+    title: "Mid-Month Customer Review", 
+    body: "Review customer growth and satisfaction so far this month.", 
+    meaning: "Mid-month reviews help you adjust before losing customers.", 
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
+    category: "Performance Review"
+  },
+  { 
+    day: 16,
+    title: "Customer Experience Improvement", 
+    body: "Improve one small customer experience detail today.", 
+    meaning: "Small improvements create big customer satisfaction over time.", 
+    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Experience"
+  },
+  { 
+    day: 17,
+    title: "Customer Re-engagement", 
+    body: "Reach out to inactive customers with a friendly message.", 
+    meaning: "Re-engaging old customers is cheaper than finding new ones.", 
+    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Retention"
+  },
+  { 
+    day: 18,
+    title: "Customer Service Training", 
+    body: "Train yourself or staff on better customer handling skills.", 
+    meaning: "Great service turns customers into brand ambassadors.", 
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Service"
+  },
+  { 
+    day: 19,
+    title: "Customer Expectations Review", 
+    body: "Check if your service meets or exceeds customer expectations.", 
+    meaning: "Meeting expectations builds trust; exceeding them builds loyalty.", 
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Satisfaction"
+  },
+  { 
+    day: 20,
+    title: "Referral Incentive Design", 
+    body: "Create a simple incentive for customers who bring new clients.", 
+    meaning: "Incentives motivate word-of-mouth growth.", 
+    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
+    category: "Growth Strategy"
+  },
+  { 
+    day: 21,
+    title: "Customer Communication Tone Check", 
+    body: "Ensure your communication tone is friendly, respectful, and helpful.", 
+    meaning: "Tone influences how customers feel about your brand.", 
+    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
+    category: "Brand Communication"
+  },
+  { 
+    day: 22,
+    title: "Customer Trust Reinforcement", 
+    body: "Remind customers of your reliability, experience, or guarantees.", 
+    meaning: "Trust keeps customers coming back even when competitors appear.", 
+    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Trust"
+  },
+  { 
+    day: 23,
+    title: "Customer Problem-Solving Focus", 
+    body: "Focus on solving customer problems, not just selling products.", 
+    meaning: "Problem-solving creates stronger customer relationships.", 
+    img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Value"
+  },
+  { 
+    day: 24,
+    title: "Customer Experience Consistency", 
+    body: "Ensure all customers receive consistent service quality.", 
+    meaning: "Consistency builds reliability and brand trust.", 
+    img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
+    category: "Service Quality"
+  },
+  { 
+    day: 25,
+    title: "Customer Lifetime Value Review", 
+    body: "Identify your most valuable customers and why they stay.", 
+    meaning: "Understanding lifetime value helps prioritize retention.", 
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Analytics"
+  },
+  { 
+    day: 26,
+    title: "Customer Loyalty Communication", 
+    body: "Remind loyal customers they are appreciated and valued.", 
+    meaning: "Recognition strengthens emotional loyalty.", 
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
+    category: "Customer Loyalty"
+  },
+  { 
+    day: 27,
+    title: "Customer Growth Reflection", 
+    body: "Review how your customer base has changed this month.", 
+    meaning: "Reflection helps refine customer acquisition strategies.", 
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
+    category: "Growth Review"
+  },
+  { 
+    day: 28,
+    title: "February Customer Strategy Wrap-Up", 
+    body: "Summarize customer lessons learned and plan improvements for March.", 
+    meaning: "Continuous improvement keeps customer growth sustainable.", 
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
+    category: "Strategic Review"
+  }
+];
 
     // Create full year tips array (366 days for leap year)
     const fullYearTips = [...januaryTips];
