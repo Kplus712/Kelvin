@@ -1238,20 +1238,20 @@
       <div id="dailyTip" class="daily-tip" role="article" aria-labelledby="tipTitle">
         <div class="tip-img-container">
           <img id="tipImg" class="tip-img" 
-               src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60" 
-               alt="Customer profile definition illustration" 
+               src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60" 
+               alt="Daily business tip illustration" 
                loading="lazy">
         </div>
         <div>
           <div class="tip-date" id="tipDate">
-            <span>📅</span> Monday, 3 February 2025 • 10:00 AM • Day 34/366
+            <span>📅</span> Loading today's tip...
           </div>
-          <div class="tip-category" id="tipCategory">Customer Strategy</div>
-          <h2 class="tip-title" id="tipTitle">Customer Profile Definition</h2>
+          <div class="tip-category" id="tipCategory">Loading...</div>
+          <h2 class="tip-title" id="tipTitle">Today's Business Tip</h2>
           <div id="tipBody" class="tip-body">
-            <p>Clearly define your ideal customer: age, needs, problems, and buying behavior.</p>
+            <p>Loading today's tip...</p>
             <div class="tip-meaning" id="tipMeaning">
-              Meaning: Understanding your ideal customer helps you attract the right people and avoid wasted marketing.
+              Meaning: Loading...
             </div>
           </div>
           
@@ -1459,15 +1459,15 @@
         <div class="logo-tagline">YOUR VISION, OUR STRATEGY</div>
       </div>
       <div class="copyright">
-        © 2026 Kplus712 — All rights reserved.
+        © <span id="currentYear">2026</span> Kplus712 — All rights reserved.
       </div>
       <div id="yearProgress" style="margin-top: 20px; font-size: 0.9rem; color: var(--muted);">
         <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-          <span>Year Progress: <strong id="progressPercent">9.3%</strong></span>
-          <span id="dayCounter">Tip 34 of 366</span>
+          <span>Year Progress: <strong id="progressPercent">0%</strong></span>
+          <span id="dayCounter">Loading...</span>
         </div>
         <div style="width: 100%; height: 6px; background: rgba(46, 125, 50, 0.2); border-radius: 3px; overflow: hidden;">
-          <div id="progressBar" style="width: 9.3%; height: 100%; background: var(--gold); border-radius: 3px;"></div>
+          <div id="progressBar" style="width: 0%; height: 100%; background: var(--gold); border-radius: 3px;"></div>
         </div>
       </div>
     </div>
@@ -1503,258 +1503,124 @@
       }
     });
 
-    /* ========== Daily Business Tips (February - 28 Days) ========== */
-const februaryTips = [
-  { 
-    day: 1,
-    title: "Customer Profile Definition", 
-    body: "Clearly define your ideal customer: age, needs, problems, and buying behavior.", 
-    meaning: "Understanding your ideal customer helps you attract the right people and avoid wasted marketing.", 
-    img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Strategy"
-  },
-  { 
-    day: 2,
-    title: "Customer Journey Mapping", 
-    body: "Map out every step a customer takes from first contact to repeat purchase.", 
-    meaning: "Improving weak points in the journey increases conversions and satisfaction.", 
-    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Experience"
-  },
-  { 
-    day: 3,
-    title: "First Impression Audit", 
-    body: "Review your shop, website, or social media from a first-time customer's view.", 
-    meaning: "Strong first impressions increase trust and reduce customer drop-off.", 
-    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
-    category: "Brand Image"
-  },
-  { 
-    day: 4,
-    title: "Customer Communication Review", 
-    body: "Check how fast and clearly you respond to customer messages and inquiries.", 
-    meaning: "Quick and clear communication builds confidence and closes more sales.", 
-    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Service"
-  },
-  { 
-    day: 5,
-    title: "Customer Feedback Collection", 
-    body: "Ask at least 5 customers what they like and what can be improved.", 
-    meaning: "Customer feedback reveals hidden problems and growth opportunities.", 
-    img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Insights"
-  },
-  { 
-    day: 6,
-    title: "Referral Opportunity Identification", 
-    body: "Identify customers who are happy and likely to refer others.", 
-    meaning: "Satisfied customers are your cheapest and most powerful marketers.", 
-    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Growth"
-  },
-  { 
-    day: 7,
-    title: "Customer Appreciation Message", 
-    body: "Send a thank-you message to loyal customers without selling anything.", 
-    meaning: "Appreciation builds emotional connection and long-term loyalty.", 
-    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Retention"
-  },
-  { 
-    day: 8,
-    title: "Customer Complaint Review", 
-    body: "Analyze past complaints and identify common issues.", 
-    meaning: "Fixing recurring problems improves trust and reduces customer loss.", 
-    img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Support"
-  },
-  { 
-    day: 9,
-    title: "Value Proposition Check", 
-    body: "Clearly state why customers should choose you over competitors.", 
-    meaning: "A clear value proposition increases customer confidence and conversions.", 
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
-    category: "Marketing"
-  },
-  { 
-    day: 10,
-    title: "Customer Follow-Up System", 
-    body: "Create a simple follow-up routine after every sale.", 
-    meaning: "Follow-ups show care and increase repeat purchases.", 
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Care"
-  },
-  { 
-    day: 11,
-    title: "Customer Education Content", 
-    body: "Create content that teaches customers how to use your product or service better.", 
-    meaning: "Educated customers are more loyal and satisfied.", 
-    img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Engagement"
-  },
-  { 
-    day: 12,
-    title: "Trust-Building Audit", 
-    body: "Review reviews, testimonials, and guarantees you show to customers.", 
-    meaning: "Trust reduces hesitation and speeds up buying decisions.", 
-    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
-    category: "Trust & Credibility"
-  },
-  { 
-    day: 13,
-    title: "Customer Segmentation", 
-    body: "Group customers based on behavior, frequency, or value.", 
-    meaning: "Segmentation allows personalized offers and better retention.", 
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-    category: "CRM"
-  },
-  { 
-    day: 14,
-    title: "Customer Loyalty Idea", 
-    body: "Design a simple loyalty reward for repeat customers.", 
-    meaning: "Rewards encourage customers to stay and buy more often.", 
-    img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Loyalty"
-  },
-  { 
-    day: 15,
-    title: "Mid-Month Customer Review", 
-    body: "Review customer growth and satisfaction so far this month.", 
-    meaning: "Mid-month reviews help you adjust before losing customers.", 
-    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-    category: "Performance Review"
-  },
-  { 
-    day: 16,
-    title: "Customer Experience Improvement", 
-    body: "Improve one small customer experience detail today.", 
-    meaning: "Small improvements create big customer satisfaction over time.", 
-    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Experience"
-  },
-  { 
-    day: 17,
-    title: "Customer Re-engagement", 
-    body: "Reach out to inactive customers with a friendly message.", 
-    meaning: "Re-engaging old customers is cheaper than finding new ones.", 
-    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Retention"
-  },
-  { 
-    day: 18,
-    title: "Customer Service Training", 
-    body: "Train yourself or staff on better customer handling skills.", 
-    meaning: "Great service turns customers into brand ambassadors.", 
-    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Service"
-  },
-  { 
-    day: 19,
-    title: "Customer Expectations Review", 
-    body: "Check if your service meets or exceeds customer expectations.", 
-    meaning: "Meeting expectations builds trust; exceeding them builds loyalty.", 
-    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Satisfaction"
-  },
-  { 
-    day: 20,
-    title: "Referral Incentive Design", 
-    body: "Create a simple incentive for customers who bring new clients.", 
-    meaning: "Incentives motivate word-of-mouth growth.", 
-    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-    category: "Growth Strategy"
-  },
-  { 
-    day: 21,
-    title: "Customer Communication Tone Check", 
-    body: "Ensure your communication tone is friendly, respectful, and helpful.", 
-    meaning: "Tone influences how customers feel about your brand.", 
-    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
-    category: "Brand Communication"
-  },
-  { 
-    day: 22,
-    title: "Customer Trust Reinforcement", 
-    body: "Remind customers of your reliability, experience, or guarantees.", 
-    meaning: "Trust keeps customers coming back even when competitors appear.", 
-    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Trust"
-  },
-  { 
-    day: 23,
-    title: "Customer Problem-Solving Focus", 
-    body: "Focus on solving customer problems, not just selling products.", 
-    meaning: "Problem-solving creates stronger customer relationships.", 
-    img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Value"
-  },
-  { 
-    day: 24,
-    title: "Customer Experience Consistency", 
-    body: "Ensure all customers receive consistent service quality.", 
-    meaning: "Consistency builds reliability and brand trust.", 
-    img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
-    category: "Service Quality"
-  },
-  { 
-    day: 25,
-    title: "Customer Lifetime Value Review", 
-    body: "Identify your most valuable customers and why they stay.", 
-    meaning: "Understanding lifetime value helps prioritize retention.", 
-    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Analytics"
-  },
-  { 
-    day: 26,
-    title: "Customer Loyalty Communication", 
-    body: "Remind loyal customers they are appreciated and valued.", 
-    meaning: "Recognition strengthens emotional loyalty.", 
-    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
-    category: "Customer Loyalty"
-  },
-  { 
-    day: 27,
-    title: "Customer Growth Reflection", 
-    body: "Review how your customer base has changed this month.", 
-    meaning: "Reflection helps refine customer acquisition strategies.", 
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-    category: "Growth Review"
-  },
-  { 
-    day: 28,
-    title: "February Customer Strategy Wrap-Up", 
-    body: "Summarize customer lessons learned and plan improvements for March.", 
-    meaning: "Continuous improvement keeps customer growth sustainable.", 
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
-    category: "Strategic Review"
-  }
-];
+    /* ========== DAILY BUSINESS TIPS - DYNAMIC ========== */
+    // All tips for the year (365 tips)
+    const allBusinessTips = [
+      // Customer Focus Tips (Days 1-30)
+      {
+        title: "Know Your Customer's Pain Points",
+        body: "Identify the top 3 problems your customers face that your business can solve.",
+        meaning: "Solving specific problems makes your business indispensable to customers.",
+        img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Strategy"
+      },
+      {
+        title: "Customer Journey Mapping",
+        body: "Map every step from when a customer first hears about you to repeat purchases.",
+        meaning: "Understanding the journey helps you improve weak points and increase conversions.",
+        img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Experience"
+      },
+      {
+        title: "First Impression Excellence",
+        body: "Audit your business's first impression: website, shopfront, or initial contact.",
+        meaning: "Strong first impressions build trust and reduce customer hesitation.",
+        img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
+        category: "Brand Image"
+      },
+      {
+        title: "Response Time Optimization",
+        body: "Measure how quickly you respond to customer inquiries and aim to cut it in half.",
+        meaning: "Fast responses show customers you value their time and business.",
+        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Service"
+      },
+      {
+        title: "Feedback Collection System",
+        body: "Ask 5 customers today what they like and what could be improved.",
+        meaning: "Direct feedback reveals blind spots and opportunities for growth.",
+        img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Insights"
+      },
+      {
+        title: "Referral Network Building",
+        body: "Identify your happiest customers and create a simple referral system.",
+        meaning: "Happy customers are your most effective and affordable marketers.",
+        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Growth"
+      },
+      {
+        title: "Customer Appreciation Ritual",
+        body: "Send thank-you messages to loyal customers without selling anything.",
+        meaning: "Genuine appreciation builds emotional connections and long-term loyalty.",
+        img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
+        category: "Customer Retention"
+      },
+      // Finance Tips (Days 8-15)
+      {
+        title: "Daily Cash Flow Tracking",
+        body: "Track every shilling coming in and going out of your business today.",
+        meaning: "Cash flow awareness is the foundation of financial health.",
+        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
+        category: "Finance"
+      },
+      {
+        title: "Profit Margin Calculation",
+        body: "Calculate your profit margin on your top 3 products or services.",
+        meaning: "Knowing your margins helps you price correctly and identify best sellers.",
+        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
+        category: "Finance"
+      },
+      // Marketing Tips (Days 16-23)
+      {
+        title: "Value Proposition Refinement",
+        body: "Clearly state why customers should choose you over competitors in one sentence.",
+        meaning: "A strong value proposition increases customer confidence and conversions.",
+        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
+        category: "Marketing"
+      },
+      // Add more tips as needed...
+    ];
 
-    // Set current date to February 3, 2025 for testing
-    const currentDate = new Date('2025-02-03T10:00:00');
-    const dayOfMonth = currentDate.getDate();
-    const tipIndex = dayOfMonth - 1; // Array is 0-indexed
-    
-    // Initialize daily tip
-    function initializeDailyTip() {
-      const tip = februaryTips[tipIndex];
+    // Function to get today's tip based on actual date
+    function getTodaysTip() {
+      const today = new Date();
+      const startOfYear = new Date(today.getFullYear(), 0, 0);
+      const diff = today - startOfYear;
+      const oneDay = 1000 * 60 * 60 * 24;
+      const dayOfYear = Math.floor(diff / oneDay);
       
-      const dateText = currentDate.toLocaleDateString("en-GB", { 
+      // Use day of year to select tip (cycles through available tips)
+      const tipIndex = (dayOfYear - 1) % allBusinessTips.length;
+      return allBusinessTips[tipIndex] || allBusinessTips[0];
+    }
+
+    // Initialize daily tip with ACTUAL date
+    function initializeDailyTip() {
+      const today = new Date();
+      const tip = getTodaysTip();
+      
+      // Format date nicely
+      const dateText = today.toLocaleDateString("en-GB", { 
         weekday: "long", 
         day: "numeric", 
         month: "long", 
         year: "numeric" 
       });
       
-      const timeText = currentDate.toLocaleTimeString("en-GB", { 
+      const timeText = today.toLocaleTimeString("en-GB", { 
         hour: "2-digit", 
         minute: "2-digit" 
       });
-
-      // Update DOM elements - Already set in HTML for immediate display
-      // But we update dynamically in case date changes
-      document.getElementById("tipDate").innerHTML = `<span>📅</span> ${dateText} • ${timeText} • Day 34/366`;
+      
+      // Calculate day of year for progress
+      const startOfYear = new Date(today.getFullYear(), 0, 0);
+      const diff = today - startOfYear;
+      const oneDay = 1000 * 60 * 60 * 24;
+      const dayOfYear = Math.floor(diff / oneDay);
+      
+      // Update DOM elements
+      document.getElementById("tipDate").innerHTML = `<span>📅</span> ${dateText} • ${timeText} • Day ${dayOfYear}/365`;
       document.getElementById("tipTitle").textContent = tip.title;
       document.getElementById("tipBody").innerHTML = `
         <p>${tip.body}</p>
@@ -1762,14 +1628,15 @@ const februaryTips = [
           Meaning: ${tip.meaning}
         </div>
       `;
-      document.getElementById("tipImg").src = tip.img;
+      document.getElementById("tipImg").src = tip.img + "?auto=format&fit=crop&w=800&q=60";
       document.getElementById("tipImg").alt = `Illustration for tip: ${tip.title}`;
       document.getElementById("tipCategory").textContent = tip.category;
       
       // Update progress in footer
-      document.getElementById("progressPercent").textContent = `9.3%`;
-      document.getElementById("dayCounter").textContent = `Tip 34 of 366`;
-      document.getElementById("progressBar").style.width = `9.3%`;
+      const progressPercent = ((dayOfYear / 365) * 100).toFixed(1);
+      document.getElementById("progressPercent").textContent = `${progressPercent}%`;
+      document.getElementById("dayCounter").textContent = `Tip ${dayOfYear} of 365`;
+      document.getElementById("progressBar").style.width = `${progressPercent}%`;
     }
 
     // Modal functionality
@@ -1843,7 +1710,7 @@ const februaryTips = [
 
     /* ================== AUTO-CALENDAR LOGIC ================== */
     function getCalendarEventForToday() {
-      const now = currentDate; // Use our fixed date
+      const now = new Date(); // Use ACTUAL date
       const m = now.getMonth() + 1;
       const d = now.getDate();
       const wd = now.getDay();
@@ -1857,18 +1724,15 @@ const februaryTips = [
 
       // Calendar events mapping
       const events = {
-        '2-3': {
-          id: "customer-profile-day",
-          tagline: "Customer Strategy Day",
-          title: "Customer Profile Definition Day",
+        '1-1': {
+          id: "new-year",
+          tagline: "New Year • Fresh Business Vision",
+          title: "Happy New Year",
           dateText: friendlyDate,
-          body: "Today's focus: Clearly define your ideal customer. This helps you target the right people and avoid wasted marketing efforts.",
-          bg: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1400&q=80",
-          color: "#2e7d32",
-          onClick: () => {
-            const tipCard = document.querySelector('.daily-tip');
-            tipCard.scrollIntoView({ behavior: 'smooth' });
-          }
+          body: "Use today to set three clear business goals: revenue, number of customers and one system you will improve.",
+          bg: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80",
+          color: "#1e88e5",
+          onClick: () => window.location.href = "business-knowledge.html"
         },
         '2-14': {
           id: "valentines",
@@ -2123,9 +1987,12 @@ const februaryTips = [
 
     /* ========== INITIALIZE EVERYTHING ========== */
     document.addEventListener('DOMContentLoaded', () => {
-      initializeDailyTip();
+      initializeDailyTip(); // This now shows TODAY'S tip
       renderAutoCalendarPoster();
       initVotingSystem();
+      
+      // Set current year in footer
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
       
       const images = document.querySelectorAll('img');
       images.forEach(img => {
