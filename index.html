@@ -1503,233 +1503,257 @@
       }
     });
 
-    /* ========== Daily Business Tips (February - 28 Days) ========== */
-    const februaryTips = [
-      { 
-        day: 1,
-        title: "Customer Profile Definition", 
-        body: "Clearly define your ideal customer: age, needs, problems, and buying behavior.", 
-        meaning: "Understanding your ideal customer helps you attract the right people and avoid wasted marketing.", 
-        img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Strategy"
-      },
-      { 
-        day: 2,
-        title: "Customer Journey Mapping", 
-        body: "Map out every step a customer takes from first contact to repeat purchase.", 
-        meaning: "Improving weak points in the journey increases conversions and satisfaction.", 
-        img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Experience"
-      },
-      { 
-        day: 3,
-        title: "First Impression Audit", 
-        body: "Review your shop, website, or social media from a first-time customer's view.", 
-        meaning: "Strong first impressions increase trust and reduce customer drop-off.", 
-        img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
-        category: "Brand Image"
-      },
-      { 
-        day: 4,
-        title: "Customer Communication Review", 
-        body: "Check how fast and clearly you respond to customer messages and inquiries.", 
-        meaning: "Quick and clear communication builds confidence and closes more sales.", 
-        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Service"
-      },
-      { 
-        day: 5,
-        title: "Customer Feedback Collection", 
-        body: "Ask at least 5 customers what they like and what can be improved.", 
-        meaning: "Customer feedback reveals hidden problems and growth opportunities.", 
-        img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Insights"
-      },
-      { 
-        day: 6,
-        title: "Referral Opportunity Identification", 
-        body: "Identify customers who are happy and likely to refer others.", 
-        meaning: "Satisfied customers are your cheapest and most powerful marketers.", 
-        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Growth"
-      },
-      { 
-        day: 7,
-        title: "Customer Appreciation Message", 
-        body: "Send a thank-you message to loyal customers without selling anything.", 
-        meaning: "Appreciation builds emotional connection and long-term loyalty.", 
-        img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Retention"
-      },
-      { 
-        day: 8,
-        title: "Customer Complaint Review", 
-        body: "Analyze past complaints and identify common issues.", 
-        meaning: "Fixing recurring problems improves trust and reduces customer loss.", 
-        img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Support"
-      },
-      { 
-        day: 9,
-        title: "Value Proposition Check", 
-        body: "Clearly state why customers should choose you over competitors.", 
-        meaning: "A clear value proposition increases customer confidence and conversions.", 
-        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
-        category: "Marketing"
-      },
-      { 
-        day: 10,
-        title: "Customer Follow-Up System", 
-        body: "Create a simple follow-up routine after every sale.", 
-        meaning: "Follow-ups show care and increase repeat purchases.", 
-        img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Care"
-      },
-      { 
-        day: 11,
-        title: "Customer Education Content", 
-        body: "Create content that teaches customers how to use your product or service better.", 
-        meaning: "Educated customers are more loyal and satisfied.", 
-        img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Engagement"
-      },
-      { 
-        day: 12,
-        title: "Trust-Building Audit", 
-        body: "Review reviews, testimonials, and guarantees you show to customers.", 
-        meaning: "Trust reduces hesitation and speeds up buying decisions.", 
-        img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
-        category: "Trust & Credibility"
-      },
-      { 
-        day: 13,
-        title: "Customer Segmentation", 
-        body: "Group customers based on behavior, frequency, or value.", 
-        meaning: "Segmentation allows personalized offers and better retention.", 
-        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-        category: "CRM"
-      },
-      { 
-        day: 14,
-        title: "Customer Loyalty Idea", 
-        body: "Design a simple loyalty reward for repeat customers.", 
-        meaning: "Rewards encourage customers to stay and buy more often.", 
-        img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Loyalty"
-      },
-      { 
-        day: 15,
-        title: "Mid-Month Customer Review", 
-        body: "Review customer growth and satisfaction so far this month.", 
-        meaning: "Mid-month reviews help you adjust before losing customers.", 
-        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-        category: "Performance Review"
-      },
-      { 
-        day: 16,
-        title: "Customer Experience Improvement", 
-        body: "Improve one small customer experience detail today.", 
-        meaning: "Small improvements create big customer satisfaction over time.", 
-        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Experience"
-      },
-      { 
-        day: 17,
-        title: "Customer Re-engagement", 
-        body: "Reach out to inactive customers with a friendly message.", 
-        meaning: "Re-engaging old customers is cheaper than finding new ones.", 
-        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Retention"
-      },
-      { 
-        day: 18,
-        title: "Customer Service Training", 
-        body: "Train yourself or staff on better customer handling skills.", 
-        meaning: "Great service turns customers into brand ambassadors.", 
-        img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Service"
-      },
-      { 
-        day: 19,
-        title: "Customer Expectations Review", 
-        body: "Check if your service meets or exceeds customer expectations.", 
-        meaning: "Meeting expectations builds trust; exceeding them builds loyalty.", 
-        img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Satisfaction"
-      },
-      { 
-        day: 20,
-        title: "Referral Incentive Design", 
-        body: "Create a simple incentive for customers who bring new clients.", 
-        meaning: "Incentives motivate word-of-mouth growth.", 
-        img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=60",
-        category: "Growth Strategy"
-      },
-      { 
-        day: 21,
-        title: "Customer Communication Tone Check", 
-        body: "Ensure your communication tone is friendly, respectful, and helpful.", 
-        meaning: "Tone influences how customers feel about your brand.", 
-        img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60",
-        category: "Brand Communication"
-      },
-      { 
-        day: 22,
-        title: "Customer Trust Reinforcement", 
-        body: "Remind customers of your reliability, experience, or guarantees.", 
-        meaning: "Trust keeps customers coming back even when competitors appear.", 
-        img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Trust"
-      },
-      { 
-        day: 23,
-        title: "Customer Problem-Solving Focus", 
-        body: "Focus on solving customer problems, not just selling products.", 
-        meaning: "Problem-solving creates stronger customer relationships.", 
-        img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Value"
-      },
-      { 
-        day: 24,
-        title: "Customer Experience Consistency", 
-        body: "Ensure all customers receive consistent service quality.", 
-        meaning: "Consistency builds reliability and brand trust.", 
-        img: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=60",
-        category: "Service Quality"
-      },
-      { 
-        day: 25,
-        title: "Customer Lifetime Value Review", 
-        body: "Identify your most valuable customers and why they stay.", 
-        meaning: "Understanding lifetime value helps prioritize retention.", 
-        img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Analytics"
-      },
-      { 
-        day: 26,
-        title: "Customer Loyalty Communication", 
-        body: "Remind loyal customers they are appreciated and valued.", 
-        meaning: "Recognition strengthens emotional loyalty.", 
-        img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=60",
-        category: "Customer Loyalty"
-      },
-      { 
-        day: 27,
-        title: "Customer Growth Reflection", 
-        body: "Review how your customer base has changed this month.", 
-        meaning: "Reflection helps refine customer acquisition strategies.", 
-        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60",
-        category: "Growth Review"
-      },
-      { 
-        day: 28,
-        title: "February Customer Strategy Wrap-Up", 
-        body: "Summarize customer lessons learned and plan improvements for March.", 
-        meaning: "Continuous improvement keeps customer growth sustainable.", 
-        img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60",
-        category: "Strategic Review"
-      }
-    ];
+ /* ========== Daily Business Tips (March - 31 Days) ========== */
+const marchTips = [
+  {
+    day: 1,
+    title: "Know What You Are Selling",
+    body: "Understand your product or service features, benefits, and uniqueness.",
+    meaning: "Confidence and clarity make it easier to convince customers.",
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
+    category: "Sales Basics"
+  },
+  {
+    day: 2,
+    title: "Sell Benefits, Not Features",
+    body: "Explain how your product improves the customer's life.",
+    meaning: "Customers buy solutions, not specifications.",
+    img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b",
+    category: "Sales Strategy"
+  },
+  {
+    day: 3,
+    title: "Understand Customer Needs",
+    body: "Ask questions to discover what the customer really wants.",
+    meaning: "Understanding needs helps you offer the right solution.",
+    img: "https://images.unsplash.com/photo-1551836026-d5c2c0b4d5b5",
+    category: "Customer Insight"
+  },
+  {
+    day: 4,
+    title: "Build Trust First",
+    body: "Be honest, transparent, and reliable in every interaction.",
+    meaning: "Trust is the foundation of every successful sale.",
+    img: "https://images.unsplash.com/photo-1557804506-669a67965ba0",
+    category: "Trust Building"
+  },
+  {
+    day: 5,
+    title: "Create Attractive Product Display",
+    body: "Arrange products neatly and visibly to attract attention.",
+    meaning: "Visual appeal increases customer interest.",
+    img: "https://images.unsplash.com/photo-1515165562835-c3b8c10c3d24",
+    category: "Presentation"
+  },
+  {
+    day: 6,
+    title: "Use Clear Pricing",
+    body: "Display prices clearly to avoid confusion.",
+    meaning: "Transparency reduces hesitation to buy.",
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+    category: "Pricing"
+  },
+  {
+    day: 7,
+    title: "Practice Friendly Greeting",
+    body: "Welcome customers warmly with a smile and polite words.",
+    meaning: "A good greeting makes customers comfortable and open to buying.",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    category: "Customer Service"
+  },
+  {
+    day: 8,
+    title: "Offer Product Demonstration",
+    body: "Show how your product works when possible.",
+    meaning: "Seeing value increases buying confidence.",
+    img: "https://images.unsplash.com/photo-1581091215367-59ab6b3d7c8b",
+    category: "Sales Technique"
+  },
+  {
+    day: 9,
+    title: "Use Testimonials",
+    body: "Share feedback from satisfied customers.",
+    meaning: "Social proof builds trust quickly.",
+    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd",
+    category: "Marketing"
+  },
+  {
+    day: 10,
+    title: "Highlight Limited Offers",
+    body: "Use time-limited promotions to encourage quick decisions.",
+    meaning: "Urgency increases purchase action.",
+    img: "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49",
+    category: "Sales Psychology"
+  },
+  {
+    day: 11,
+    title: "Upsell Smartly",
+    body: "Suggest a better or upgraded option when appropriate.",
+    meaning: "Upselling increases revenue per customer.",
+    img: "https://images.unsplash.com/photo-1556742111-a301076d9d18",
+    category: "Sales Growth"
+  },
+  {
+    day: 12,
+    title: "Cross-Sell Related Items",
+    body: "Recommend complementary products.",
+    meaning: "Cross-selling increases total purchase value.",
+    img: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b",
+    category: "Sales Strategy"
+  },
+  {
+    day: 13,
+    title: "Handle Objections Calmly",
+    body: "Listen carefully and respond to concerns respectfully.",
+    meaning: "Proper handling of objections can close the sale.",
+    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    category: "Sales Skills"
+  },
+  {
+    day: 14,
+    title: "Know Your Competitors",
+    body: "Understand what competitors offer and your advantage.",
+    meaning: "Differentiation helps customers choose you.",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    category: "Market Awareness"
+  },
+  {
+    day: 15,
+    title: "Mid-Month Sales Review",
+    body: "Check what is selling most and why.",
+    meaning: "Data helps improve selling decisions.",
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+    category: "Performance Review"
+  },
+  {
+    day: 16,
+    title: "Use Social Media to Sell",
+    body: "Post products consistently with clear descriptions.",
+    meaning: "Online visibility attracts new customers.",
+    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    category: "Digital Marketing"
+  },
+  {
+    day: 17,
+    title: "Respond Quickly to Inquiries",
+    body: "Reply fast to calls, texts, or online messages.",
+    meaning: "Speed increases chances of closing a sale.",
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
+    category: "Customer Care"
+  },
+  {
+    day: 18,
+    title: "Use Simple Language",
+    body: "Explain products in a clear and simple way.",
+    meaning: "Clarity helps customers make decisions faster.",
+    img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
+    category: "Communication"
+  },
+  {
+    day: 19,
+    title: "Create Value Bundles",
+    body: "Package related items at a special price.",
+    meaning: "Bundles increase perceived value.",
+    img: "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49",
+    category: "Pricing Strategy"
+  },
+  {
+    day: 20,
+    title: "Offer Payment Flexibility",
+    body: "Provide options like mobile money or installment plans.",
+    meaning: "Flexible payments increase affordability.",
+    img: "https://images.unsplash.com/photo-1556742111-a301076d9d18",
+    category: "Sales Convenience"
+  },
+  {
+    day: 21,
+    title: "Maintain Professional Appearance",
+    body: "Dress neatly and keep your workspace clean.",
+    meaning: "Professionalism increases customer confidence.",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    category: "Brand Image"
+  },
+  {
+    day: 22,
+    title: "Follow Up After Sales",
+    body: "Check if the customer is satisfied after purchase.",
+    meaning: "Follow-ups encourage repeat purchases.",
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
+    category: "Customer Retention"
+  },
+  {
+    day: 23,
+    title: "Encourage Referrals",
+    body: "Ask satisfied customers to recommend you.",
+    meaning: "Word-of-mouth brings trusted new clients.",
+    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd",
+    category: "Growth"
+  },
+  {
+    day: 24,
+    title: "Offer Small Discounts Strategically",
+    body: "Use discounts to close hesitant buyers.",
+    meaning: "Strategic discounts increase conversions.",
+    img: "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49",
+    category: "Sales Psychology"
+  },
+  {
+    day: 25,
+    title: "Create Urgency in Communication",
+    body: "Mention limited stock or high demand.",
+    meaning: "Urgency motivates quick buying decisions.",
+    img: "https://images.unsplash.com/photo-1556741533-6e6a62bd8b49",
+    category: "Sales Psychology"
+  },
+  {
+    day: 26,
+    title: "Keep Learning Sales Skills",
+    body: "Watch, read, or learn new selling techniques.",
+    meaning: "Continuous learning improves performance.",
+    img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
+    category: "Personal Growth"
+  },
+  {
+    day: 27,
+    title: "Stay Positive and Energetic",
+    body: "Maintain a positive attitude with customers.",
+    meaning: "Energy influences buying decisions.",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    category: "Mindset"
+  },
+  {
+    day: 28,
+    title: "Track Daily Sales",
+    body: "Record sales to understand patterns.",
+    meaning: "Tracking helps improve future performance.",
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+    category: "Sales Tracking"
+  },
+  {
+    day: 29,
+    title: "Improve What Isn’t Selling",
+    body: "Change display, price, or promotion strategy.",
+    meaning: "Adjustment can revive slow-moving products.",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    category: "Optimization"
+  },
+  {
+    day: 30,
+    title: "Build Long-Term Relationships",
+    body: "Focus on relationships, not one-time sales.",
+    meaning: "Loyal customers sustain business growth.",
+    img: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    category: "Customer Loyalty"
+  },
+  {
+    day: 31,
+    title: "Monthly Sales Reflection",
+    body: "Review lessons learned and plan improvements.",
+    meaning: "Reflection strengthens future sales success.",
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+    category: "Strategic Review"
+  }
+];
 
     // Initialize daily tip - FIXED VERSION
     function initializeDailyTip() {
